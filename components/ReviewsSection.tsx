@@ -61,16 +61,17 @@ export default function ReviewsSection() {
           </p>
         </div>
         
-        {/* Reviews Grid - Professional alignment */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 lg:gap-10 mb-8 sm:mb-12 md:mb-16 lg:mb-20">
-          {reviews.map((review, index) => (
-            <div 
-              key={index} 
-              className={`group bg-white border border-gray-200/80 rounded-xl p-5 sm:p-6 md:p-8 shadow-sm hover:shadow-lg transition-all duration-300 hover:border-yellow-300/50 hover:-translate-y-1 relative overflow-hidden flex flex-col transition-opacity duration-700 ${
-                isIntersecting ? 'opacity-100' : 'opacity-0'
-              }`}
-              style={{ animationDelay: `${index * 0.05 + 0.2}s` }}
-            >
+        {/* Reviews Horizontal Scroll */}
+        <div className="overflow-x-auto pb-4 mb-8 sm:mb-12 md:mb-16 lg:mb-20 -mx-3 sm:-mx-4 md:-mx-5 lg:-mx-6 xl:-mx-8 px-3 sm:px-4 md:px-5 lg:px-6 xl:px-8 [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-thumb]:bg-yellow-500 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:hover:bg-yellow-600">
+          <div className="flex gap-4 sm:gap-6 min-w-max">
+            {reviews.map((review, index) => (
+              <div 
+                key={index} 
+                className={`group bg-white border border-gray-200/80 rounded-xl p-5 sm:p-6 md:p-8 shadow-sm hover:shadow-lg transition-all duration-300 hover:border-yellow-300/50 hover:-translate-y-1 relative overflow-hidden flex flex-col transition-opacity duration-700 w-[280px] sm:w-[320px] md:w-[360px] lg:w-[400px] ${
+                  isIntersecting ? 'opacity-100' : 'opacity-0'
+                }`}
+                style={{ animationDelay: `${index * 0.05 + 0.2}s` }}
+              >
               <div className="absolute inset-0 bg-yellow-50/0 group-hover:bg-yellow-50/20 transition-all duration-300 rounded-xl"></div>
               
               <div className="relative z-10 flex flex-col flex-grow">
@@ -107,8 +108,9 @@ export default function ReviewsSection() {
                   <span className="text-xs sm:text-sm text-gray-500 font-medium">Verified by Trustindex</span>
                 </div>
               </div>
-            </div>
-          ))}
+              </div>
+            ))}
+          </div>
         </div>
         
         {/* Google Reviews Summary - Professional */}
