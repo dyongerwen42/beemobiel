@@ -66,7 +66,7 @@ export default function MotorPricingSection() {
         {/* Image and Packages Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-16 mb-12 sm:mb-16 md:mb-20">
           {/* Image */}
-          <div className={`relative h-64 sm:h-80 md:h-96 lg:h-[600px] rounded-2xl sm:rounded-3xl overflow-hidden god-shadow-lg group ${
+          <div className={`relative h-64 sm:h-80 md:h-96 lg:h-[600px] rounded-xl sm:rounded-2xl overflow-hidden god-shadow-lg group ${
             isIntersecting ? 'animate-slide-in-left' : 'opacity-0 invisible'
           }`} style={{ animationDelay: '0.45s' }}>
             <Image
@@ -128,7 +128,7 @@ export default function MotorPricingSection() {
           {motorPackages.map((pkg, index) => (
             <div
               key={index}
-              className={`relative bg-white rounded-3xl p-8 sm:p-10 md:p-12 lg:p-14 god-shadow-lg hover-god transition-all duration-500 border-2 ${
+              className={`relative bg-white rounded-xl sm:rounded-2xl p-8 sm:p-10 md:p-12 lg:p-14 god-shadow-lg hover-god transition-all duration-500 border-2 ${
                 pkg.popular 
                   ? 'border-yellow-600 ring-4 ring-yellow-100/50 scale-105 lg:scale-110 god-glow' 
                   : 'border-gray-200 hover:border-yellow-400'
@@ -223,7 +223,7 @@ export default function MotorPricingSection() {
             Niet iedereen leert op dezelfde manier. Deze overzichtelijke tabel laat precies zien wat elk pakket bevat, zodat jij makkelijk de juiste keuze maakt.
           </p>
           
-          <div className="bg-white rounded-3xl p-4 sm:p-6 md:p-8 lg:p-10 overflow-x-auto god-shadow-lg border-2 border-gray-100 hover:border-yellow-400/50 transition-all duration-500 -mx-3 sm:mx-0">
+          <div className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 lg:p-10 overflow-x-auto god-shadow-lg border-2 border-gray-100 hover:border-yellow-400/50 transition-all duration-500 -mx-3 sm:mx-0">
             {/* Mobile: Card Layout */}
             <div className="md:hidden space-y-4">
               {[

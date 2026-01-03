@@ -89,7 +89,7 @@ export default function TipsHeroSection() {
 
         {/* Badge with Glassmorphism */}
         <div
-          className={`inline-flex items-center px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-3.5 bg-yellow-600/20 backdrop-blur-md rounded-full mb-6 sm:mb-8 md:mb-10 border border-yellow-500/30 shadow-2xl transition-all duration-1000 ${
+          className={`inline-flex items-center px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-3.5 bg-yellow-600/20 backdrop-blur-md rounded-full mb-6 sm:mb-8 md:mb-10 border border-yellow-500/30 shadow-lg transition-all duration-1000 ${
             isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
           }`}
           style={{ animationDelay: '0.1s' }}
@@ -107,11 +107,11 @@ export default function TipsHeroSection() {
           }`}
           style={{ animationDelay: '0.3s' }}
         >
-          <span className="bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 bg-clip-text text-transparent drop-shadow-2xl">
+          <span className="bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 bg-clip-text text-transparent drop-shadow-lg">
             TIPS EN
           </span>
           <br />
-          <span className="bg-gradient-to-r from-white via-yellow-50 to-yellow-100 bg-clip-text text-transparent drop-shadow-2xl">
+          <span className="bg-gradient-to-r from-white via-yellow-50 to-yellow-100 bg-clip-text text-transparent drop-shadow-lg">
             TRUCS
           </span>
         </h1>
@@ -123,7 +123,7 @@ export default function TipsHeroSection() {
           }`}
           style={{ animationDelay: '0.5s' }}
         >
-          <div className="bg-white/5 backdrop-blur-xl rounded-3xl p-6 sm:p-8 md:p-10 border border-white/10 shadow-2xl">
+          <div className="bg-white/5 backdrop-blur-xl rounded-2xl p-6 sm:p-8 md:p-10 border border-white/10 shadow-xl">
             <p className="text-base sm:text-lg md:text-xl text-white/95 leading-relaxed font-medium">
               Handige tips, praktische adviezen en nuttige informatie om je voor te bereiden op je rijlessen en examen.
             </p>

@@ -67,7 +67,7 @@ export default function ReviewsSection() {
             {reviews.map((review, index) => (
               <div 
                 key={index} 
-                className={`group bg-white border border-gray-200/80 rounded-xl p-5 sm:p-6 md:p-8 shadow-sm hover:shadow-lg transition-all duration-300 hover:border-yellow-300/50 hover:-translate-y-1 relative overflow-hidden flex flex-col transition-opacity duration-700 w-[280px] sm:w-[320px] md:w-[360px] lg:w-[400px] ${
+                className={`group bg-white border border-gray-200/80 rounded-xl p-5 sm:p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-300 hover:border-yellow-300/50 hover:-translate-y-1 relative overflow-hidden flex flex-col transition-opacity duration-700 w-[280px] sm:w-[320px] md:w-[360px] lg:w-[400px] ${
                   isIntersecting ? 'opacity-100' : 'opacity-0'
                 }`}
                 style={{ animationDelay: `${index * 0.05 + 0.2}s` }}

@@ -149,9 +149,9 @@ export default function TipsVideoCarouselSection({ id, label, title, description
           {/* Premium Video Carousel */}
           <div className="relative group/carousel">
             {/* Glow Effect */}
-            <div className="absolute -inset-2 bg-gradient-to-r from-yellow-600/20 via-yellow-500/20 to-yellow-600/20 rounded-3xl blur-2xl opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-500"></div>
+            <div className="absolute -inset-2 bg-gradient-to-r from-yellow-600/20 via-yellow-500/20 to-yellow-600/20 rounded-2xl blur-2xl opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-500"></div>
             
-            <div className="relative overflow-hidden rounded-3xl shadow-2xl border border-gray-200/50">
+            <div className="relative overflow-hidden rounded-2xl shadow-xl border border-gray-200/50">
               <div
                 className="flex transition-transform duration-700 ease-out"
                 style={{ transform: `translateX(-${currentSlide * 100}%)` }}
@@ -160,7 +160,7 @@ export default function TipsVideoCarouselSection({ id, label, title, description
                   <div key={`${video.youtubeId}-${index}`} className="min-w-full relative">
                     {playingVideo === video.youtubeId ? (
                       // Premium Video Player
-                      <div className="relative h-64 sm:h-80 md:h-96 lg:h-[550px] bg-gray-900 rounded-3xl overflow-hidden">
+                      <div className="relative h-64 sm:h-80 md:h-96 lg:h-[550px] bg-gray-900 rounded-2xl overflow-hidden">
                         <iframe
                           src={getYouTubeEmbedUrl(video.youtubeId)}
                           className="absolute inset-0 w-full h-full"
@@ -171,7 +171,7 @@ export default function TipsVideoCarouselSection({ id, label, title, description
                         />
                         <button
                           onClick={handleCloseVideo}
-                          className="absolute top-4 right-4 bg-black/90 backdrop-blur-md hover:bg-black text-white rounded-full p-3 z-10 transition-all duration-300 hover:scale-110 shadow-2xl border border-white/10 focus:outline-none focus:ring-2 focus:ring-yellow-600"
+                          className="absolute top-4 right-4 bg-black/90 backdrop-blur-md hover:bg-black text-white rounded-full p-3 z-10 transition-all duration-300 hover:scale-110 shadow-lg border border-white/10 focus:outline-none focus:ring-2 focus:ring-yellow-600"
                           aria-label="Sluit video"
                           onKeyDown={(e) => {
                             if (e.key === 'Enter' || e.key === ' ') {
@@ -192,7 +192,7 @@ export default function TipsVideoCarouselSection({ id, label, title, description
                     ) : (
                       // Premium Video Thumbnail
                       <div 
-                        className="relative h-64 sm:h-80 md:h-96 lg:h-[550px] bg-gray-900 rounded-3xl overflow-hidden group cursor-pointer"
+                        className="relative h-64 sm:h-80 md:h-96 lg:h-[550px] bg-gray-900 rounded-2xl overflow-hidden group cursor-pointer"
                         onClick={() => handleVideoClick(video.youtubeId)}
                       >
                         {imageErrors.has(video.youtubeId) ? (
@@ -225,7 +225,7 @@ export default function TipsVideoCarouselSection({ id, label, title, description
                         
                         {/* Play Button with Premium Styling */}
                         <div className="absolute inset-0 flex items-center justify-center">
-                          <div className="relative bg-gradient-to-br from-white via-white to-gray-100 rounded-full p-5 sm:p-7 md:p-9 lg:p-11 group-hover:scale-110 transition-all duration-500 shadow-2xl border-4 border-yellow-600/30 group-hover:border-yellow-500/50">
+                          <div className="relative bg-gradient-to-br from-white via-white to-gray-100 rounded-full p-5 sm:p-7 md:p-9 lg:p-11 group-hover:scale-110 transition-all duration-500 shadow-xl border-4 border-yellow-600/30 group-hover:border-yellow-500/50">
                             <div className="absolute inset-0 bg-gradient-to-br from-yellow-600/20 to-transparent rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                             <svg
                               className="relative w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 text-yellow-600 ml-1 group-hover:text-yellow-500 transition-colors duration-300"
@@ -241,7 +241,7 @@ export default function TipsVideoCarouselSection({ id, label, title, description
                         
                         {/* Video Info Card */}
                         <div className="absolute bottom-6 left-6 right-6">
-                          <div className="bg-black/90 backdrop-blur-xl text-white px-6 py-4 rounded-2xl border border-white/10 shadow-2xl transform group-hover:translate-y-0 translate-y-2 transition-transform duration-300">
+                          <div className="bg-black/90 backdrop-blur-xl text-white px-6 py-4 rounded-2xl border border-white/10 shadow-lg transform group-hover:translate-y-0 translate-y-2 transition-transform duration-300">
                             <p className="text-base sm:text-lg font-black mb-1">{video.title}</p>
                             <div className="flex items-center gap-2">
                               <div className="w-2 h-2 bg-yellow-600 rounded-full animate-pulse"></div>
@@ -259,7 +259,7 @@ export default function TipsVideoCarouselSection({ id, label, title, description
             {/* Premium Navigation Arrows */}
             <button
               onClick={prevSlide}
-              className="absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 bg-white/95 backdrop-blur-md hover:bg-white rounded-full p-4 sm:p-5 shadow-2xl transition-all duration-300 hover:scale-110 z-10 opacity-0 group-hover/carousel:opacity-100 border-2 border-gray-200/50 hover:border-yellow-600/50 focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:opacity-100"
+              className="absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 bg-white/95 backdrop-blur-md hover:bg-white rounded-full p-4 sm:p-5 shadow-lg transition-all duration-300 hover:scale-110 z-10 opacity-0 group-hover/carousel:opacity-100 border-2 border-gray-200/50 hover:border-yellow-600/50 focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:opacity-100"
               aria-label="Vorige video"
               disabled={defaultVideos.length <= 1}
             >
@@ -269,7 +269,7 @@ export default function TipsVideoCarouselSection({ id, label, title, description
             </button>
             <button
               onClick={nextSlide}
-              className="absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 bg-white/95 backdrop-blur-md hover:bg-white rounded-full p-4 sm:p-5 shadow-2xl transition-all duration-300 hover:scale-110 z-10 opacity-0 group-hover/carousel:opacity-100 border-2 border-gray-200/50 hover:border-yellow-600/50 focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:opacity-100"
+              className="absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 bg-white/95 backdrop-blur-md hover:bg-white rounded-full p-4 sm:p-5 shadow-lg transition-all duration-300 hover:scale-110 z-10 opacity-0 group-hover/carousel:opacity-100 border-2 border-gray-200/50 hover:border-yellow-600/50 focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:opacity-100"
               aria-label="Volgende video"
               disabled={defaultVideos.length <= 1}
             >

@@ -45,7 +45,7 @@ export default function AboutFeatureCardsSection() {
           {features.map((feature, index) => (
             <div
               key={index}
-              className={`${feature.bgColor} rounded-2xl p-6 sm:p-8 md:p-10 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 ${
+              className={`${feature.bgColor} rounded-2xl p-6 sm:p-8 md:p-10 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 ${
                 isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
               style={{ animationDelay: `${index * 0.1}s` }}

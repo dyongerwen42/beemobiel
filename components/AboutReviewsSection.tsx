@@ -130,7 +130,7 @@ export default function AboutReviewsSection() {
                 href="https://admin.trustindex.io/api/googleWriteReview?place-id=ChIJ0wfnRZP2GKAROE40ul1Xkh8"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block w-full mt-4 px-4 py-2 bg-yellow-600 hover:bg-yellow-700 text-white font-semibold rounded-lg text-center transition-colors duration-300"
+                className="inline-block w-full mt-4 px-4 py-2 bg-yellow-600 hover:bg-yellow-700 text-white font-semibold rounded-xl text-center transition-colors duration-300"
               >
                 Write a review
               </a>

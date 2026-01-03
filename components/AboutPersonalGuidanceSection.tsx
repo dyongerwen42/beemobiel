@@ -42,7 +42,7 @@ export default function AboutPersonalGuidanceSection() {
   return (
     <section ref={ref} className="py-6 sm:py-10 md:py-14 lg:py-16 bg-white relative overflow-hidden">
       <div className="w-full max-w-7xl mx-auto px-3 sm:px-4 md:px-5 lg:px-6 xl:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 items-center">
           {/* Left Side - Images */}
           <div className={`relative transition-opacity duration-700 ${
             isIntersecting ? 'opacity-100' : 'opacity-0'
@@ -58,7 +58,7 @@ export default function AboutPersonalGuidanceSection() {
               />
             </div>
             {/* Overlapping Image */}
-            <div className="absolute -bottom-8 -right-8 sm:-bottom-12 sm:-right-12 w-3/4 h-3/4 rounded-xl overflow-hidden shadow-2xl border-4 border-white">
+            <div className="absolute -bottom-8 -right-8 sm:-bottom-12 sm:-right-12 w-3/4 h-3/4 rounded-xl overflow-hidden shadow-xl border-4 border-white">
               <Image
                 src="/images/male-instructor-and-female-student-driving-lesson.jpg"
                 alt="Persoonlijke begeleiding"

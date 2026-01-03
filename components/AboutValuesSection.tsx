@@ -62,7 +62,7 @@ export default function AboutValuesSection() {
           {values.map((value, index) => (
             <div 
               key={index} 
-              className={`group bg-white rounded-lg p-6 sm:p-8 md:p-10 shadow-sm hover:shadow-md transition-all duration-200 border border-gray-200 hover:border-yellow-300 flex flex-col transition-opacity duration-700 ${
+              className={`group bg-white rounded-xl p-6 sm:p-8 md:p-10 shadow-sm hover:shadow-md transition-all duration-200 border border-gray-200 hover:border-yellow-300 flex flex-col transition-opacity duration-700 ${
                 isIntersecting ? 'opacity-100' : 'opacity-0'
               }`}
               style={{ animationDelay: `${index * 0.1 + 0.3}s` }}

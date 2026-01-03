@@ -95,7 +95,7 @@ export default function LessenPrijzenSection() {
 
               <Link
                 href={kaart.link}
-                className="block w-full text-center px-6 py-3 bg-yellow-600 text-gray-900 font-bold rounded-lg hover:bg-yellow-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+                className="block w-full text-center px-6 py-3 bg-yellow-600 text-gray-900 font-bold rounded-xl hover:bg-yellow-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
               >
                 Boek Nu
               </Link>

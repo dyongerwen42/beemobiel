@@ -120,7 +120,7 @@ export default function ExamenfoutenPage() {
                     <div className="flex-1">
                       <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">{fout.titel}</h3>
                       <p className="text-gray-600 leading-relaxed mb-4">{fout.beschrijving}</p>
-                      <div className="bg-white rounded-lg p-4 border-2 border-yellow-200">
+                      <div className="bg-white rounded-xl p-4 border-2 border-yellow-200">
                         <p className="text-sm font-semibold text-yellow-700 mb-2">Hoe te voorkomen:</p>
                         <p className="text-gray-700 leading-relaxed">{fout.oplossing}</p>
                       </div>
@@ -162,3 +162,4 @@ export default function ExamenfoutenPage() {
     </>
   )
 }
+

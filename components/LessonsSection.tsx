@@ -77,7 +77,7 @@ export default function LessonsSection() {
           {lessons.map((lesson, index) => (
             <div 
               key={index} 
-              className={`group bg-white rounded-2xl sm:rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-yellow-400/50 flex flex-col transition-opacity duration-700 ${
+              className={`group bg-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-yellow-400/50 flex flex-col transition-opacity duration-700 ${
                 isIntersecting ? 'opacity-100' : 'opacity-0'
               }`}
               style={{ animationDelay: `${index * 0.1 + 0.3}s` }}

@@ -21,7 +21,7 @@ export default function AboutResultsSection() {
   return (
     <section ref={ref} className="py-6 sm:py-10 md:py-14 lg:py-16 bg-white relative overflow-hidden">
       <div className="w-full max-w-7xl mx-auto px-3 sm:px-4 md:px-5 lg:px-6 xl:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 items-center">
           {/* Left Side - Image */}
           <div className={`relative transition-opacity duration-700 ${
             isIntersecting ? 'opacity-100' : 'opacity-0'
@@ -64,7 +64,7 @@ export default function AboutResultsSection() {
                 {highlights.map((highlight, index) => (
                   <div
                     key={index}
-                    className={`flex items-center gap-3 p-3 sm:p-4 bg-gray-50 rounded-lg border border-gray-200 transition-opacity duration-700 ${
+                    className={`flex items-center gap-3 p-3 sm:p-4 bg-gray-50 rounded-xl border border-gray-200 transition-opacity duration-700 ${
                       isIntersecting ? 'opacity-100' : 'opacity-0'
                     }`}
                     style={{ animationDelay: `${0.3 + index * 0.05}s` }}

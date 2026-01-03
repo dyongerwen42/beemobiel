@@ -57,7 +57,7 @@ export default function FAQSection() {
         </div>
         
         {/* CTA Card - Perfect alignment */}
-        <div className={`relative bg-gray-900 rounded-xl p-6 sm:p-8 md:p-10 lg:p-12 text-white shadow-xl overflow-hidden group transition-opacity duration-700 hover:shadow-2xl ${
+        <div className={`relative bg-gray-900 rounded-xl p-6 sm:p-8 md:p-10 lg:p-12 text-white shadow-lg overflow-hidden group transition-opacity duration-700 hover:shadow-xl ${
           isIntersecting ? 'opacity-100' : 'opacity-0'
         }`} style={{ animationDelay: '0.5s' }}>
           {/* Background image */}
@@ -80,7 +80,7 @@ export default function FAQSection() {
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 md:gap-6">
               <Link 
                 href="/tarieven"
-                className="group flex-1 bg-white text-gray-900 font-semibold py-4 sm:py-5 md:py-6 px-6 sm:px-8 md:px-10 rounded-lg text-center uppercase tracking-wide hover:bg-gray-50 transition-all duration-200 shadow-md hover:shadow-lg text-sm sm:text-base md:text-lg"
+                className="group flex-1 bg-white text-gray-900 font-semibold py-4 sm:py-5 md:py-6 px-6 sm:px-8 md:px-10 rounded-xl text-center uppercase tracking-wide hover:bg-gray-50 transition-all duration-200 shadow-md hover:shadow-lg text-sm sm:text-base md:text-lg"
               >
                 <span className="flex items-center justify-center gap-3">
                   Alle Lessen

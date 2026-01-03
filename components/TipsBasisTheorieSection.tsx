@@ -22,7 +22,7 @@ export default function TipsBasisTheorieSection() {
       <div className="w-full max-w-7xl mx-auto px-3 sm:px-4 md:px-5 lg:px-6 xl:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-16 md:gap-20 lg:gap-24 items-center">
           {/* Premium Image Column */}
-          <div className={`relative h-64 sm:h-80 md:h-96 lg:h-[650px] rounded-3xl overflow-hidden shadow-2xl group transition-all duration-1000 ${isIntersecting ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
+          <div className={`relative h-64 sm:h-80 md:h-96 lg:h-[650px] rounded-3xl overflow-hidden shadow-xl group transition-all duration-1000 ${isIntersecting ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
             {/* Glow Effect */}
             <div className="absolute -inset-1 bg-gradient-to-r from-yellow-600 via-yellow-500 to-yellow-600 rounded-3xl opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-500"></div>
             
@@ -85,7 +85,7 @@ export default function TipsBasisTheorieSection() {
             {/* Premium CTA Button */}
             <Link
               href="/tips/rijtips"
-              className="group relative inline-flex items-center justify-center px-8 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-yellow-600 via-yellow-500 to-yellow-600 text-gray-900 font-black rounded-2xl overflow-hidden transition-all duration-300 shadow-2xl hover:shadow-yellow-600/50 transform hover:scale-105 uppercase tracking-wider text-sm sm:text-base"
+              className="group relative inline-flex items-center justify-center px-8 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-yellow-600 via-yellow-500 to-yellow-600 text-gray-900 font-black rounded-2xl overflow-hidden transition-all duration-300 shadow-xl hover:shadow-yellow-600/50 transform hover:scale-105 uppercase tracking-wider text-sm sm:text-base"
             >
               <span className="relative z-10 flex items-center gap-2">
                 Lees meer

@@ -63,7 +63,7 @@ export default function ScooterPricingSection() {
           {scooterPackages.map((pkg, index) => (
             <div
               key={index}
-              className={`relative bg-white rounded-3xl p-8 sm:p-10 md:p-12 lg:p-14 god-shadow-lg hover-god transition-all duration-500 border-2 ${
+              className={`relative bg-white rounded-xl sm:rounded-2xl p-8 sm:p-10 md:p-12 lg:p-14 god-shadow-lg hover-god transition-all duration-500 border-2 ${
                 pkg.popular 
                   ? 'border-yellow-600 ring-4 ring-yellow-100/50 scale-105 lg:scale-110 god-glow' 
                   : 'border-gray-200 hover:border-yellow-400'

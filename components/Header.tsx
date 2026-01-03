@@ -182,7 +182,7 @@ export default function Header() {
         data-scrolled={isScrolled ? 'true' : 'false'}
         className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-300 ${
           isScrolled
-            ? 'header-scrolled shadow-2xl border-b border-yellow-600/20'
+            ? 'header-scrolled shadow-xl border-b border-yellow-600/20'
             : 'bg-transparent'
         }`}
       >
@@ -220,7 +220,7 @@ export default function Header() {
                   {item.dropdown ? (
                     <>
                       <button
-                        className={`relative px-4 xl:px-5 py-2.5 text-sm xl:text-base font-semibold transition-all duration-300 flex items-center gap-1.5 rounded-lg ${
+                        className={`relative px-4 xl:px-5 py-2.5 text-sm xl:text-base font-semibold transition-all duration-300 flex items-center gap-1.5 rounded-xl ${
                           isActive(item.href)
                             ? 'text-yellow-600 bg-yellow-600/10'
                             : 'text-white hover:text-yellow-400 hover:bg-white/5'
@@ -244,7 +244,7 @@ export default function Header() {
                       {/* Dropdown Menu - Connected directly to button with invisible bridge */}
                       <div className="absolute top-full left-0 w-full pt-1">
                         <div
-                          className={`w-56 bg-gray-900 rounded-xl shadow-2xl border-2 border-yellow-600/30 overflow-hidden transition-all duration-300 ${
+                          className={`w-56 bg-gray-900 rounded-xl shadow-xl border-2 border-yellow-600/30 overflow-hidden transition-all duration-300 ${
                             activeDropdown === item.label
                               ? 'opacity-100 visible translate-y-0 pointer-events-auto'
                               : 'opacity-0 invisible -translate-y-2 pointer-events-none'
@@ -255,7 +255,7 @@ export default function Header() {
                               <Link
                                 key={dropdownItem.href}
                                 href={dropdownItem.href}
-                                className={`block px-4 py-3 rounded-lg font-semibold text-sm transition-all duration-200 relative overflow-hidden group/item ${
+                                className={`block px-4 py-3 rounded-xl font-semibold text-sm transition-all duration-200 relative overflow-hidden group/item ${
                                   isActive(dropdownItem.href)
                                     ? 'bg-yellow-600/20 text-yellow-400'
                                     : 'text-white hover:text-yellow-400 hover:bg-white/10'
@@ -281,7 +281,7 @@ export default function Header() {
                   ) : (
                     <Link
                       href={item.href}
-                      className={`relative px-4 xl:px-5 py-2.5 text-sm xl:text-base font-semibold transition-all duration-300 rounded-lg ${
+                      className={`relative px-4 xl:px-5 py-2.5 text-sm xl:text-base font-semibold transition-all duration-300 rounded-xl ${
                         isActive(item.href)
                           ? 'text-yellow-600 bg-yellow-600/10'
                           : 'text-white hover:text-yellow-400 hover:bg-white/5'
@@ -316,7 +316,7 @@ export default function Header() {
 
             {/* Mobile Menu Button */}
             <button
-              className="lg:hidden relative z-20 text-white hover:text-yellow-500 transition-colors p-2 rounded-lg hover:bg-white/10 active:scale-95"
+              className="lg:hidden relative z-20 text-white hover:text-yellow-500 transition-colors p-2 rounded-xl hover:bg-white/10 active:scale-95"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
               aria-expanded={isMenuOpen}
@@ -354,7 +354,7 @@ export default function Header() {
         ></div>
         
         {/* Menu Panel */}
-        <div className={`absolute top-0 right-0 h-full w-80 max-w-[90vw] sm:max-w-[85vw] bg-gray-900 shadow-2xl border-l-2 border-yellow-600/30 transform transition-transform duration-500 ease-out ${
+        <div className={`absolute top-0 right-0 h-full w-80 max-w-[90vw] sm:max-w-[85vw] bg-gray-900 shadow-xl border-l-2 border-yellow-600/30 transform transition-transform duration-500 ease-out ${
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}>
           <div className="h-full overflow-y-auto p-4 sm:p-5 md:p-6 space-y-1">
@@ -381,7 +381,7 @@ export default function Header() {
                   <div className="space-y-1">
                     <button
                       onClick={() => setMobileDropdowns(prev => ({ ...prev, [item.label]: !prev[item.label] }))}
-                      className={`w-full px-4 py-3 rounded-lg font-bold text-white text-left flex items-center justify-between transition-all duration-200 ${
+                      className={`w-full px-4 py-3 rounded-xl font-bold text-white text-left flex items-center justify-between transition-all duration-200 ${
                         isActive(item.href) ? 'bg-yellow-600/20 text-yellow-400' : 'hover:bg-white/10'
                       }`}
                     >
@@ -404,7 +404,7 @@ export default function Header() {
                         <Link
                           key={dropdownItem.href}
                           href={dropdownItem.href}
-                          className={`block px-4 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 ${
+                          className={`block px-4 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 ${
                             isActive(dropdownItem.href)
                               ? 'bg-yellow-600/20 text-yellow-400'
                               : 'text-gray-300 hover:text-yellow-400 hover:bg-white/10'
@@ -419,7 +419,7 @@ export default function Header() {
                 ) : (
                   <Link
                     href={item.href}
-                    className={`block px-4 py-3 rounded-lg font-bold transition-all duration-200 ${
+                    className={`block px-4 py-3 rounded-xl font-bold transition-all duration-200 ${
                       isActive(item.href)
                         ? 'bg-yellow-600/20 text-yellow-400'
                         : 'text-white hover:text-yellow-400 hover:bg-white/10'
@@ -436,7 +436,7 @@ export default function Header() {
             <div className="pt-6 mt-6 border-t-2 border-yellow-600/20">
               <Link
                 href="/boek-nu"
-                className="block w-full bg-yellow-600 text-gray-900 px-6 py-4 rounded-xl text-center font-black text-base shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 active:scale-95"
+                className="block w-full bg-yellow-600 text-gray-900 px-6 py-4 rounded-xl text-center font-black text-base shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 active:scale-95"
                 onClick={() => setIsMenuOpen(false)}
               >
                 <span className="flex items-center justify-center gap-2">

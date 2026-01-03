@@ -25,7 +25,7 @@ export default function ContactMapSection() {
         
         {/* Map */}
         <div className={`transition-all duration-700 ${isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ animationDelay: '0.2s' }}>
-          <div className="w-full h-[400px] sm:h-[500px] md:h-[600px] rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl border-2 border-gray-200">
+          <div className="w-full h-[400px] sm:h-[500px] md:h-[600px] rounded-xl sm:rounded-2xl overflow-hidden shadow-xl border-2 border-gray-200">
             <iframe
               src="https://www.google.com/maps/d/u/0/embed?mid=174S67Xhsv91-qPCTUb-Jrc7TvwOLG3M&ehbc=2E312F&noprof=1"
               width="100%"

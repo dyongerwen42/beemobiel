@@ -37,7 +37,7 @@ export default function LessenAanbiedingenSection() {
             <div className="space-y-4">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-yellow-600 text-gray-900 font-bold rounded-lg hover:bg-yellow-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+                className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-yellow-600 text-gray-900 font-bold rounded-xl hover:bg-yellow-700 transition-all duration-300 shadow-lg hover:shadow-xl"
               >
                 Neem contact met ons op
               </Link>

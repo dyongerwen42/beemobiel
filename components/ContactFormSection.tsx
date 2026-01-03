@@ -71,7 +71,7 @@ export default function ContactFormSection() {
       </div>
       
       <div className="w-full max-w-7xl mx-auto px-3 sm:px-4 md:px-5 lg:px-6 xl:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 items-start">
           {/* Left side - Image */}
           <div className={`hidden lg:block transition-all duration-700 ${isIntersecting ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
             <div className="relative w-full h-[500px] lg:h-[600px] rounded-xl sm:rounded-2xl overflow-hidden shadow-xl group">
@@ -220,7 +220,7 @@ export default function ContactFormSection() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-4 sm:py-5 md:py-6 bg-yellow-600 text-black font-black rounded-xl text-base sm:text-lg md:text-xl uppercase tracking-wider hover:bg-yellow-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 disabled:transform-none"
+                className="w-full py-4 sm:py-5 md:py-6 bg-yellow-600 text-black font-black rounded-xl text-base sm:text-lg md:text-xl uppercase tracking-wider hover:bg-yellow-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 disabled:transform-none"
               >
                 {isSubmitting ? 'VERZENDEN...' : 'VERZENDEN'}
               </button>

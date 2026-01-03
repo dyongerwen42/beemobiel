@@ -42,7 +42,7 @@ export default function CTAFinalSection() {
           </Link>
           <Link 
             href="/contact"
-            className="group relative inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-yellow-600 via-yellow-500 to-yellow-600 text-gray-900 font-black rounded-xl text-sm sm:text-base uppercase tracking-wider overflow-hidden transition-all duration-300 shadow-2xl hover:shadow-yellow-600/50 transform hover:scale-105"
+            className="group relative inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-yellow-600 via-yellow-500 to-yellow-600 text-gray-900 font-black rounded-xl text-sm sm:text-base uppercase tracking-wider overflow-hidden transition-all duration-300 shadow-xl hover:shadow-yellow-600/50 transform hover:scale-105"
           >
             <span className="relative z-10 flex items-center gap-2">
               Neem Contact Op
