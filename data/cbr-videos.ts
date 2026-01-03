@@ -9,61 +9,116 @@ export interface CBRVideo {
 }
 
 // Eerste Rijles Videos
-// Note: CBR heeft geen specifieke "eerste rijles" video's, maar deze video's zijn relevant voor beginners
+// Video's die relevant zijn voor beginners en eerste rijlessen
 export const eersteRijlesVideos: CBRVideo[] = [
   {
-    youtubeId: '5wWiTaIgW90', // "Zo gaat het bij het theorie-examen" - goede voorbereiding voor eerste rijles
-    title: 'Zo gaat het bij het theorie-examen',
+    youtubeId: 'v5AxECiPFzI', // Zo gaat het bij het theorie-examen van het CBR – Uitleg theorieprocedure
+    title: 'Zo gaat het bij het theorie-examen van het CBR – Uitleg theorieprocedure',
     category: 'eerste-rijles'
   },
   {
-    youtubeId: 'XHOmBV4js_E', // Placeholder - zoek op CBR kanaal naar "praktijkexamen" of "voorbereiding" video's
-    title: 'Voorbereiding op je eerste autorijles',
+    youtubeId: '90DRSSl4QLw', // Zo Gaat Het Bij Het CBR Praktijkexamen Auto – Uitleg over de auto examenprocedure
+    title: 'Zo Gaat Het Bij Het CBR Praktijkexamen Auto – Uitleg over de auto examenprocedure',
     category: 'eerste-rijles'
   },
   {
-    youtubeId: 'XHOmBV4js_E', // Placeholder - zoek naar relevante CBR video's over rijlessen
-    title: 'Wat te verwachten tijdens je rijlessen',
+    youtubeId: 'AuwVmShBw-A', // Zo Gaat Het Bij De Tussentijdse Toets Van Het CBR – Uitleg tussentijdse toets
+    title: 'Zo Gaat Het Bij De Tussentijdse Toets Van Het CBR – Uitleg tussentijdse toets',
+    category: 'eerste-rijles'
+  },
+  {
+    youtubeId: 'sWSfRwLP2IQ', // Zo gaat het bij het praktijkexamen bromfiets van het CBR – Relevant voor AM-rijbewijs
+    title: 'Zo gaat het bij het praktijkexamen bromfiets van het CBR – Relevant voor AM-rijbewijs',
+    category: 'eerste-rijles'
+  },
+  {
+    youtubeId: 'YaTAw7iHoPk', // Zo gaat het bij het praktijkexamen motor van het CBR – Relevant voor A-rijbewijs
+    title: 'Zo gaat het bij het praktijkexamen motor van het CBR – Relevant voor A-rijbewijs',
     category: 'eerste-rijles'
   }
 ]
 
 // Top 5 Examenfouten Videos
-// Note: Zoek op het CBR kanaal naar video's over "veelgemaakte fouten" of "praktijkexamen tips"
+// Video's over veelgemaakte fouten en examentips
 export const examenFoutenVideos: CBRVideo[] = [
   {
-    youtubeId: 'XHOmBV4js_E', // Placeholder - zoek naar CBR video over examenfouten
-    title: 'Veelgemaakte fouten tijdens het praktijkexamen',
+    youtubeId: '_s3RflnYyAw', // Waarop moet je letten bij het rijexamen Zeven tips van de examinator (intro tot de serie)
+    title: 'Waarop moet je letten bij het rijexamen - Zeven tips van de examinator (intro)',
     category: 'examenfouten'
   },
   {
-    youtubeId: 'XHOmBV4js_E', // Placeholder - zoek naar CBR video over praktijkexamen tips
-    title: 'Hoe voorkom je examenfouten',
+    youtubeId: 'Tuod3I3BWXM', // De meestgemaakte fouten in het rijexamen – CBR (introductie)
+    title: 'De meestgemaakte fouten in het rijexamen – CBR (introductie)',
     category: 'examenfouten'
   },
   {
-    youtubeId: 'XHOmBV4js_E', // Placeholder - zoek naar relevante CBR video's
-    title: 'Tips voor een succesvol praktijkexamen',
+    youtubeId: 'pRgz42ZKLrY', // De meestgemaakte fouten in het rijexamen – CBR (versie voor rijinstructeurs)
+    title: 'De meestgemaakte fouten in het rijexamen – CBR (versie voor rijinstructeurs)',
+    category: 'examenfouten'
+  },
+  {
+    youtubeId: 'eTdRrD92nT8', // Meestgemaakte fouten tijdens het in- en uitvoegen praktijkexamen
+    title: 'Meestgemaakte fouten tijdens het in- en uitvoegen praktijkexamen',
+    category: 'examenfouten'
+  },
+  {
+    youtubeId: 'ZefvqsLHZQ0', // Waarop moet je letten bij het wegrijden - TIP #1 van de CBR-examinator
+    title: 'Waarop moet je letten bij het wegrijden - TIP #1 van de CBR-examinator',
+    category: 'examenfouten'
+  },
+  {
+    youtubeId: 'PAlo4EUFr_w', // Waarop moet je letten bij rechte en bochtige weggedeelten - TIP #2 van de CBR-examinator
+    title: 'Waarop moet je letten bij rechte en bochtige weggedeelten - TIP #2 van de CBR-examinator',
+    category: 'examenfouten'
+  },
+  {
+    youtubeId: 'pxgQ4GkrRDw', // Waarop moet je letten bij kruispunten - TIP #3 van de CBR-examinator
+    title: 'Waarop moet je letten bij kruispunten - TIP #3 van de CBR-examinator',
+    category: 'examenfouten'
+  },
+  {
+    youtubeId: 'V-VnvDenuwE', // Waarop moet je letten bij het invoegen en uitvoegen - TIP #4 van de CBR-examinator
+    title: 'Waarop moet je letten bij het invoegen en uitvoegen - TIP #4 van de CBR-examinator',
+    category: 'examenfouten'
+  },
+  {
+    youtubeId: '_FDmSgPRh_U', // Waarop moet je letten bij inhalen en van rijstrook wisselen - TIP #5 van de CBR-examinator
+    title: 'Waarop moet je letten bij inhalen en van rijstrook wisselen - TIP #5 van de CBR-examinator',
+    category: 'examenfouten'
+  },
+  {
+    youtubeId: 'gZhZ1XR0KEY', // Waarop moet je letten bij bijzondere weggedeelten - TIP #6 van de CBR-examinator
+    title: 'Waarop moet je letten bij bijzondere weggedeelten - TIP #6 van de CBR-examinator',
+    category: 'examenfouten'
+  },
+  {
+    youtubeId: 'mR3-BOYlbvs', // Waarop moet je letten bij bijzondere verrichtingen - TIP #7 van de CBR-examinator
+    title: 'Waarop moet je letten bij bijzondere verrichtingen - TIP #7 van de CBR-examinator',
+    category: 'examenfouten'
+  },
+  {
+    youtubeId: 'ci3IKxP8gIA', // Zo Gaat Het Bij Het Faalangstexamen Van Het CBR – Tips voor faalangst examens
+    title: 'Zo Gaat Het Bij Het Faalangstexamen Van Het CBR – Tips voor faalangst examens',
     category: 'examenfouten'
   }
 ]
 
 // Rotondes Videos
-// Note: CBR heeft mogelijk geen specifieke rotondes video's, maar zoek naar verkeerssituaties
+// Video's over invoegen, uitvoegen en verkeerssituaties (relevant voor rotondes)
 export const rotondesVideos: CBRVideo[] = [
   {
-    youtubeId: 'XHOmBV4js_E', // Placeholder - zoek naar CBR video over rotondes of verkeerssituaties
-    title: 'Hoe neem je rotondes correct',
+    youtubeId: 'V-VnvDenuwE', // Waarop moet je letten bij het invoegen en uitvoegen - TIP #4 van de CBR-examinator
+    title: 'Waarop moet je letten bij het invoegen en uitvoegen - TIP #4 van de CBR-examinator',
     category: 'rotondes'
   },
   {
-    youtubeId: 'XHOmBV4js_E', // Placeholder - zoek naar relevante verkeerssituatie video's
-    title: 'Invoegen en uitvoegen op rotondes',
+    youtubeId: 'eTdRrD92nT8', // Meestgemaakte fouten tijdens het in- en uitvoegen praktijkexamen
+    title: 'Meestgemaakte fouten tijdens het in- en uitvoegen praktijkexamen',
     category: 'rotondes'
   },
   {
-    youtubeId: 'XHOmBV4js_E', // Placeholder - zoek naar CBR video's over verkeersregels
-    title: 'Richting aangeven op rotondes',
+    youtubeId: 'pxgQ4GkrRDw', // Waarop moet je letten bij kruispunten - TIP #3 van de CBR-examinator (relevant voor rotondes)
+    title: 'Waarop moet je letten bij kruispunten - TIP #3 van de CBR-examinator',
     category: 'rotondes'
   }
 ]
@@ -88,3 +143,4 @@ export function getVideosByCategory(category: CBRVideo['category']): CBRVideo[] 
 // 3. Extract the video ID from the URL (e.g., from https://www.youtube.com/watch?v=VIDEO_ID)
 // 4. Update the youtubeId fields above with the actual video IDs
 // 5. Update the titles to match the actual video titles
+

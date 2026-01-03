@@ -8,9 +8,11 @@ import { useState, useEffect } from 'react'
 export default function AboutPersonalGuidanceSection() {
   const { ref, isIntersecting } = useIntersectionObserver({ threshold: 0.1 })
   const [count, setCount] = useState(0)
+  const [hasAnimated, setHasAnimated] = useState(false)
 
   useEffect(() => {
-    if (isIntersecting && count < 100) {
+    if (isIntersecting && !hasAnimated) {
+      setHasAnimated(true)
       const duration = 2000
       const steps = 50
       const increment = 100 / steps
@@ -22,12 +24,13 @@ export default function AboutPersonalGuidanceSection() {
         setCount(Math.min(Math.round(currentStep * increment), 100))
         if (currentStep >= steps) {
           clearInterval(timer)
+          setCount(100)
         }
       }, stepDuration)
 
       return () => clearInterval(timer)
     }
-  }, [isIntersecting, count])
+  }, [isIntersecting, hasAnimated])
 
   const features = [
     'Ervaren, begripvolle instructeurs',
@@ -42,7 +45,7 @@ export default function AboutPersonalGuidanceSection() {
   return (
     <section ref={ref} className="py-6 sm:py-10 md:py-14 lg:py-16 bg-white relative overflow-hidden">
       <div className="w-full max-w-7xl mx-auto px-3 sm:px-4 md:px-5 lg:px-6 xl:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 items-center">
           {/* Left Side - Images */}
           <div className={`relative transition-opacity duration-700 ${
             isIntersecting ? 'opacity-100' : 'opacity-0'
@@ -71,7 +74,7 @@ export default function AboutPersonalGuidanceSection() {
           </div>
 
           {/* Right Side - Content */}
-          <div className={`space-y-6 sm:space-y-8 transition-opacity duration-700 ${
+          <div className={`space-y-8 sm:space-y-10 transition-opacity duration-700 ${
             isIntersecting ? 'opacity-100' : 'opacity-0'
           }`} style={{ animationDelay: '0.2s' }}>
             <div className="inline-flex items-center px-2.5 sm:px-3 md:px-3.5 py-1 sm:py-1.5 md:py-1.5 bg-gray-100/90 backdrop-blur-sm rounded-full mb-2.5 sm:mb-3 md:mb-4 border border-gray-200/60 shadow-md">
@@ -119,20 +122,20 @@ export default function AboutPersonalGuidanceSection() {
             </div>
 
             {/* Success Counter */}
-            <div className={`mt-8 sm:mt-10 p-6 sm:p-8 bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-2xl border border-yellow-200 shadow-lg transition-opacity duration-700 ${
+            <div className={`mt-10 sm:mt-12 p-5 sm:p-6 bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl border border-yellow-200 shadow-md transition-opacity duration-700 ${
               isIntersecting ? 'opacity-100' : 'opacity-0'
             }`} style={{ animationDelay: '0.7s' }}>
-              <div className="flex items-center gap-4 sm:gap-6">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-yellow-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <svg className="w-6 h-6 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="flex items-center gap-4 sm:gap-5">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-yellow-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                   </svg>
                 </div>
                 <div>
-                  <div className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 mb-1">
+                  <div className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 leading-none">
                     {count}+
                   </div>
-                  <div className="text-sm sm:text-base md:text-lg font-semibold text-gray-700">
+                  <div className="text-xs sm:text-sm md:text-base font-semibold text-gray-700 mt-0.5">
                     Succesverhalen
                   </div>
                 </div>

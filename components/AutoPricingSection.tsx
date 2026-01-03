@@ -152,7 +152,7 @@ export default function AutoPricingSection() {
                 ) : (
                   <Link 
                     href="/contact"
-                    className="w-full py-5 sm:py-6 md:py-6 px-8 sm:px-10 rounded-2xl font-black text-center transition-all duration-300 god-shadow-lg hover-god text-base sm:text-lg md:text-lg group/btn btn-premium relative overflow-hidden bg-gray-900 text-white hover:bg-gray-800 uppercase tracking-wide"
+                    className="w-full py-5 sm:py-6 md:py-6 px-8 sm:px-10 rounded-2xl font-black text-center transition-all duration-300 shadow-xl hover:shadow-2xl text-base sm:text-lg md:text-lg group/btn btn-premium relative overflow-hidden bg-gray-900 text-white hover:bg-gray-800 uppercase tracking-wide"
                   >
                     <span className="relative z-10 flex items-center justify-center gap-3">
                       MEER INFO

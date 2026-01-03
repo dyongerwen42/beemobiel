@@ -136,12 +136,25 @@ export default function BookingFormSection() {
         agree: false
       })
       setErrors({})
+      setSubmitStatus('success')
       
-      // Show success message (you can add toast notification here)
-      alert('Bedankt! We nemen zo snel mogelijk contact met je op.')
+      // Reset form after 3 seconds
+      setTimeout(() => {
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          package: '',
+          startDate: '',
+          address: '',
+          remarks: '',
+          agree: false
+        })
+        setSubmitStatus('idle')
+      }, 3000)
     } catch (error) {
       // Handle error
-      alert('Er is iets misgegaan. Probeer het later opnieuw.')
+      setSubmitStatus('error')
     } finally {
       setIsSubmitting(false)
     }

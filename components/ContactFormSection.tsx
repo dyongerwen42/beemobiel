@@ -40,7 +40,8 @@ export default function ContactFormSection() {
       await new Promise(resolve => setTimeout(resolve, 1000))
       
       // Handle form submission
-      console.log('Form submitted:', formData)
+      // TODO: Replace with actual API call
+      // await fetch('/api/contact', { method: 'POST', body: JSON.stringify(formData) })
       
       setSubmitStatus('success')
       // Reset form after success

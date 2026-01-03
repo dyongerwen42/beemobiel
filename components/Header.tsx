@@ -6,10 +6,6 @@ import { useState, useEffect, useRef } from 'react'
 import { usePathname } from 'next/navigation'
 
 export default function Header() {
-  // #region agent log
-  fetch('http://127.0.0.1:7244/ingest/eb7d1e0d-c4c4-45a0-a90b-aa760001dd6b',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'Header.tsx:8',message:'Component rendering',data:{isClient:typeof window!=='undefined'},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
-  // #endregion
-  
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
@@ -20,10 +16,6 @@ export default function Header() {
 
   // Scroll detection using scroll event listener (more reliable than IntersectionObserver for this use case)
   useEffect(() => {
-    // #region agent log
-    fetch('http://127.0.0.1:7244/ingest/eb7d1e0d-c4c4-45a0-a90b-aa760001dd6b',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'Header.tsx:19',message:'useEffect entry - scroll detection',data:{},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'I'})}).catch(()=>{});
-    // #endregion
-    
     const threshold = 10 // Show background after scrolling 10px
     let rafId: number | null = null
     let ticking = false
@@ -38,17 +30,9 @@ export default function Header() {
       ticking = false
       const scrollTop = getScrollTop()
       const shouldBeScrolled = scrollTop > threshold
-      
-      // #region agent log
-      fetch('http://127.0.0.1:7244/ingest/eb7d1e0d-c4c4-45a0-a90b-aa760001dd6b',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'Header.tsx:35',message:'Scroll state update',data:{scrollTop,threshold,shouldBeScrolled},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'I'})}).catch(()=>{});
-      // #endregion
 
       setIsScrolled(prev => {
         if (prev !== shouldBeScrolled) {
-          // #region agent log
-          fetch('http://127.0.0.1:7244/ingest/eb7d1e0d-c4c4-45a0-a90b-aa760001dd6b',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'Header.tsx:42',message:'State change',data:{prev,new:shouldBeScrolled,scrollTop},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'I'})}).catch(()=>{});
-          // #endregion
-          console.log('🔄 Changing isScrolled:', prev, '->', shouldBeScrolled, '| scrollTop:', scrollTop)
           return shouldBeScrolled
         }
         return prev
@@ -56,10 +40,6 @@ export default function Header() {
     }
 
     const handleScroll = () => {
-      // #region agent log
-      fetch('http://127.0.0.1:7244/ingest/eb7d1e0d-c4c4-45a0-a90b-aa760001dd6b',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'Header.tsx:50',message:'handleScroll called',data:{ticking,scrollY:window.scrollY,scrollTop:document.documentElement.scrollTop},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'J'})}).catch(()=>{});
-      // #endregion
-      
       if (!ticking) {
         rafId = window.requestAnimationFrame(() => {
           updateScrollState()
@@ -70,36 +50,18 @@ export default function Header() {
     }
 
     // Initial state check
-    // #region agent log
-    fetch('http://127.0.0.1:7244/ingest/eb7d1e0d-c4c4-45a0-a90b-aa760001dd6b',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'Header.tsx:64',message:'Initial scroll check',data:{windowHeight:window.innerHeight,documentHeight:document.documentElement.scrollHeight,bodyHeight:document.body.scrollHeight},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'J'})}).catch(()=>{});
-    // #endregion
     updateScrollState()
 
     // Add scroll listener
     window.addEventListener('scroll', handleScroll, { passive: true })
-    // #region agent log
-    fetch('http://127.0.0.1:7244/ingest/eb7d1e0d-c4c4-45a0-a90b-aa760001dd6b',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'Header.tsx:71',message:'Scroll listener added to window',data:{},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'J'})}).catch(()=>{});
-    // #endregion
     
     // Also check on resize
     window.addEventListener('resize', handleScroll, { passive: true })
-    
-    // Test: manually trigger handleScroll after 2 seconds to see if it works
-    const testTimeout = setTimeout(() => {
-      // #region agent log
-      fetch('http://127.0.0.1:7244/ingest/eb7d1e0d-c4c4-45a0-a90b-aa760001dd6b',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'Header.tsx:79',message:'Manual test trigger',data:{scrollY:window.scrollY,documentScrollTop:document.documentElement.scrollTop},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'J'})}).catch(()=>{});
-      // #endregion
-      handleScroll()
-    }, 2000)
 
     return () => {
       window.removeEventListener('scroll', handleScroll)
       window.removeEventListener('resize', handleScroll)
-      clearTimeout(testTimeout)
       if (rafId !== null) window.cancelAnimationFrame(rafId)
-      // #region agent log
-      fetch('http://127.0.0.1:7244/ingest/eb7d1e0d-c4c4-45a0-a90b-aa760001dd6b',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'Header.tsx:87',message:'Scroll listeners cleaned up',data:{},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'I'})}).catch(()=>{});
-      // #endregion
     }
   }, [])
 
@@ -159,9 +121,10 @@ export default function Header() {
       href: '/tips', 
       label: 'Tips en trucs',
       dropdown: [
+        { href: '/tips#driving_theory', label: 'Rijtheorie' },
         { href: '/tips#v1', label: 'Eerste Rijles' },
-        { href: '/tips#v2', label: 'Top 5 Examenfouten' },
-        { href: '/tips#v3', label: 'Rotondes Rijden' },
+        { href: '/tips#v2', label: 'Examenfouten' },
+        { href: '/tips#v3', label: 'Rotondes' },
       ]
     },
     { href: '/over-ons', label: 'Over Ons' },
@@ -219,28 +182,43 @@ export default function Header() {
                 >
                   {item.dropdown ? (
                     <>
-                      <button
-                        className={`relative px-4 xl:px-5 py-2.5 text-sm xl:text-base font-semibold transition-all duration-300 flex items-center gap-1.5 rounded-xl ${
-                          isActive(item.href)
-                            ? 'text-yellow-600 bg-yellow-600/10'
-                            : 'text-white hover:text-yellow-400 hover:bg-white/5'
-                        }`}
-                        onClick={() => setActiveDropdown(activeDropdown === item.label ? null : item.label)}
-                        aria-expanded={activeDropdown === item.label}
-                        aria-haspopup="true"
-                      >
-                        <span className="relative z-10">{item.label}</span>
-                        <svg 
-                          className={`w-4 h-4 transition-transform duration-300 ${
-                            activeDropdown === item.label ? 'rotate-180' : ''
+                      <div className="flex items-center">
+                        <Link
+                          href={item.href}
+                          className={`relative px-4 xl:px-5 py-2.5 text-sm xl:text-base font-semibold transition-all duration-300 rounded-xl ${
+                            isActive(item.href)
+                              ? 'text-yellow-600 bg-yellow-600/10'
+                              : 'text-white hover:text-yellow-400 hover:bg-white/5'
                           }`}
-                          fill="none" 
-                          stroke="currentColor" 
-                          viewBox="0 0 24 24"
                         >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                        </svg>
-                      </button>
+                          <span className="relative z-10">{item.label}</span>
+                        </Link>
+                        <button
+                          className={`px-2 py-2.5 text-sm xl:text-base font-semibold transition-all duration-300 rounded-xl ${
+                            isActive(item.href)
+                              ? 'text-yellow-600'
+                              : 'text-white hover:text-yellow-400'
+                          }`}
+                          onClick={(e) => {
+                            e.preventDefault()
+                            setActiveDropdown(activeDropdown === item.label ? null : item.label)
+                          }}
+                          aria-expanded={activeDropdown === item.label}
+                          aria-haspopup="true"
+                          aria-label="Toggle dropdown"
+                        >
+                          <svg 
+                            className={`w-4 h-4 transition-transform duration-300 ${
+                              activeDropdown === item.label ? 'rotate-180' : ''
+                            }`}
+                            fill="none" 
+                            stroke="currentColor" 
+                            viewBox="0 0 24 24"
+                          >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                          </svg>
+                        </button>
+                      </div>
                       {/* Dropdown Menu - Connected directly to button with invisible bridge */}
                       <div className="absolute top-full left-0 w-full pt-1">
                         <div
@@ -379,24 +357,35 @@ export default function Header() {
               <div key={item.href} className="overflow-hidden">
                 {item.dropdown ? (
                   <div className="space-y-1">
-                    <button
-                      onClick={() => setMobileDropdowns(prev => ({ ...prev, [item.label]: !prev[item.label] }))}
-                      className={`w-full px-4 py-3 rounded-xl font-bold text-white text-left flex items-center justify-between transition-all duration-200 ${
-                        isActive(item.href) ? 'bg-yellow-600/20 text-yellow-400' : 'hover:bg-white/10'
-                      }`}
-                    >
-                      <span>{item.label}</span>
-                      <svg 
-                        className={`w-5 h-5 transition-transform duration-300 ${
-                          mobileDropdowns[item.label] ? 'rotate-180' : ''
+                    <div className="flex items-center">
+                      <Link
+                        href={item.href}
+                        className={`flex-1 px-4 py-3 rounded-xl font-bold text-white transition-all duration-200 ${
+                          isActive(item.href) ? 'bg-yellow-600/20 text-yellow-400' : 'hover:bg-white/10'
                         }`}
-                        fill="none" 
-                        stroke="currentColor" 
-                        viewBox="0 0 24 24"
+                        onClick={() => setIsMenuOpen(false)}
                       >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </button>
+                        {item.label}
+                      </Link>
+                      <button
+                        onClick={() => setMobileDropdowns(prev => ({ ...prev, [item.label]: !prev[item.label] }))}
+                        className={`px-3 py-3 rounded-xl font-bold text-white transition-all duration-200 ${
+                          isActive(item.href) ? 'text-yellow-400' : 'hover:bg-white/10'
+                        }`}
+                        aria-label="Toggle dropdown"
+                      >
+                        <svg 
+                          className={`w-5 h-5 transition-transform duration-300 ${
+                            mobileDropdowns[item.label] ? 'rotate-180' : ''
+                          }`}
+                          fill="none" 
+                          stroke="currentColor" 
+                          viewBox="0 0 24 24"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </button>
+                    </div>
                     <div className={`pl-4 space-y-1 overflow-hidden transition-all duration-300 ${
                       mobileDropdowns[item.label] ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                     }`}>

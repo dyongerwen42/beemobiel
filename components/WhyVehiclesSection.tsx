@@ -102,7 +102,7 @@ export default function WhyVehiclesSection() {
           {/* Skills */}
           <div className="space-y-4 sm:space-y-6 md:space-y-8">
             {skills.map((skill, index) => (
-              <div key={index} className="bg-white rounded-2xl p-4 sm:p-6 md:p-8 god-shadow border-2 border-gray-100">
+              <div key={index} className="bg-white rounded-2xl p-4 sm:p-6 md:p-8 shadow-lg border-2 border-gray-100">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 sm:mb-4 gap-2 sm:gap-0">
                   <span className="text-sm sm:text-base md:text-lg font-semibold text-gray-900">
                     {skill.label || 'Rijvaardigheden'}

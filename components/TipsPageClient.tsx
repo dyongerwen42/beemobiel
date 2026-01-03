@@ -12,29 +12,52 @@ import TipsRotondesSection from '@/components/TipsRotondesSection'
 import CTAFinalSection from '@/components/CTAFinalSection'
 
 export default function TipsPageClient() {
-  // Handle anchor links on page load and navigation
+  // Handle anchor links on page load and navigation with improved stability
   useEffect(() => {
+    const scrollToHash = (hash: string, retries = 5) => {
+      if (!hash) return
+
+      const element = document.querySelector(hash)
+      if (element) {
+        const headerOffset = 120 // Account for fixed header
+        const elementPosition = element.getBoundingClientRect().top
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+
+        window.scrollTo({
+          top: Math.max(0, offsetPosition),
+          behavior: 'smooth'
+        })
+        return true
+      }
+      
+      // Retry if element not found yet
+      if (retries > 0) {
+        setTimeout(() => scrollToHash(hash, retries - 1), 200)
+      }
+      return false
+    }
+
     const handleHashScroll = () => {
       const hash = window.location.hash
       if (hash) {
-        setTimeout(() => {
-          const element = document.querySelector(hash)
-          if (element) {
-            const headerOffset = 100 // Account for fixed header
-            const elementPosition = element.getBoundingClientRect().top
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset
-
-            window.scrollTo({
-              top: offsetPosition,
-              behavior: 'smooth'
-            })
-          }
-        }, 300) // Delay to ensure page is loaded
+        // Try immediately
+        if (!scrollToHash(hash)) {
+          // If not found, wait a bit and try again
+          setTimeout(() => scrollToHash(hash, 3), 100)
+          setTimeout(() => scrollToHash(hash, 2), 500)
+          setTimeout(() => scrollToHash(hash, 1), 1000)
+        }
       }
     }
 
-    // Handle initial load
-    handleHashScroll()
+    // Handle initial load - wait for page to be ready
+    if (document.readyState === 'complete') {
+      handleHashScroll()
+    } else {
+      window.addEventListener('load', handleHashScroll, { once: true })
+      // Also try after a short delay
+      setTimeout(handleHashScroll, 100)
+    }
 
     // Handle hash changes (when clicking anchor links)
     window.addEventListener('hashchange', handleHashScroll)
@@ -49,13 +72,7 @@ export default function TipsPageClient() {
           const element = document.querySelector(href)
           if (element) {
             e.preventDefault()
-            const headerOffset = 100
-            const elementPosition = element.getBoundingClientRect().top
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset
-            window.scrollTo({
-              top: offsetPosition,
-              behavior: 'smooth'
-            })
+            scrollToHash(href)
             // Update URL
             window.history.pushState(null, '', href)
           }
@@ -67,6 +84,7 @@ export default function TipsPageClient() {
 
     return () => {
       window.removeEventListener('hashchange', handleHashScroll)
+      window.removeEventListener('load', handleHashScroll)
       document.removeEventListener('click', handleAnchorClick)
     }
   }, [])

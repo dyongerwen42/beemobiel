@@ -63,9 +63,9 @@ export default function ScooterPricingSection() {
           {scooterPackages.map((pkg, index) => (
             <div
               key={index}
-              className={`relative bg-white rounded-xl sm:rounded-2xl p-8 sm:p-10 md:p-12 lg:p-14 god-shadow-lg hover-god transition-all duration-500 border-2 ${
+              className={`relative bg-white rounded-xl sm:rounded-2xl p-8 sm:p-10 md:p-12 lg:p-14 shadow-xl hover:shadow-2xl transition-all duration-500 border-2 ${
                 pkg.popular 
-                  ? 'border-yellow-600 ring-4 ring-yellow-100/50 scale-105 lg:scale-110 god-glow' 
+                  ? 'border-yellow-600 ring-4 ring-yellow-100/50 scale-105 lg:scale-110' 
                   : 'border-gray-200 hover:border-yellow-400'
               } overflow-visible group flex flex-col ${
                 isIntersecting ? 'animate-fade-in-up' : 'opacity-0 invisible'
@@ -76,11 +76,11 @@ export default function ScooterPricingSection() {
               <div className="absolute inset-0 opacity-[0.02] hexagon-pattern pointer-events-none"></div>
               
               {/* Shimmer effect */}
-              <div className="absolute inset-0 shimmer-god opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 pointer-events-none opacity-0 group-hover:opacity-100"></div>
               
               {/* Popular badge */}
               {pkg.popular && (
-                <div className="absolute -top-4 -right-4 bg-yellow-600 text-gray-900 px-6 sm:px-7 py-3 sm:py-3.5 rounded-2xl font-bold text-xs sm:text-sm uppercase god-shadow animate-pulse-god z-[100]">
+                <div className="absolute -top-4 -right-4 bg-yellow-600 text-gray-900 px-6 sm:px-7 py-3 sm:py-3.5 rounded-2xl font-bold text-xs sm:text-sm uppercase shadow-lg animate-pulse z-[100]">
                   <div className="flex items-center gap-2">
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
@@ -115,7 +115,7 @@ export default function ScooterPricingSection() {
                 <ul className="space-y-3 sm:space-y-4 mb-8 sm:mb-10 md:mb-12 flex-grow">
                   {pkg.features.map((feature, idx) => (
                     <li key={idx} className="flex items-start group/item">
-                      <div className="flex-shrink-0 w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-yellow-600 flex items-center justify-center mr-3 mt-0.5 god-shadow transform group-hover/item:scale-125 transition-transform duration-300">
+                      <div className="flex-shrink-0 w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-yellow-600 flex items-center justify-center mr-3 mt-0.5 shadow-md transform group-hover/item:scale-125 transition-transform duration-300">
                         <svg className="w-3 h-3 sm:w-4 sm:h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                         </svg>

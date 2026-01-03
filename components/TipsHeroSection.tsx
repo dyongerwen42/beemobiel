@@ -24,7 +24,7 @@ export default function TipsHeroSection() {
   return (
     <section
       ref={ref}
-      className="relative min-h-[45vh] sm:min-h-[50vh] md:min-h-[55vh] lg:min-h-[60vh] flex items-center justify-center overflow-hidden"
+      className="relative min-h-[60vh] sm:min-h-[70vh] md:min-h-[80vh] lg:min-h-[90vh] flex items-center justify-center overflow-hidden"
     >
       {/* Animated Background Image with Parallax */}
       <div ref={parallaxRef} className="absolute inset-0 z-0">
@@ -32,27 +32,47 @@ export default function TipsHeroSection() {
           src="/images/DSC03914.jpg"
           alt="Rijtips en advies"
           fill
-          className="object-cover scale-110 transition-transform duration-[20s] ease-out"
+          className="object-cover scale-110 transition-transform duration-[20s] ease-out group-hover:scale-115"
           sizes="100vw"
           priority
         />
-        {/* Multi-layer Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black/85 via-black/75 to-black/85"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-black/60"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,transparent_0%,rgba(0,0,0,0.7)_100%)]"></div>
+        {/* Multi-layer Gradient Overlay with animated gradients */}
+        <div className="absolute inset-0 bg-gradient-to-br from-black/90 via-black/80 to-black/90"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-transparent to-black/70"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,transparent_0%,rgba(0,0,0,0.8)_100%)]"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-yellow-600/5 via-transparent to-yellow-600/5"></div>
       </div>
 
-      {/* Floating Particles */}
+      {/* Enhanced Floating Particles */}
       <div className="absolute inset-0 z-[1] overflow-hidden pointer-events-none">
-        {[...Array(20)].map((_, i) => (
+        {[...Array(30)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-1 h-1 sm:w-2 sm:h-2 bg-yellow-600/30 rounded-full animate-float"
+            className="absolute bg-yellow-600/40 rounded-full blur-sm"
             style={{
+              width: `${2 + Math.random() * 4}px`,
+              height: `${2 + Math.random() * 4}px`,
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
               animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${3 + Math.random() * 4}s`,
+              animationDuration: `${4 + Math.random() * 6}s`,
+              animation: 'float 8s ease-in-out infinite',
+            }}
+          />
+        ))}
+        {/* Larger glowing particles */}
+        {[...Array(10)].map((_, i) => (
+          <div
+            key={`large-${i}`}
+            className="absolute bg-yellow-500/20 rounded-full blur-md"
+            style={{
+              width: `${8 + Math.random() * 12}px`,
+              height: `${8 + Math.random() * 12}px`,
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 8}s`,
+              animationDuration: `${6 + Math.random() * 8}s`,
+              animation: 'float 12s ease-in-out infinite',
             }}
           />
         ))}
@@ -100,53 +120,52 @@ export default function TipsHeroSection() {
           </p>
         </div>
 
-        {/* Main Heading with Gradient Text */}
+        {/* Main Heading with Enhanced Gradient Text */}
         <h1
           className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-6 sm:mb-8 md:mb-10 leading-[1.05] tracking-tighter transition-all duration-1000 ${
             isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
           style={{ animationDelay: '0.3s' }}
         >
-          <span className="bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 bg-clip-text text-transparent drop-shadow-lg">
+          <span className="relative inline-block bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 bg-clip-text text-transparent drop-shadow-2xl [text-shadow:_0_0_30px_rgba(251,191,36,0.5)] animate-gradient-x">
             TIPS EN
           </span>
           <br />
-          <span className="bg-gradient-to-r from-white via-yellow-50 to-yellow-100 bg-clip-text text-transparent drop-shadow-lg">
+          <span className="relative inline-block bg-gradient-to-r from-white via-yellow-50 to-white bg-clip-text text-transparent drop-shadow-2xl [text-shadow:_0_0_20px_rgba(255,255,255,0.3)]">
             TRUCS
           </span>
+          {/* Glowing effect behind text */}
+          <div className="absolute inset-0 bg-gradient-to-r from-yellow-600/20 via-yellow-500/20 to-yellow-600/20 blur-3xl -z-10 opacity-50"></div>
         </h1>
 
-        {/* Description with Glassmorphism Card */}
+        {/* Enhanced Description with Premium Glassmorphism Card */}
         <div
-          className={`max-w-4xl mx-auto transition-all duration-1000 ${
+          className={`max-w-5xl mx-auto transition-all duration-1000 ${
             isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
           style={{ animationDelay: '0.5s' }}
         >
-          <div className="bg-white/5 backdrop-blur-xl rounded-2xl p-6 sm:p-8 md:p-10 border border-white/10 shadow-xl">
-            <p className="text-base sm:text-lg md:text-xl text-white/95 leading-relaxed font-medium">
+          <div className="relative bg-white/10 backdrop-blur-2xl rounded-3xl p-8 sm:p-10 md:p-12 border border-white/20 shadow-2xl overflow-hidden group/desc">
+            {/* Animated background gradient */}
+            <div className="absolute inset-0 bg-gradient-to-br from-yellow-600/10 via-transparent to-yellow-600/10 opacity-0 group-hover/desc:opacity-100 transition-opacity duration-700"></div>
+            {/* Shine effect */}
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover/desc:translate-x-full transition-transform duration-1000"></div>
+            
+            <div className="relative z-10">
+            <p className="text-base sm:text-lg md:text-xl text-white leading-relaxed font-semibold mb-4">
               Handige tips, praktische adviezen en nuttige informatie om je voor te bereiden op je rijlessen en examen.
             </p>
-            <p className="text-sm sm:text-base md:text-lg text-yellow-200/90 mt-4 leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg text-yellow-200/95 leading-relaxed font-medium">
               Leer van onze ervaring en haal je rijbewijs met vertrouwen.
             </p>
+            </div>
+            
+            {/* Decorative corner elements */}
+            <div className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-yellow-500/30 rounded-tl-3xl"></div>
+            <div className="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-yellow-500/30 rounded-br-3xl"></div>
           </div>
         </div>
 
-        {/* Scroll Indicator */}
-        <div
-          className={`absolute bottom-8 left-1/2 -translate-x-1/2 transition-opacity duration-1000 ${
-            isIntersecting ? 'opacity-100' : 'opacity-0'
-          }`}
-          style={{ animationDelay: '0.7s' }}
-        >
-          <div className="flex flex-col items-center gap-2">
-            <div className="w-6 h-10 border-2 border-yellow-500/50 rounded-full flex items-start justify-center p-2">
-              <div className="w-1.5 h-3 bg-yellow-500 rounded-full animate-bounce"></div>
-            </div>
-            <p className="text-xs text-yellow-400/70 uppercase tracking-wider">Scroll</p>
-          </div>
-        </div>
       </div>
     </section>
   )

@@ -100,23 +100,23 @@ export default function ContactIntroSection() {
           </div>
 
           {/* Right side - Contact cards */}
-          <div className="grid grid-cols-2 gap-4 sm:gap-6">
+          <div className="grid grid-cols-2 gap-3 sm:gap-4">
             {contactCards.map((card, index) => {
               const CardContent = (
-                <div className={`${card.bgColor} rounded-xl sm:rounded-2xl p-5 sm:p-6 md:p-7 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group border-2 ${
+                <div className={`${card.bgColor} rounded-lg sm:rounded-xl p-4 sm:p-5 shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer group border ${
                   card.bgColor === 'bg-yellow-600' 
-                    ? 'border-yellow-700 hover:border-yellow-800' 
-                    : 'border-gray-100 hover:border-yellow-400'
-                } transform hover:-translate-y-1`}>
-                  <div className={`${card.iconBgColor} ${card.iconTextColor} w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 aspect-square flex items-center justify-center mb-3 sm:mb-4 transition-transform duration-300 group-hover:scale-110`}>
+                    ? 'border-yellow-500/50 hover:border-yellow-600' 
+                    : 'border-gray-200 hover:border-yellow-300'
+                } transform hover:-translate-y-0.5`}>
+                  <div className={`${card.iconBgColor} ${card.iconTextColor} w-10 h-10 sm:w-11 sm:h-11 aspect-square flex items-center justify-center mb-2.5 sm:mb-3 rounded-lg transition-transform duration-300 group-hover:scale-105`}>
                     {card.icon}
                   </div>
-                  <h4 className={`${card.titleColor} font-bold text-sm sm:text-base md:text-lg mb-1 sm:mb-2 transition-colors duration-300 ${
+                  <h4 className={`${card.titleColor} font-semibold text-xs sm:text-sm mb-1 transition-colors duration-300 ${
                     card.link ? 'group-hover:text-yellow-600' : ''
                   }`}>
                     {card.title}
                   </h4>
-                  <p className={`${card.contentColor} text-xs sm:text-sm md:text-base leading-relaxed`}>
+                  <p className={`${card.contentColor} text-xs sm:text-sm leading-relaxed`}>
                     {card.content}
                   </p>
                 </div>
