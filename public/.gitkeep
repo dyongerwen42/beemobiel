@@ -1,0 +1,7 @@
+# Deze directory is voor statische bestanden zoals afbeeldingen, fonts, etc.
+# Bestanden die je hier plaatst zijn toegankelijk via de root URL
+# Bijvoorbeeld: /images/logo.png wordt http://localhost:3000/images/logo.png
+
+
+
+

@@ -1,0 +1,5 @@
+Contact: mailto:rijschool@beemobiel.nl
+Expires: 2025-12-31T23:59:59.000Z
+Preferred-Languages: nl, en
+Canonical: https://beemobiel.nl/.well-known/security.txt
+
