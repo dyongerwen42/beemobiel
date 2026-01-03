@@ -29,7 +29,7 @@ export default function TipsHeroSection() {
       {/* Animated Background Image with Parallax */}
       <div ref={parallaxRef} className="absolute inset-0 z-0">
         <Image
-          src="/images/instructor-showing-traffic-shemes-to-a-female-student-outdooors-1.jpg"
+          src="/images/DSC03914.jpg"
           alt="Rijtips en advies"
           fill
           className="object-cover scale-110 transition-transform duration-[20s] ease-out"

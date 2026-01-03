@@ -49,8 +49,8 @@ export default function AboutPersonalGuidanceSection() {
           }`}>
             <div className="relative h-64 sm:h-80 md:h-96 lg:h-[500px] rounded-xl overflow-hidden shadow-lg">
               <Image
-                src="/images/instructor-showing-traffic-shemes-to-a-female-stud-2025-03-15-11-49-02-utc_11zon_11zon-scaled.webp"
-                alt="Veilig persoonlijk en afgestemd"
+                src="/images/DSC04051.jpg"
+                alt="Eigen auto van BeeMobiel"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -60,8 +60,8 @@ export default function AboutPersonalGuidanceSection() {
             {/* Overlapping Image */}
             <div className="absolute -bottom-8 -right-8 sm:-bottom-12 sm:-right-12 w-3/4 h-3/4 rounded-xl overflow-hidden shadow-xl border-4 border-white">
               <Image
-                src="/images/male-instructor-and-female-student-driving-lesson.jpg"
-                alt="Persoonlijke begeleiding"
+                src="/images/DSC04081.jpg"
+                alt="Eigen auto van BeeMobiel"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 75vw, 37.5vw"

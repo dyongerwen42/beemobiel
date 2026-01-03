@@ -76,8 +76,8 @@ export default function AboutTeamSection() {
           isIntersecting ? 'animate-fade-in-up' : 'opacity-0'
         }`} style={{ animationDelay: '0.6s' }}>
           <Image
-            src="/images/instructor-with-female-student-at-the-driving-school-outdooors-1.jpg"
-            alt="Ons team"
+            src="/images/DSC03856.jpg"
+            alt="Eigen auto van BeeMobiel"
             fill
             className="object-cover group-hover:scale-[1.02] transition-transform duration-500"
             sizes="100vw"

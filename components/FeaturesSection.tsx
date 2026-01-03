@@ -110,8 +110,8 @@ export default function FeaturesSection() {
             isIntersecting ? 'opacity-100' : 'opacity-0'
           }`} style={{ animationDelay: '0.3s' }}>
             <Image
-              src="/images/instructor-with-female-student-at-the-driving-school-outdooors-1.jpg"
-              alt="Instructeur met leerling"
+              src="/images/DSC04029.jpg"
+              alt="Eigen auto van BeeMobiel"
               fill
                   className="object-cover group-hover:scale-[1.02] transition-transform duration-500"
               sizes="(max-width: 1024px) 100vw, 50vw"

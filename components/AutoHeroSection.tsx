@@ -11,7 +11,7 @@ export default function AutoHeroSection() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/vehicles_11zon-scaled.webp"
+          src="/images/DSC04194.jpg"
           alt="Autorijlessen"
           fill
           className="object-cover object-center"

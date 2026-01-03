@@ -10,7 +10,7 @@ export default function TipsEersteRijlesSection() {
       label="Eerste Rijles"
       title="Geen verrassingen – alleen duidelijkheid en vertrouwen."
       description="Zenuwachtig voor je eerste les? We laten je stap voor stap zien wat er gebeurt zodra je achter het stuur zit. Zo voel je je zeker voordat je begint."
-      image="/images/instructor-with-female-student-at-the-driving-school-outdooors-1.jpg"
+      image="/images/DSC03959.jpg"
       link="/tips/eerste-rijles"
       videos={eersteRijlesVideos.map(v => ({
         youtubeId: v.youtubeId,
@@ -19,3 +19,4 @@ export default function TipsEersteRijlesSection() {
     />
   )
 }
+

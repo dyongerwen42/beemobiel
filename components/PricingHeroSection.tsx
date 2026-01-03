@@ -11,8 +11,8 @@ export default function PricingHeroSection() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/home-4_11zon_11zon-scaled.webp"
-          alt="Rijlessen"
+          src="/images/DSC03883.jpg"
+          alt="Eigen auto van BeeMobiel"
           fill
           className="object-cover object-center"
           sizes="100vw"

@@ -11,7 +11,7 @@ export default function ScooterHeroSection() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/Scooter-Moped-Driving-Lessons_11zon_11zon-scaled.webp"
+          src="/images/scooter_11zon_11zon-scaled.webp"
           alt="Scooterlessen"
           fill
           className="object-cover object-center"

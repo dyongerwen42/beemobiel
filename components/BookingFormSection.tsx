@@ -168,8 +168,8 @@ export default function BookingFormSection() {
             isIntersecting ? 'animate-slide-in-left' : 'opacity-0 invisible'
           }`} style={{ animationDelay: '0.3s' }}>
             <Image
-              src="/images/instructor-with-female-student-at-the-driving-school-outdooors-1.jpg"
-              alt="Rijles boeken bij BeeMobiel"
+              src="/images/DSC03996.jpg"
+              alt="Eigen auto van BeeMobiel"
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-700"
               sizes="(max-width: 1024px) 100vw, 50vw"

@@ -47,8 +47,8 @@ export default function FAQSection() {
             isIntersecting ? 'opacity-100' : 'opacity-0'
           }`} style={{ animationDelay: '0.4s' }}>
             <Image
-              src="/images/instructor-teaching-to-park-a-car-on-the-training-2025-03-14-23-49-36-utc-scaled.jpg"
-              alt="Rijles"
+              src="/images/DSC03984.jpg"
+              alt="Eigen auto van BeeMobiel"
               fill
               className="object-cover group-hover:scale-[1.02] transition-transform duration-500"
               sizes="(max-width: 768px) 100vw, 50vw"
@@ -63,8 +63,8 @@ export default function FAQSection() {
           {/* Background image */}
           <div className="absolute inset-0 opacity-15">
             <Image
-              src="/images/instructor-with-driver-on-the-training-ground-2025-03-13-02-47-34-utc-scaled.jpg"
-              alt="Background"
+              src="/images/DSC03988.jpg"
+              alt="Eigen auto van BeeMobiel"
               fill
               className="object-cover"
               sizes="100vw"

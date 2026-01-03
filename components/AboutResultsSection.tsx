@@ -28,8 +28,8 @@ export default function AboutResultsSection() {
           }`}>
             <div className="relative h-64 sm:h-80 md:h-96 lg:h-[500px] rounded-xl overflow-hidden shadow-lg group hover:shadow-xl transition-shadow duration-300">
               <Image
-                src="/images/charming-woman-sits-behind-the-wheel-in-the-driver-2024-10-22-08-20-50-utc-scaled.jpg"
-                alt="Student achter het stuur"
+                src="/images/DSC04116.jpg"
+                alt="Eigen auto van BeeMobiel"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-500"
                 sizes="(max-width: 1024px) 100vw, 50vw"

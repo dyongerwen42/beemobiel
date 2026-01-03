@@ -76,8 +76,8 @@ export default function ContactFormSection() {
           <div className={`hidden lg:block transition-all duration-700 ${isIntersecting ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
             <div className="relative w-full h-[500px] lg:h-[600px] rounded-xl sm:rounded-2xl overflow-hidden shadow-xl group">
               <Image
-                src="/images/male-instructor-and-female-student-driving-lesson.jpg"
-                alt="Instructor helping student"
+                src="/images/DSC04005.jpg"
+                alt="Eigen auto van BeeMobiel"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
                 sizes="(max-width: 1024px) 100vw, 50vw"

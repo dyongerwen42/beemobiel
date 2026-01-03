@@ -34,8 +34,8 @@ export default function AboutStorySection() {
             isIntersecting ? 'animate-slide-in-left' : 'opacity-0'
           }`} style={{ animationDelay: '0.3s' }}>
             <Image
-              src="/images/instructor-showing-traffic-shemes-to-a-female-student-outdooors-1.jpg"
-              alt="Ons verhaal"
+              src="/images/DSC03859.jpg"
+              alt="Eigen auto van BeeMobiel"
               fill
               className="object-cover group-hover:scale-[1.02] transition-transform duration-500"
               sizes="(max-width: 1024px) 100vw, 50vw"

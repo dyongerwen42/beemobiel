@@ -15,21 +15,21 @@ const vehicleTypes = [
   {
     title: "Automatische auto's",
     description: "Voor wie het makkelijker en stressvrij wil houden.",
-    image: "/images/vehicles_11zon-scaled.webp",
+    image: "/images/DSC04096.jpg",
     link: "/tarieven/autos",
     gradient: "from-black/40 to-black/60"
   },
   {
     title: "Motoren",
     description: "Professionele motorrijlessen op veilige motorfietsen.",
-    image: "/images/motorcycle-lessons_11zon_11zon-scaled.webp",
+    image: "/images/motorcycle_11zon-scaled.webp",
     link: "/tarieven/motorfietsen",
     gradient: "from-black/40 to-black/60"
   },
   {
     title: "Scooters & Brommers",
     description: "Voor rijlessen op tweewielers met deskundige begeleiding.",
-    image: "/images/Scooter-Moped-Driving-Lessons_11zon_11zon-scaled.webp",
+    image: "/images/scooter_11zon_11zon-scaled.webp",
     link: "/tarieven/scooters",
     gradient: "from-black/40 to-black/60"
   }

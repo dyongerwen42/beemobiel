@@ -8,7 +8,7 @@ const tipsArticles = [
   {
     title: 'Basis van de Rijtheorie',
     description: 'Begrijp de regels vóór je de weg op gaat. Leer de belangrijkste verkeersregels, verkeersborden en veilige rijpraktijken. Het begrijpen van verkeersregels is essentieel voordat je begint met rijlessen. In deze sectie krijg je toegang tot zorgvuldig samengesteld lesmateriaal dat je helpt bij het leren van verkeersborden, voorrangsregels en andere belangrijke onderdelen van de verkeersveiligheid. Of je nu helemaal nieuw bent of je kennis wilt opfrissen, deze theorie helpt je om met meer vertrouwen aan je praktijkexamen te beginnen. Je leert situaties inschatten, fouten vermijden en sneller de juiste beslissingen nemen op de weg.',
-    image: '/images/instructor-showing-traffic-shemes-to-a-female-student-outdooors-1.jpg',
+    image: '/images/DSC03914.jpg',
     link: '/tips/rijtips',
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -19,7 +19,7 @@ const tipsArticles = [
   {
     title: 'Eerste Rijles',
     description: 'Geen verrassingen – alleen duidelijkheid en vertrouwen. Zenuwachtig voor je eerste les? We laten je stap voor stap zien wat er gebeurt zodra je achter het stuur zit. Zo voel je je zeker voordat je begint.',
-    image: '/images/instructor-with-female-student-at-the-driving-school-outdooors-1.jpg',
+    image: '/images/DSC03960.jpg',
     link: '/tips/eerste-rijles',
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -41,7 +41,7 @@ export default function MotorIndividualRatesSection() {
             isIntersecting ? 'animate-slide-in-left' : 'opacity-0 invisible'
           }`} style={{ animationDelay: '0.3s' }}>
             <Image
-              src="/images/motorcycle-lessons_11zon_11zon-scaled.webp"
+              src="/images/motorcycle_11zon-scaled.webp"
               alt="Motorrijlessen"
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-700"

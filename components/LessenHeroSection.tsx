@@ -14,7 +14,7 @@ export default function LessenHeroSection() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/instructor-showing-traffic-shemes-to-a-female-student-outdooors-1.jpg"
+          src="/images/DSC03960.jpg"
           alt="Rijlessen"
           fill
           className="object-cover object-center"

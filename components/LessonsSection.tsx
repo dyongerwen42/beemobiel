@@ -15,7 +15,7 @@ const lessons = [
     ],
     link: "/tarieven/autos",
     gradient: "from-black/40 to-black/60",
-    image: "/images/vehicles_11zon-scaled.webp"
+    image: "/images/DSC03849.jpg"
   },
   {
     title: "Motorfiets",
@@ -27,7 +27,7 @@ const lessons = [
     ],
     link: "/tarieven/motorfietsen",
     gradient: "from-black/40 to-black/60",
-    image: "/images/motorcycle-lessons_11zon_11zon-scaled.webp"
+    image: "/images/motorcycle_11zon-scaled.webp"
   },
   {
     title: "Scooter & Brommer",
@@ -39,7 +39,7 @@ const lessons = [
     ],
     link: "/tarieven/scooters",
     gradient: "from-black/40 to-black/60",
-    image: "/images/Scooter-Moped-Driving-Lessons_11zon_11zon-scaled.webp"
+    image: "/images/scooter_11zon_11zon-scaled.webp"
   }
 ]
 

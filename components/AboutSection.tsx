@@ -83,8 +83,8 @@ export default function AboutSection() {
             isIntersecting ? 'animate-slide-in-left' : 'opacity-0'
           }`} style={{ animationDelay: '0.75s' }}>
             <Image
-              src="/images/instructor-with-female-student-at-the-driving-school-outdooors-1.jpg"
-              alt="Instructeur met student"
+              src="/images/DSC04077.jpg"
+              alt="Eigen auto van BeeMobiel"
               fill
               className="object-cover group-hover:scale-[1.02] transition-transform duration-500"
               sizes="(max-width: 768px) 100vw, 50vw"
@@ -95,8 +95,8 @@ export default function AboutSection() {
             isIntersecting ? 'animate-slide-in-right' : 'opacity-0'
           }`} style={{ animationDelay: '0.9s' }}>
             <Image
-              src="/images/instructor-showing-traffic-shemes-to-a-female-student-outdooors-1.jpg"
-              alt="Instructeur legt uit"
+              src="/images/DSC04078.jpg"
+              alt="Eigen auto van BeeMobiel"
               fill
               className="object-cover group-hover:scale-[1.02] transition-transform duration-500"
               sizes="(max-width: 768px) 100vw, 50vw"

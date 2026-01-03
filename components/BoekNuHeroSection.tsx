@@ -14,8 +14,8 @@ export default function BoekNuHeroSection() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/home-4_11zon_11zon-scaled.webp"
-          alt="Boek je rijles bij BeeMobiel"
+          src="/images/DSC03873.jpg"
+          alt="Eigen auto van BeeMobiel"
           fill
           className="object-cover object-center"
           sizes="100vw"

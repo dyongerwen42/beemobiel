@@ -11,7 +11,7 @@ export default function MotorHeroSection() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/motorcycle-lessons_11zon_11zon-scaled.webp"
+          src="/images/motorcycle_11zon-scaled.webp"
           alt="Motorrijlessen"
           fill
           className="object-cover object-center"

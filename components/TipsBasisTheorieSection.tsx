@@ -27,7 +27,7 @@ export default function TipsBasisTheorieSection() {
             <div className="absolute -inset-1 bg-gradient-to-r from-yellow-600 via-yellow-500 to-yellow-600 rounded-3xl opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-500"></div>
             
             <Image
-              src="/images/instructor-showing-traffic-shemes-to-a-female-student-outdooors-1.jpg"
+              src="/images/DSC03944.jpg"
               alt="Rijtheorie leren"
               fill
               className="object-cover group-hover:scale-110 transition-transform duration-700"

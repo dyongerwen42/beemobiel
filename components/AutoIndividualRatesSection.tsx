@@ -43,7 +43,7 @@ export default function AutoIndividualRatesSection() {
             isIntersecting ? 'animate-slide-in-left' : 'opacity-0 invisible'
           }`} style={{ animationDelay: '0.3s' }}>
             <Image
-              src="/images/vehicles_11zon-scaled.webp"
+              src="/images/DSC04031.jpg"
               alt="Autorijlessen"
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-700"

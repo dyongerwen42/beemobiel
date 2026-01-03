@@ -37,7 +37,7 @@ export default function ScooterIndividualRatesSection() {
             isIntersecting ? 'animate-slide-in-left' : 'opacity-0 invisible'
           }`} style={{ animationDelay: '0.3s' }}>
             <Image
-              src="/images/Scooter-Moped-Driving-Lessons_11zon_11zon-scaled.webp"
+              src="/images/scooter_11zon_11zon-scaled.webp"
               alt="Scooterlessen"
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-700"

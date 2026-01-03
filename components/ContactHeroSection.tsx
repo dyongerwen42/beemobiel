@@ -12,7 +12,7 @@ export default function ContactHeroSection() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/instructor-with-female-student-at-the-driving-school-outdooors-1.jpg"
+          src="/images/DSC03967.jpg"
           alt="Contact"
           fill
           className="object-cover object-center"

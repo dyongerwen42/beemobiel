@@ -79,7 +79,7 @@ export default function AboutReviewsSection() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/instructor-with-female-student-at-the-driving-school-outdooors-1.jpg"
+          src="/images/DSC03902.jpg"
           alt="Reviews background"
           fill
           className="object-cover opacity-20"

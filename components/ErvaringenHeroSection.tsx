@@ -14,7 +14,7 @@ export default function ErvaringenHeroSection() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/instructor-with-female-student-at-the-driving-school-outdooors-1.jpg"
+          src="/images/DSC03959.jpg"
           alt="Ervaringen van leerlingen"
           fill
           className="object-cover object-center"
