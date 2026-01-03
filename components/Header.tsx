@@ -6,6 +6,10 @@ import { useState, useEffect, useRef } from 'react'
 import { usePathname } from 'next/navigation'
 
 export default function Header() {
+  // #region agent log
+  fetch('http://127.0.0.1:7244/ingest/eb7d1e0d-c4c4-45a0-a90b-aa760001dd6b',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'Header.tsx:8',message:'Component rendering',data:{isClient:typeof window!=='undefined'},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
+  // #endregion
+  
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
@@ -14,53 +18,88 @@ export default function Header() {
   const headerRef = useRef<HTMLElement>(null)
   const mobileMenuRef = useRef<HTMLDivElement>(null)
 
+  // Scroll detection using scroll event listener (more reliable than IntersectionObserver for this use case)
   useEffect(() => {
-    const threshold = 10
+    // #region agent log
+    fetch('http://127.0.0.1:7244/ingest/eb7d1e0d-c4c4-45a0-a90b-aa760001dd6b',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'Header.tsx:19',message:'useEffect entry - scroll detection',data:{},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'I'})}).catch(()=>{});
+    // #endregion
+    
+    const threshold = 10 // Show background after scrolling 10px
     let rafId: number | null = null
-    let lastScrollTop = 0
+    let ticking = false
 
     const getScrollTop = () => {
-      // Most reliable first, then fallbacks
-      const scrollingElement =
-        document.scrollingElement ?? document.documentElement ?? document.body
-      const raw =
-        scrollingElement?.scrollTop ??
-        window.scrollY ??
-        window.pageYOffset ??
-        0
-      // iOS overscroll bounce can go negative
-      return Math.max(0, raw)
+      if (typeof window === 'undefined') return 0
+      const scrollingElement = document.scrollingElement || document.documentElement || document.body
+      return Math.max(0, scrollingElement?.scrollTop ?? window.scrollY ?? window.pageYOffset ?? 0)
     }
 
-    const update = () => {
-      rafId = null
+    const updateScrollState = () => {
+      ticking = false
       const scrollTop = getScrollTop()
+      const shouldBeScrolled = scrollTop > threshold
+      
+      // #region agent log
+      fetch('http://127.0.0.1:7244/ingest/eb7d1e0d-c4c4-45a0-a90b-aa760001dd6b',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'Header.tsx:35',message:'Scroll state update',data:{scrollTop,threshold,shouldBeScrolled},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'I'})}).catch(()=>{});
+      // #endregion
 
-      // Optional dev log: detect "scrolling down"
-      if (process.env.NODE_ENV !== 'production' && scrollTop > lastScrollTop) {
-        console.log('⬇️ scrolling down', { scrollTop })
+      setIsScrolled(prev => {
+        if (prev !== shouldBeScrolled) {
+          // #region agent log
+          fetch('http://127.0.0.1:7244/ingest/eb7d1e0d-c4c4-45a0-a90b-aa760001dd6b',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'Header.tsx:42',message:'State change',data:{prev,new:shouldBeScrolled,scrollTop},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'I'})}).catch(()=>{});
+          // #endregion
+          console.log('🔄 Changing isScrolled:', prev, '->', shouldBeScrolled, '| scrollTop:', scrollTop)
+          return shouldBeScrolled
+        }
+        return prev
+      })
+    }
+
+    const handleScroll = () => {
+      // #region agent log
+      fetch('http://127.0.0.1:7244/ingest/eb7d1e0d-c4c4-45a0-a90b-aa760001dd6b',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'Header.tsx:50',message:'handleScroll called',data:{ticking,scrollY:window.scrollY,scrollTop:document.documentElement.scrollTop},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'J'})}).catch(()=>{});
+      // #endregion
+      
+      if (!ticking) {
+        rafId = window.requestAnimationFrame(() => {
+          updateScrollState()
+          ticking = false
+        })
+        ticking = true
       }
-      lastScrollTop = scrollTop
-
-      // Background must be OFF when you're back at the very top.
-      // Use a tiny epsilon for sub-pixel/rounding edge cases.
-      const atTop = scrollTop <= 1
-      setIsScrolled(!atTop && scrollTop > threshold)
     }
 
-    const onScroll = () => {
-      if (rafId !== null) return
-      rafId = window.requestAnimationFrame(update)
-    }
+    // Initial state check
+    // #region agent log
+    fetch('http://127.0.0.1:7244/ingest/eb7d1e0d-c4c4-45a0-a90b-aa760001dd6b',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'Header.tsx:64',message:'Initial scroll check',data:{windowHeight:window.innerHeight,documentHeight:document.documentElement.scrollHeight,bodyHeight:document.body.scrollHeight},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'J'})}).catch(()=>{});
+    // #endregion
+    updateScrollState()
 
-    // Initial state
-    update()
-
-    window.addEventListener('scroll', onScroll, { passive: true })
+    // Add scroll listener
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    // #region agent log
+    fetch('http://127.0.0.1:7244/ingest/eb7d1e0d-c4c4-45a0-a90b-aa760001dd6b',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'Header.tsx:71',message:'Scroll listener added to window',data:{},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'J'})}).catch(()=>{});
+    // #endregion
+    
+    // Also check on resize
+    window.addEventListener('resize', handleScroll, { passive: true })
+    
+    // Test: manually trigger handleScroll after 2 seconds to see if it works
+    const testTimeout = setTimeout(() => {
+      // #region agent log
+      fetch('http://127.0.0.1:7244/ingest/eb7d1e0d-c4c4-45a0-a90b-aa760001dd6b',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'Header.tsx:79',message:'Manual test trigger',data:{scrollY:window.scrollY,documentScrollTop:document.documentElement.scrollTop},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'J'})}).catch(()=>{});
+      // #endregion
+      handleScroll()
+    }, 2000)
 
     return () => {
-      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('resize', handleScroll)
+      clearTimeout(testTimeout)
       if (rafId !== null) window.cancelAnimationFrame(rafId)
+      // #region agent log
+      fetch('http://127.0.0.1:7244/ingest/eb7d1e0d-c4c4-45a0-a90b-aa760001dd6b',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'Header.tsx:87',message:'Scroll listeners cleaned up',data:{},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'I'})}).catch(()=>{});
+      // #endregion
     }
   }, [])
 
