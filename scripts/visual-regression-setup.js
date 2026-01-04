@@ -147,3 +147,6 @@ console.log('📝 Run: npm install && npx playwright install')
 console.log('🎭 Run tests: npm run test:visual')
 console.log('📸 Update snapshots: npm run test:visual:update')
 
+
+
+

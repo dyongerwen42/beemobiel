@@ -244,3 +244,6 @@ const errorMessage = "mt-1.5 text-sm text-red-600 flex items-start gap-1"
 - **Error handling gap** kritiek probleem gevonden
 - **4 gestandaardiseerde** componenten gedefinieerd
 
+
+
+

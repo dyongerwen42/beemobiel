@@ -2,3 +2,6 @@
 # For Next.js, robots.txt is handled by app/robots.ts
 
 
+
+
+

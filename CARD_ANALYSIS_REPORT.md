@@ -279,3 +279,6 @@ const premiumTransition = "transition-all duration-500"
 - **4 gestandaardiseerde** card types gedefinieerd
 - **Padding complexity** als grootste probleem geïdentificeerd
 
+
+
+

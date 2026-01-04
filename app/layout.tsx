@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import JsonLd from '@/components/JsonLd'
+import FloatingCallButton from '@/components/FloatingCallButton'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -317,7 +318,10 @@ export default function RootLayout({
         <JsonLd data={organizationJsonLd} />
         <JsonLd data={localBusinessJsonLd} />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        {children}
+        <FloatingCallButton />
+      </body>
     </html>
   )
 }

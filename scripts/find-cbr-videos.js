@@ -28,3 +28,6 @@ Object.entries(videoCategories).forEach(([category, data]) => {
   console.log(`  Zoektermen: ${data.keywords.join(', ')}`)
 })
 
+
+
+

@@ -81,3 +81,6 @@ async function scrapeAll() {
 
 scrapeAll();
 
+
+
+
