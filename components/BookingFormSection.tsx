@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { useState, useCallback, useRef } from 'react'
+import { useState, useCallback, useRef, useEffect } from 'react'
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver'
 
 export default function BookingFormSection() {
@@ -10,6 +10,7 @@ export default function BookingFormSection() {
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [errors, setErrors] = useState<Record<string, string>>({})
   const formRef = useRef<HTMLFormElement>(null)
+  const resetTimeoutRef = useRef<NodeJS.Timeout | null>(null)
   
   const [formData, setFormData] = useState({
     name: '',
@@ -138,8 +139,13 @@ export default function BookingFormSection() {
       setErrors({})
       setSubmitStatus('success')
       
+      // Clear any existing timeout
+      if (resetTimeoutRef.current) {
+        clearTimeout(resetTimeoutRef.current)
+      }
+      
       // Reset form after 3 seconds
-      setTimeout(() => {
+      resetTimeoutRef.current = setTimeout(() => {
         setFormData({
           name: '',
           email: '',
@@ -151,17 +157,31 @@ export default function BookingFormSection() {
           agree: false
         })
         setSubmitStatus('idle')
+        resetTimeoutRef.current = null
       }, 3000)
     } catch (error) {
       // Handle error
       setSubmitStatus('error')
+      // Log error for debugging (only in development)
+      if (process.env.NODE_ENV === 'development') {
+        console.error('Form submission error:', error)
+      }
     } finally {
       setIsSubmitting(false)
     }
   }, [formData, validateForm])
 
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (resetTimeoutRef.current) {
+        clearTimeout(resetTimeoutRef.current)
+      }
+    }
+  }, [])
+
   return (
-    <section ref={ref} className="py-6 sm:py-10 md:py-14 lg:py-16 xl:py-20 bg-white relative overflow-hidden">
+    <section ref={ref} className="py-6 sm:py-10 md:py-14 lg:py-16 bg-white relative overflow-hidden">
       <div className="w-full max-w-7xl mx-auto px-3 sm:px-4 md:px-5 lg:px-6 xl:px-8">
         {/* Header */}
         <div className={`text-center mb-6 sm:mb-8 md:mb-12 lg:mb-16 ${
@@ -177,7 +197,7 @@ export default function BookingFormSection() {
         {/* Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5 md:gap-6 lg:gap-8 xl:gap-10 items-start">
           {/* Image */}
-          <div className={`relative h-48 sm:h-56 md:h-72 lg:h-[600px] rounded-lg sm:rounded-xl md:rounded-2xl overflow-hidden shadow-lg group order-2 lg:order-1 ${
+          <div className={`relative h-48 sm:h-56 md:h-72 lg:h-[500px] rounded-xl sm:rounded-2xl overflow-hidden shadow-xl group order-2 lg:order-1 ${
             isIntersecting ? 'animate-slide-in-left' : 'opacity-0 invisible'
           }`} style={{ animationDelay: '0.3s' }}>
             <Image
@@ -193,7 +213,7 @@ export default function BookingFormSection() {
           </div>
           
           {/* Form */}
-          <div className={`bg-white rounded-lg sm:rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-6 lg:p-8 xl:p-10 shadow-lg border-2 border-gray-100 hover:border-yellow-400/50 transition-all duration-500 order-1 lg:order-2 ${
+          <div className={`bg-white rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 lg:p-8 xl:p-10 shadow-xl border-2 border-gray-100 hover:border-yellow-400/50 transition-all duration-500 order-1 lg:order-2 ${
             isIntersecting ? 'animate-slide-in-right' : 'opacity-0 invisible'
           }`} style={{ animationDelay: '0.45s' }}>
             <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-gray-900 mb-1.5 sm:mb-2 md:mb-3 lg:mb-4 text-premium-yellow">
@@ -235,7 +255,7 @@ export default function BookingFormSection() {
             
             <form ref={formRef} onSubmit={handleSubmit} className="space-y-2.5 sm:space-y-3 md:space-y-4" noValidate>
               <div>
-                <label htmlFor="name" className="block text-xs sm:text-sm md:text-base font-semibold text-gray-800 mb-1 sm:mb-1.5">
+                <label htmlFor="name" className="block text-sm sm:text-base font-semibold text-gray-900 mb-2">
                   Volledige naam <span className="text-yellow-600" aria-label="verplicht veld">*</span>
                 </label>
                 <input
@@ -247,8 +267,8 @@ export default function BookingFormSection() {
                   onChange={handleChange}
                   aria-invalid={!!errors.name}
                   aria-describedby={errors.name ? 'name-error' : undefined}
-                  className={`w-full px-3 sm:px-4 md:px-5 py-2.5 sm:py-3 md:py-3.5 border rounded-lg sm:rounded-xl focus:ring-2 focus:ring-yellow-600 focus:border-yellow-600 transition-all duration-200 text-sm sm:text-base bg-white ${
-                    errors.name ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : 'border-gray-300'
+                  className={`w-full px-4 sm:px-5 py-3 sm:py-4 border-2 rounded-xl focus:ring-2 focus:ring-yellow-600 focus:border-yellow-600 transition-all duration-200 text-sm sm:text-base ${
+                    errors.name ? 'border-red-500 focus:border-red-500 focus:ring-red-500 bg-red-50 focus:bg-white' : 'border-gray-200 bg-gray-50 focus:bg-white'
                   }`}
                   placeholder="Bijv. Jan Jansen"
                 />
@@ -260,7 +280,7 @@ export default function BookingFormSection() {
               </div>
               
               <div>
-                <label htmlFor="email" className="block text-xs sm:text-sm md:text-base font-semibold text-gray-800 mb-1 sm:mb-1.5">
+                <label htmlFor="email" className="block text-sm sm:text-base font-semibold text-gray-900 mb-2">
                   E-mailadres <span className="text-yellow-600" aria-label="verplicht veld">*</span>
                 </label>
                 <input
@@ -273,8 +293,8 @@ export default function BookingFormSection() {
                   aria-invalid={!!errors.email}
                   aria-describedby={errors.email ? 'email-error' : undefined}
                   autoComplete="email"
-                  className={`w-full px-3 sm:px-4 md:px-5 py-2.5 sm:py-3 md:py-3.5 border rounded-lg sm:rounded-xl focus:ring-2 focus:ring-yellow-600 focus:border-yellow-600 transition-all duration-200 text-sm sm:text-base bg-white ${
-                    errors.email ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : 'border-gray-300'
+                  className={`w-full px-4 sm:px-5 py-3 sm:py-4 border-2 rounded-xl focus:ring-2 focus:ring-yellow-600 focus:border-yellow-600 transition-all duration-200 text-sm sm:text-base ${
+                    errors.email ? 'border-red-500 focus:border-red-500 focus:ring-red-500 bg-red-50 focus:bg-white' : 'border-gray-200 bg-gray-50 focus:bg-white'
                   }`}
                   placeholder="bijv. jan@voorbeeld.nl"
                 />
@@ -286,7 +306,7 @@ export default function BookingFormSection() {
               </div>
               
               <div>
-                <label htmlFor="phone" className="block text-xs sm:text-sm md:text-base font-semibold text-gray-800 mb-1 sm:mb-1.5">
+                <label htmlFor="phone" className="block text-sm sm:text-base font-semibold text-gray-900 mb-2">
                   Telefoonnummer <span className="text-yellow-600" aria-label="verplicht veld">*</span>
                 </label>
                 <input
@@ -299,8 +319,8 @@ export default function BookingFormSection() {
                   aria-invalid={!!errors.phone}
                   aria-describedby={errors.phone ? 'phone-error' : undefined}
                   autoComplete="tel"
-                  className={`w-full px-3 sm:px-4 md:px-5 py-2.5 sm:py-3 md:py-3.5 border rounded-lg sm:rounded-xl focus:ring-2 focus:ring-yellow-600 focus:border-yellow-600 transition-all duration-200 text-sm sm:text-base bg-white ${
-                    errors.phone ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : 'border-gray-300'
+                  className={`w-full px-4 sm:px-5 py-3 sm:py-4 border-2 rounded-xl focus:ring-2 focus:ring-yellow-600 focus:border-yellow-600 transition-all duration-200 text-sm sm:text-base ${
+                    errors.phone ? 'border-red-500 focus:border-red-500 focus:ring-red-500 bg-red-50 focus:bg-white' : 'border-gray-200 bg-gray-50 focus:bg-white'
                   }`}
                   placeholder="06 12 34 56 78"
                   maxLength={15}
@@ -424,7 +444,7 @@ export default function BookingFormSection() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-3 sm:py-3.5 md:py-4 lg:py-5 bg-yellow-600 text-gray-900 font-bold rounded-lg sm:rounded-xl md:rounded-2xl text-sm sm:text-base md:text-lg uppercase tracking-wide hover:bg-yellow-700 disabled:bg-yellow-400 disabled:cursor-not-allowed transition-all duration-300 shadow-lg hover:shadow-xl active:scale-[0.98] transform"
+                className="w-full px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 bg-yellow-600 text-gray-900 font-bold rounded-xl text-sm sm:text-base uppercase tracking-wide hover:bg-yellow-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-all duration-300 shadow-lg hover:shadow-xl"
               >
                 {isSubmitting ? (
                   <span className="flex items-center justify-center gap-2">

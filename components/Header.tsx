@@ -59,8 +59,8 @@ export default function Header() {
     window.addEventListener('resize', handleScroll, { passive: true })
 
     return () => {
-      window.removeEventListener('scroll', handleScroll)
-      window.removeEventListener('resize', handleScroll)
+      window.removeEventListener('scroll', handleScroll, { passive: true } as EventListenerOptions)
+      window.removeEventListener('resize', handleScroll, { passive: true } as EventListenerOptions)
       if (rafId !== null) window.cancelAnimationFrame(rafId)
     }
   }, [])
@@ -138,13 +138,25 @@ export default function Header() {
     return pathname?.startsWith(href)
   }
 
+  // Check if current page should always have header background (dark hero sections)
+  const shouldAlwaysHaveBackground = pathname?.startsWith('/tips') || 
+                                     pathname?.startsWith('/contact') ||
+                                     pathname?.startsWith('/over-ons') ||
+                                     pathname?.startsWith('/tarieven') ||
+                                     pathname?.startsWith('/lessen') ||
+                                     pathname?.startsWith('/ervaringen') ||
+                                     pathname?.startsWith('/faq') ||
+                                     pathname?.startsWith('/boek-nu') ||
+                                     pathname?.startsWith('/voorwaarden') ||
+                                     pathname?.startsWith('/hoe-je-je-rijbewijs-haalt')
+
   return (
     <>
       <header 
         ref={headerRef}
         data-scrolled={isScrolled ? 'true' : 'false'}
         className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-300 ${
-          isScrolled
+          isScrolled || shouldAlwaysHaveBackground
             ? 'header-scrolled shadow-xl border-b border-yellow-600/20'
             : 'bg-transparent'
         }`}

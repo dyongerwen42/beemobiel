@@ -178,7 +178,7 @@ export default function AllPricingSection() {
                     
                     <Link 
                       href={pkg.link}
-                      className={`w-full py-3 sm:py-4 md:py-5 px-5 sm:px-6 md:px-8 rounded-xl font-bold text-center transition-all duration-300 shadow-lg hover:shadow-xl text-sm sm:text-base group/btn uppercase tracking-wide ${
+                      className={`w-full px-5 sm:px-6 md:px-8 py-3 sm:py-4 md:py-5 rounded-xl font-bold text-center transition-all duration-300 shadow-lg hover:shadow-xl text-sm sm:text-base group/btn uppercase tracking-wide ${
                         pkg.popular
                           ? 'bg-yellow-600 text-gray-900 hover:bg-yellow-700'
                           : 'bg-gray-900 text-white hover:bg-gray-800'

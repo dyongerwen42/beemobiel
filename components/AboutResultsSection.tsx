@@ -21,12 +21,12 @@ export default function AboutResultsSection() {
   return (
     <section ref={ref} className="py-6 sm:py-10 md:py-14 lg:py-16 bg-white relative overflow-hidden">
       <div className="w-full max-w-7xl mx-auto px-3 sm:px-4 md:px-5 lg:px-6 xl:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 items-stretch">
           {/* Left Side - Image */}
           <div className={`relative transition-opacity duration-700 ${
             isIntersecting ? 'opacity-100' : 'opacity-0'
           }`}>
-            <div className="relative h-64 sm:h-80 md:h-96 lg:h-[500px] rounded-xl overflow-hidden shadow-lg group hover:shadow-xl transition-shadow duration-300">
+            <div className="relative w-full h-64 sm:h-80 md:h-96 lg:h-[500px] rounded-xl overflow-hidden shadow-xl group hover:shadow-2xl transition-shadow duration-300">
               <Image
                 src="/images/DSC04116.jpg"
                 alt="Eigen auto van BeeMobiel"
@@ -39,7 +39,7 @@ export default function AboutResultsSection() {
           </div>
 
           {/* Right Side - Content */}
-          <div className={`space-y-6 sm:space-y-8 transition-opacity duration-700 ${
+          <div className={`space-y-6 sm:space-y-8 transition-opacity duration-700 flex flex-col lg:min-h-[500px] ${
             isIntersecting ? 'opacity-100' : 'opacity-0'
           }`} style={{ animationDelay: '0.2s' }}>
             <div>

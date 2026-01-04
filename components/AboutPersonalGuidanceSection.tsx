@@ -10,27 +10,98 @@ export default function AboutPersonalGuidanceSection() {
   const [count, setCount] = useState(0)
   const [hasAnimated, setHasAnimated] = useState(false)
 
+  // #region agent log
   useEffect(() => {
+    fetch('http://127.0.0.1:7244/ingest/eb7d1e0d-c4c4-45a0-a90b-aa760001dd6b',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'AboutPersonalGuidanceSection.tsx:9',message:'Component render',data:{isIntersecting,hasAnimated,count},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
+  }, [isIntersecting, hasAnimated, count]);
+  // #endregion
+
+  useEffect(() => {
+    // #region agent log
+    fetch('http://127.0.0.1:7244/ingest/eb7d1e0d-c4c4-45a0-a90b-aa760001dd6b',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'AboutPersonalGuidanceSection.tsx:13',message:'useEffect entry',data:{isIntersecting,hasAnimated,condition:isIntersecting && !hasAnimated},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'B'})}).catch(()=>{});
+    // #endregion
+    
     if (isIntersecting && !hasAnimated) {
+      // #region agent log
+      fetch('http://127.0.0.1:7244/ingest/eb7d1e0d-c4c4-45a0-a90b-aa760001dd6b',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'AboutPersonalGuidanceSection.tsx:15',message:'Starting counter animation',data:{isIntersecting,hasAnimated},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'C'})}).catch(()=>{});
+      // #endregion
+      
       setHasAnimated(true)
       const duration = 2000
-      const steps = 50
-      const increment = 100 / steps
+      const steps = 60
+      const targetValue = 300
+      const increment = targetValue / steps
       const stepDuration = duration / steps
+
+      // #region agent log
+      fetch('http://127.0.0.1:7244/ingest/eb7d1e0d-c4c4-45a0-a90b-aa760001dd6b',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'AboutPersonalGuidanceSection.tsx:24',message:'Timer setup',data:{duration,steps,targetValue,increment,stepDuration},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'D'})}).catch(()=>{});
+      // #endregion
 
       let currentStep = 0
       const timer = setInterval(() => {
         currentStep++
-        setCount(Math.min(Math.round(currentStep * increment), 100))
-        if (currentStep >= steps) {
+        const newValue = Math.min(Math.round(currentStep * increment), targetValue)
+        
+        // #region agent log
+        fetch('http://127.0.0.1:7244/ingest/eb7d1e0d-c4c4-45a0-a90b-aa760001dd6b',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'AboutPersonalGuidanceSection.tsx:30',message:'Timer tick',data:{currentStep,newValue,targetValue},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'E'})}).catch(()=>{});
+        // #endregion
+        
+        setCount(newValue)
+        if (currentStep >= steps || newValue >= targetValue) {
+          // #region agent log
+          fetch('http://127.0.0.1:7244/ingest/eb7d1e0d-c4c4-45a0-a90b-aa760001dd6b',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'AboutPersonalGuidanceSection.tsx:35',message:'Timer complete',data:{currentStep,newValue,targetValue},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'E'})}).catch(()=>{});
+          // #endregion
+          
           clearInterval(timer)
-          setCount(100)
+          setCount(targetValue)
         }
       }, stepDuration)
 
-      return () => clearInterval(timer)
+      return () => {
+        // #region agent log
+        fetch('http://127.0.0.1:7244/ingest/eb7d1e0d-c4c4-45a0-a90b-aa760001dd6b',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'AboutPersonalGuidanceSection.tsx:42',message:'Cleanup timer',data:{},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'F'})}).catch(()=>{});
+        // #endregion
+        clearInterval(timer)
+      }
     }
   }, [isIntersecting, hasAnimated])
+
+  // Fallback: start animation after a delay if intersection observer doesn't trigger
+  useEffect(() => {
+    // #region agent log
+    fetch('http://127.0.0.1:7244/ingest/eb7d1e0d-c4c4-45a0-a90b-aa760001dd6b',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'AboutPersonalGuidanceSection.tsx:48',message:'Fallback useEffect entry',data:{hasAnimated,count,condition:!hasAnimated && count === 0},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'G'})}).catch(()=>{});
+    // #endregion
+    
+    if (!hasAnimated && count === 0) {
+      const fallbackTimer = setTimeout(() => {
+        // #region agent log
+        fetch('http://127.0.0.1:7244/ingest/eb7d1e0d-c4c4-45a0-a90b-aa760001dd6b',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'AboutPersonalGuidanceSection.tsx:51',message:'Fallback timer fired',data:{hasAnimated},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'G'})}).catch(()=>{});
+        // #endregion
+        
+        if (!hasAnimated) {
+          setHasAnimated(true)
+          const duration = 2000
+          const steps = 60
+          const targetValue = 300
+          const increment = targetValue / steps
+          const stepDuration = duration / steps
+
+          let currentStep = 0
+          const timer = setInterval(() => {
+            currentStep++
+            const newValue = Math.min(Math.round(currentStep * increment), targetValue)
+            setCount(newValue)
+            if (currentStep >= steps || newValue >= targetValue) {
+              clearInterval(timer)
+              setCount(targetValue)
+            }
+          }, stepDuration)
+        }
+      }, 1000)
+
+      return () => clearTimeout(fallbackTimer)
+    }
+  }, [hasAnimated, count])
 
   const features = [
     'Ervaren, begripvolle instructeurs',
@@ -45,12 +116,12 @@ export default function AboutPersonalGuidanceSection() {
   return (
     <section ref={ref} className="py-6 sm:py-10 md:py-14 lg:py-16 bg-white relative overflow-hidden">
       <div className="w-full max-w-7xl mx-auto px-3 sm:px-4 md:px-5 lg:px-6 xl:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 items-stretch">
           {/* Left Side - Images */}
           <div className={`relative transition-opacity duration-700 ${
             isIntersecting ? 'opacity-100' : 'opacity-0'
           }`}>
-            <div className="relative h-64 sm:h-80 md:h-96 lg:h-[500px] rounded-xl overflow-hidden shadow-lg">
+            <div className="relative w-full h-64 sm:h-80 md:h-96 lg:h-[500px] rounded-xl overflow-hidden shadow-xl">
               <Image
                 src="/images/DSC04051.jpg"
                 alt="Eigen auto van BeeMobiel"
@@ -74,12 +145,12 @@ export default function AboutPersonalGuidanceSection() {
           </div>
 
           {/* Right Side - Content */}
-          <div className={`space-y-8 sm:space-y-10 transition-opacity duration-700 ${
+          <div className={`space-y-8 sm:space-y-10 transition-opacity duration-700 flex flex-col lg:min-h-[500px] ${
             isIntersecting ? 'opacity-100' : 'opacity-0'
           }`} style={{ animationDelay: '0.2s' }}>
-            <div className="inline-flex items-center px-2.5 sm:px-3 md:px-3.5 py-1 sm:py-1.5 md:py-1.5 bg-gray-100/90 backdrop-blur-sm rounded-full mb-2.5 sm:mb-3 md:mb-4 border border-gray-200/60 shadow-md">
-              <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-gray-600 rounded-full mr-1.5 sm:mr-2"></div>
-              <p className="text-gray-700 uppercase font-bold text-xs sm:text-sm tracking-wider">Over ons</p>
+            <div className="inline-flex items-center px-2.5 sm:px-3 md:px-3.5 py-1 sm:py-1.5 md:py-1.5 bg-yellow-50/90 backdrop-blur-sm rounded-full mb-2.5 sm:mb-3 md:mb-4 border border-yellow-200/60 shadow-md">
+              <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-yellow-600 rounded-full mr-1.5 sm:mr-2 animate-pulse"></div>
+              <p className="text-yellow-700 uppercase font-bold text-xs sm:text-sm tracking-wider">Over ons</p>
             </div>
 
             <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-900 leading-tight">

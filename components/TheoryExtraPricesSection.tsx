@@ -21,9 +21,9 @@ export default function TheoryExtraPricesSection() {
       </div>
 
       <div className="w-full max-w-7xl mx-auto px-3 sm:px-4 md:px-5 lg:px-6 xl:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 items-stretch">
           {/* Text Content */}
-          <div className={`${isIntersecting ? 'opacity-100' : 'opacity-0'} transition-opacity duration-700`}>
+          <div className={`flex flex-col lg:min-h-[500px] ${isIntersecting ? 'opacity-100' : 'opacity-0'} transition-opacity duration-700`}>
             <div className="inline-flex items-center px-2.5 sm:px-3 md:px-3.5 py-1 sm:py-1.5 md:py-1.5 bg-yellow-50/90 backdrop-blur-sm rounded-full mb-1.5 sm:mb-2 md:mb-2.5 border border-yellow-200/60 shadow-md">
               <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-yellow-600 rounded-full mr-1.5 sm:mr-2 animate-pulse"></div>
               <p className="text-yellow-700 uppercase font-bold text-xs sm:text-sm tracking-wider">

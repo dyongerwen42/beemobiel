@@ -34,7 +34,7 @@ export default function FeaturesSection() {
           {features.map((feature, index) => (
             <div 
               key={index} 
-              className={`group relative bg-white rounded-2xl p-6 sm:p-8 md:p-10 lg:p-12 premium-shadow hover-lift-premium transition-all duration-500 border border-gray-100 hover:border-yellow-300 overflow-hidden transition-opacity duration-700 ${
+              className={`group relative bg-white rounded-2xl p-6 sm:p-8 md:p-10 lg:p-10 premium-shadow hover-lift-premium transition-all duration-500 border border-gray-100 hover:border-yellow-300 overflow-hidden transition-opacity duration-700 ${
                 isIntersecting ? 'opacity-100' : 'opacity-0'
               }`}
               style={{ animationDelay: `${index * 0.1 + 0.1}s` }}
@@ -44,8 +44,8 @@ export default function FeaturesSection() {
               
               {/* Icon */}
               <div className="relative mb-4 sm:mb-6 md:mb-8 transition-opacity duration-700" style={{ animationDelay: `${index * 0.1 + 0.15}s`, opacity: isIntersecting ? 1 : 0 }}>
-                <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 rounded-xl bg-yellow-50 border-2 border-yellow-200 p-3 sm:p-4 md:p-5 flex items-center justify-center transform group-hover:scale-105 transition-all duration-300 premium-shadow">
-                  <svg className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-10 lg:h-10 text-yellow-700 transform group-hover:scale-105 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-16 lg:h-16 rounded-xl bg-yellow-50 border-2 border-yellow-200 p-3 sm:p-4 md:p-5 flex items-center justify-center transform group-hover:scale-105 transition-all duration-300 premium-shadow">
+                  <svg className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-8 lg:h-8 text-yellow-700 transform group-hover:scale-105 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     {index === 0 ? (
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     ) : (
@@ -78,14 +78,14 @@ export default function FeaturesSection() {
         </div>
         
         {/* Third feature with image */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 items-center">
-          <div className={`relative bg-gray-900 rounded-2xl p-6 sm:p-8 md:p-10 lg:p-12 premium-shadow hover-lift-premium transition-all duration-500 overflow-hidden group order-2 lg:order-1 border-2 border-yellow-600/30 transition-opacity duration-700 ${
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 items-stretch">
+          <div className={`relative bg-gray-900 rounded-2xl p-6 sm:p-8 md:p-10 lg:p-10 premium-shadow hover-lift-premium transition-all duration-500 overflow-hidden group order-2 lg:order-1 border-2 border-yellow-600/30 transition-opacity duration-700 flex flex-col lg:min-h-[500px] ${
             isIntersecting ? 'opacity-100' : 'opacity-0'
           }`} style={{ animationDelay: '0.3s' }}>
             
-            <div className="relative z-10">
-              <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 bg-yellow-600/20 border-2 border-yellow-600/40 rounded-xl p-3 sm:p-4 md:p-5 mb-4 sm:mb-6 md:mb-8 transform group-hover:scale-105 transition-all duration-300 flex items-center justify-center premium-glow">
-                <svg className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-10 lg:h-10 text-yellow-600 transform group-hover:scale-105 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="relative z-10 flex flex-col flex-grow">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-16 lg:h-16 bg-yellow-600/20 border-2 border-yellow-600/40 rounded-xl p-3 sm:p-4 md:p-5 mb-4 sm:mb-6 md:mb-8 transform group-hover:scale-105 transition-all duration-300 flex items-center justify-center premium-glow">
+                <svg className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-8 lg:h-8 text-yellow-600 transform group-hover:scale-105 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
               </div>

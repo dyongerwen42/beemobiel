@@ -72,7 +72,7 @@ export default function AutoPricingSection() {
             <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-yellow-600 rounded-full mr-1.5 sm:mr-2 animate-pulse"></div>
             <p className="text-yellow-700 uppercase font-bold text-xs sm:text-sm tracking-wider">Auto Lespakketten</p>
           </div>
-          <h2 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-gray-900 mb-4 sm:mb-6 md:mb-8 leading-tight px-4 transition-opacity duration-700 ${isIntersecting ? 'opacity-100' : 'opacity-0'}`} style={{ animationDelay: '0.1s' }}>
+          <h2 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl font-black text-gray-900 mb-4 sm:mb-6 md:mb-8 leading-tight px-4 transition-opacity duration-700 ${isIntersecting ? 'opacity-100' : 'opacity-0'}`} style={{ animationDelay: '0.1s' }}>
             Auto Lespakketten
           </h2>
         </div>
@@ -82,7 +82,7 @@ export default function AutoPricingSection() {
           {autoPackages.map((pkg, index) => (
             <div
               key={index}
-              className={`relative bg-white rounded-xl sm:rounded-2xl p-7 sm:p-8 md:p-9 lg:p-10 shadow-lg hover:shadow-xl transition-all duration-500 border-2 w-full max-w-[380px] lg:max-w-[380px] ${
+              className={`relative bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-10 lg:p-12 shadow-lg hover:shadow-xl transition-all duration-300 border-2 w-full max-w-[380px] lg:max-w-[380px] ${
                 pkg.popular 
                   ? 'border-yellow-600 ring-4 ring-yellow-100/50 scale-[1.02] shadow-xl shadow-yellow-600/20' 
                   : 'border-gray-200 hover:border-yellow-400'

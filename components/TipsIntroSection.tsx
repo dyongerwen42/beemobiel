@@ -20,9 +20,9 @@ export default function TipsIntroSection() {
       </div>
 
       <div className="w-full max-w-7xl mx-auto px-3 sm:px-4 md:px-5 lg:px-6 xl:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-16 md:gap-20 lg:gap-24 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-16 md:gap-20 lg:gap-16 items-stretch">
           {/* Enhanced Image Column with Premium Effects */}
-          <div className={`relative h-64 sm:h-80 md:h-96 lg:h-[700px] rounded-3xl overflow-hidden shadow-2xl group transition-all duration-1000 ${isIntersecting ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
+          <div className={`relative h-64 sm:h-80 md:h-96 lg:h-[500px] rounded-3xl overflow-hidden shadow-2xl group transition-all duration-1000 ${isIntersecting ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
             {/* Enhanced Glow Effect */}
             <div className="absolute -inset-2 bg-gradient-to-r from-yellow-600 via-yellow-500 to-yellow-600 rounded-3xl opacity-0 group-hover:opacity-30 blur-2xl transition-opacity duration-700"></div>
             <div className="absolute -inset-1 bg-gradient-to-br from-yellow-400/20 to-yellow-600/20 rounded-3xl opacity-50 blur-xl"></div>
@@ -49,7 +49,7 @@ export default function TipsIntroSection() {
           </div>
 
           {/* Content Column */}
-          <div className={`transition-all duration-1000 ${isIntersecting ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
+          <div className={`transition-all duration-1000 flex flex-col lg:min-h-[500px] ${isIntersecting ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
             {/* Enhanced Badge */}
             <div className="inline-flex items-center px-5 py-2.5 bg-gradient-to-r from-yellow-50 via-yellow-100/90 to-yellow-50 backdrop-blur-md rounded-full mb-5 sm:mb-7 border-2 border-yellow-300/50 shadow-lg group/badge hover:shadow-xl transition-all duration-300">
               <div className="w-2.5 h-2.5 bg-gradient-to-br from-yellow-600 to-yellow-500 rounded-full mr-3 animate-pulse shadow-md shadow-yellow-600/50"></div>

@@ -1,3 +1,4 @@
 # This file redirects to the main robots.txt
 # For Next.js, robots.txt is handled by app/robots.ts
 
+

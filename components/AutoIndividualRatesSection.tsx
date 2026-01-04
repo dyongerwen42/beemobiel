@@ -37,7 +37,7 @@ export default function AutoIndividualRatesSection() {
         </div>
         
         {/* Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-16 items-stretch">
           {/* Image */}
           <div className={`relative h-64 sm:h-80 md:h-96 lg:h-[500px] rounded-xl sm:rounded-2xl overflow-hidden shadow-xl group ${
             isIntersecting ? 'animate-slide-in-left' : 'opacity-0 invisible'
@@ -54,7 +54,7 @@ export default function AutoIndividualRatesSection() {
           </div>
           
           {/* Rates Table */}
-          <div className={`bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-10 lg:p-12 xl:p-14 shadow-xl border-2 border-gray-100 hover:border-yellow-400/50 transition-all duration-500 ${
+          <div className={`bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-10 lg:p-12 xl:p-14 shadow-xl border-2 border-gray-100 hover:border-yellow-400/50 transition-all duration-500 flex flex-col lg:min-h-[500px] ${
             isIntersecting ? 'animate-slide-in-right' : 'opacity-0 invisible'
           }`} style={{ animationDelay: '0.45s' }}>
             <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-6 sm:mb-8 md:mb-10 text-center text-premium-yellow">Losse Tarieven</h3>

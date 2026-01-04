@@ -28,9 +28,9 @@ export default function AboutStorySection() {
         </div>
         
         {/* Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 items-center mb-8 sm:mb-12 md:mb-16 lg:mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 items-stretch mb-8 sm:mb-12 md:mb-16 lg:mb-20">
           {/* Image */}
-          <div className={`relative h-64 sm:h-80 md:h-96 lg:h-[500px] rounded-xl overflow-hidden shadow-lg group hover:shadow-xl transition-all duration-300 ${
+          <div className={`relative h-64 sm:h-80 md:h-96 lg:h-[500px] rounded-xl overflow-hidden shadow-xl group hover:shadow-2xl transition-all duration-300 flex items-center ${
             isIntersecting ? 'animate-slide-in-left' : 'opacity-0'
           }`} style={{ animationDelay: '0.3s' }}>
             <Image
@@ -44,7 +44,7 @@ export default function AboutStorySection() {
           </div>
           
           {/* Text Content */}
-          <div className={`space-y-4 sm:space-y-6 transition-opacity duration-700 ${
+          <div className={`space-y-4 sm:space-y-6 transition-opacity duration-700 flex flex-col lg:min-h-[500px] ${
             isIntersecting ? 'opacity-100' : 'opacity-0'
           }`} style={{ animationDelay: '0.4s' }}>
             <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed">

@@ -59,7 +59,7 @@ export default function AboutSection() {
               style={{ animationDelay: `${index * 0.1 + 0.3}s` }}
             >
               <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-yellow-50 border border-yellow-100 rounded-xl flex items-center justify-center mx-auto mb-3 sm:mb-4 md:mb-6 text-yellow-700 transform group-hover:scale-105 transition-all duration-300 shadow-sm">
-                <svg className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-10 lg:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-8 lg:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   {index === 0 ? (
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                   ) : index === 1 ? (
@@ -79,24 +79,24 @@ export default function AboutSection() {
         
         {/* Images Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 mb-8 sm:mb-12 md:mb-16 lg:mb-20">
-          <div className={`relative h-64 sm:h-80 md:h-96 lg:h-[500px] rounded-xl overflow-hidden shadow-lg group hover:shadow-xl transition-all duration-300 ${
+          <div className={`relative h-64 sm:h-80 md:h-96 lg:h-[500px] rounded-xl overflow-hidden shadow-xl group hover:shadow-2xl transition-all duration-300 ${
             isIntersecting ? 'animate-slide-in-left' : 'opacity-0'
           }`} style={{ animationDelay: '0.75s' }}>
             <Image
-              src="/images/DSC04077.jpg"
-              alt="Eigen auto van BeeMobiel"
+              src="/images/DSC04005.jpg"
+              alt="BeeMobiel lesauto’s"
               fill
               className="object-cover group-hover:scale-[1.02] transition-transform duration-500"
               sizes="(max-width: 768px) 100vw, 50vw"
               loading="lazy"
             />
           </div>
-          <div className={`relative h-64 sm:h-80 md:h-96 lg:h-[500px] rounded-xl overflow-hidden shadow-lg group hover:shadow-xl transition-all duration-300 ${
+          <div className={`relative h-64 sm:h-80 md:h-96 lg:h-[500px] rounded-xl overflow-hidden shadow-xl group hover:shadow-2xl transition-all duration-300 ${
             isIntersecting ? 'animate-slide-in-right' : 'opacity-0'
           }`} style={{ animationDelay: '0.9s' }}>
             <Image
               src="/images/DSC04078.jpg"
-              alt="Eigen auto van BeeMobiel"
+              alt="Persoonlijke begeleiding in de lesauto"
               fill
               className="object-cover group-hover:scale-[1.02] transition-transform duration-500"
               sizes="(max-width: 768px) 100vw, 50vw"

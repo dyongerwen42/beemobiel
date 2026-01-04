@@ -53,7 +53,7 @@ export default function ScooterPricingSection() {
             <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-yellow-600 rounded-full mr-1.5 sm:mr-2 animate-pulse"></div>
             <p className="text-yellow-700 uppercase font-bold text-xs sm:text-sm tracking-wider">Scooters & Brommers</p>
           </div>
-          <h2 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-gray-900 mb-4 sm:mb-6 md:mb-8 leading-tight px-4 transition-opacity duration-700 ${isIntersecting ? 'opacity-100' : 'opacity-0'}`} style={{ animationDelay: '0.1s' }}>
+          <h2 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl font-black text-gray-900 mb-4 sm:mb-6 md:mb-8 leading-tight px-4 transition-opacity duration-700 ${isIntersecting ? 'opacity-100' : 'opacity-0'}`} style={{ animationDelay: '0.1s' }}>
             Scooter & Brommer Lespakketten
           </h2>
         </div>
@@ -63,7 +63,7 @@ export default function ScooterPricingSection() {
           {scooterPackages.map((pkg, index) => (
             <div
               key={index}
-              className={`relative bg-white rounded-xl sm:rounded-2xl p-8 sm:p-10 md:p-12 lg:p-14 shadow-xl hover:shadow-2xl transition-all duration-500 border-2 ${
+              className={`relative bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-10 lg:p-12 shadow-lg hover:shadow-xl transition-all duration-300 border-2 ${
                 pkg.popular 
                   ? 'border-yellow-600 ring-4 ring-yellow-100/50 scale-105 lg:scale-110' 
                   : 'border-gray-200 hover:border-yellow-400'
@@ -127,7 +127,7 @@ export default function ScooterPricingSection() {
                 
                 <Link 
                   href="/contact"
-                  className={`w-full py-3 sm:py-4 md:py-5 px-5 sm:px-6 md:px-8 rounded-xl font-bold text-center transition-all duration-300 shadow-lg hover:shadow-xl text-sm sm:text-base group/btn relative overflow-hidden ${
+                  className={`w-full px-5 sm:px-6 md:px-8 py-3 sm:py-4 md:py-5 rounded-xl font-bold text-center transition-all duration-300 shadow-lg hover:shadow-xl text-sm sm:text-base group/btn relative overflow-hidden ${
                     pkg.popular
                       ? 'bg-yellow-600 text-gray-900 hover:bg-yellow-700'
                       : 'bg-gray-900 text-white hover:bg-gray-800'

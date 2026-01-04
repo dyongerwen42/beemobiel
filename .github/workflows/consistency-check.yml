@@ -1,0 +1,83 @@
+name: Design Consistency Check
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  consistency-check:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Run ESLint with consistency rules
+      run: npm run lint:consistency
+      
+    - name: Check button consistency
+      run: |
+        echo "Checking button padding order consistency..."
+        grep -r "py-.*px-" components/ && echo "❌ Found py before px in button classes" && exit 1 || echo "✅ Button padding order is consistent"
+        
+    - name: Check form input consistency
+      run: |
+        echo "Checking form input styling consistency..."
+        # Check for consistent border thickness
+        grep -r "border-2.*border-gray-200" components/ | grep -v "border-red-500" | wc -l > border_count.txt
+        if [ $(cat border_count.txt) -lt 3 ]; then
+          echo "❌ Not all form inputs use consistent border styling"
+          exit 1
+        else
+          echo "✅ Form input borders are consistent"
+        fi
+        
+    - name: Check card padding complexity
+      run: |
+        echo "Checking card padding complexity..."
+        # Find cards with more than 4 padding breakpoints
+        if grep -r "p-.*sm:p-.*md:p-.*lg:p-.*xl:p-" components/; then
+          echo "❌ Found cards with 5+ padding breakpoints"
+          exit 1
+        else
+          echo "✅ Card padding complexity is within limits"
+        fi
+        
+    - name: Check shadow consistency
+      run: |
+        echo "Checking shadow level consistency..."
+        # Check for inconsistent shadow jumps
+        if grep -r "shadow-sm.*hover:shadow-xl" components/; then
+          echo "❌ Found inconsistent shadow progression"
+          exit 1
+        else
+          echo "✅ Shadow levels are consistent"
+        fi
+        
+    - name: Generate consistency report
+      run: |
+        echo "## Consistency Check Results" > consistency-report.md
+        echo "- ✅ Button padding order: PASS" >> consistency-report.md
+        echo "- ✅ Form input styling: PASS" >> consistency-report.md
+        echo "- ✅ Card padding complexity: PASS" >> consistency-report.md
+        echo "- ✅ Shadow consistency: PASS" >> consistency-report.md
+        echo "" >> consistency-report.md
+        echo "Generated on: $(date)" >> consistency-report.md
+        
+    - name: Upload consistency report
+      uses: actions/upload-artifact@v3
+      with:
+        name: consistency-report
+        path: consistency-report.md
+

@@ -9,7 +9,7 @@ export default function BoekNuHeroSection() {
   return (
     <section
       ref={ref}
-      className="relative min-h-[30vh] sm:min-h-[35vh] md:min-h-[40vh] lg:min-h-[45vh] flex items-center justify-center overflow-hidden"
+      className="relative min-h-[35vh] sm:min-h-[40vh] md:min-h-[45vh] lg:min-h-[50vh] flex items-center justify-center overflow-hidden"
     >
       {/* Background Image */}
       <div className="absolute inset-0 z-0">

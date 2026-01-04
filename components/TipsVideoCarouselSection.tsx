@@ -27,12 +27,8 @@ export default function TipsVideoCarouselSection({ id, label, title, description
   const [playingVideo, setPlayingVideo] = useState<string | null>(null)
   const [imageErrors, setImageErrors] = useState<Set<string>>(new Set())
 
-  // Default videos if none provided - use placeholder
-  const defaultVideos: Video[] = videos || [
-    { youtubeId: 'XHOmBV4js_E', title: 'Video 1', thumbnail: image },
-    { youtubeId: 'XHOmBV4js_E', title: 'Video 2', thumbnail: image },
-    { youtubeId: 'XHOmBV4js_E', title: 'Video 3', thumbnail: image },
-  ]
+  // Use provided videos or empty array (videos should always be provided)
+  const defaultVideos: Video[] = videos && videos.length > 0 ? videos : []
 
   // Get YouTube thumbnail URL
   const getYouTubeThumbnail = (videoId: string) => {
@@ -155,22 +151,23 @@ export default function TipsVideoCarouselSection({ id, label, title, description
           </div>
 
           {/* Premium Video Carousel with Enhanced Effects */}
-          <div className="relative group/carousel">
-            {/* Enhanced Glow Effect */}
-            <div className="absolute -inset-4 bg-gradient-to-r from-yellow-600/30 via-yellow-500/30 to-yellow-600/30 rounded-3xl blur-3xl opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-700"></div>
-            {/* Secondary glow */}
-            <div className="absolute -inset-2 bg-gradient-to-br from-yellow-400/20 to-yellow-600/20 rounded-3xl blur-xl opacity-50"></div>
-            
-            <div className="relative overflow-hidden rounded-3xl shadow-2xl border-2 border-gray-200/60 bg-white/50 backdrop-blur-sm">
-              <div
-                className="flex transition-transform duration-700 ease-out"
-                style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-              >
-                {defaultVideos.map((video, index) => (
+          {defaultVideos.length > 0 ? (
+            <div className="relative group/carousel">
+              {/* Enhanced Glow Effect */}
+              <div className="absolute -inset-4 bg-gradient-to-r from-yellow-600/30 via-yellow-500/30 to-yellow-600/30 rounded-3xl blur-3xl opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-700"></div>
+              {/* Secondary glow */}
+              <div className="absolute -inset-2 bg-gradient-to-br from-yellow-400/20 to-yellow-600/20 rounded-3xl blur-xl opacity-50"></div>
+              
+              <div className="relative overflow-hidden rounded-3xl shadow-2xl border-2 border-gray-200/60 bg-white/50 backdrop-blur-sm">
+                <div
+                  className="flex transition-transform duration-700 ease-out"
+                  style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+                >
+                  {defaultVideos.map((video, index) => (
                   <div key={`${video.youtubeId}-${index}`} className="min-w-full relative">
                     {playingVideo === video.youtubeId ? (
                       // Enhanced Premium Video Player
-                      <div className="relative h-64 sm:h-80 md:h-96 lg:h-[600px] bg-gray-900 rounded-3xl overflow-hidden shadow-2xl">
+                      <div className="relative h-64 sm:h-80 md:h-96 lg:h-[500px] bg-gray-900 rounded-3xl overflow-hidden shadow-2xl">
                         {/* Glowing border effect */}
                         <div className="absolute -inset-1 bg-gradient-to-r from-yellow-600 via-yellow-500 to-yellow-600 rounded-3xl blur opacity-75 animate-pulse"></div>
                         
@@ -208,8 +205,17 @@ export default function TipsVideoCarouselSection({ id, label, title, description
                     ) : (
                       // Enhanced Premium Video Thumbnail
                       <div 
-                        className="relative h-64 sm:h-80 md:h-96 lg:h-[600px] bg-gray-900 rounded-3xl overflow-hidden group cursor-pointer transform transition-all duration-500 hover:scale-[1.02]"
+                        className="relative h-64 sm:h-80 md:h-96 lg:h-[500px] bg-gray-900 rounded-3xl overflow-hidden group cursor-pointer transform transition-all duration-500 hover:scale-[1.02]"
                         onClick={() => handleVideoClick(video.youtubeId)}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault()
+                            handleVideoClick(video.youtubeId)
+                          }
+                        }}
+                        role="button"
+                        tabIndex={0}
+                        aria-label={`Bekijk video: ${video.title}`}
                       >
                         {imageErrors.has(video.youtubeId) ? (
                           <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
@@ -241,13 +247,13 @@ export default function TipsVideoCarouselSection({ id, label, title, description
                         
                         {/* Enhanced Play Button with Premium Styling */}
                         <div className="absolute inset-0 flex items-center justify-center">
-                          <div className="relative bg-gradient-to-br from-white via-white to-gray-100 rounded-full p-6 sm:p-8 md:p-10 lg:p-12 group-hover:scale-125 transition-all duration-700 shadow-2xl border-4 border-yellow-600/40 group-hover:border-yellow-500/60 group-hover:shadow-yellow-500/50">
+                          <div className="relative bg-gradient-to-br from-white via-white to-gray-100 rounded-full p-5 sm:p-6 md:p-7 lg:p-8 group-hover:scale-110 transition-all duration-700 shadow-2xl border-4 border-yellow-600/40 group-hover:border-yellow-500/60 group-hover:shadow-yellow-500/50">
                             {/* Multiple glow layers */}
                             <div className="absolute inset-0 bg-gradient-to-br from-yellow-600/30 to-yellow-500/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
                             <div className="absolute inset-0 bg-gradient-to-br from-yellow-600/10 to-transparent rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                             
                             <svg
-                              className="relative w-14 h-14 sm:w-18 sm:h-18 md:w-24 md:h-24 lg:w-28 lg:h-28 text-yellow-600 ml-1.5 group-hover:text-yellow-500 transition-colors duration-300 drop-shadow-lg"
+                              className="relative w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 text-yellow-600 ml-1.5 group-hover:text-yellow-500 transition-colors duration-300 drop-shadow-lg"
                               fill="currentColor"
                               viewBox="0 0 24 24"
                             >
@@ -274,50 +280,51 @@ export default function TipsVideoCarouselSection({ id, label, title, description
                     )}
                   </div>
                 ))}
+                </div>
+              </div>
+
+              {/* Enhanced Premium Navigation Arrows */}
+              <button
+                onClick={prevSlide}
+                className="absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 bg-gradient-to-br from-white to-gray-50 backdrop-blur-xl hover:from-white hover:to-white rounded-full p-5 sm:p-6 shadow-2xl transition-all duration-300 hover:scale-125 z-10 opacity-0 group-hover/carousel:opacity-100 border-2 border-gray-200/60 hover:border-yellow-600/60 hover:shadow-yellow-600/30 focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:ring-offset-2 focus:opacity-100"
+                aria-label="Vorige video"
+                disabled={defaultVideos.length <= 1}
+              >
+                <svg className="w-7 h-7 sm:w-8 sm:h-8 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              <button
+                onClick={nextSlide}
+                className="absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 bg-gradient-to-br from-white to-gray-50 backdrop-blur-xl hover:from-white hover:to-white rounded-full p-5 sm:p-6 shadow-2xl transition-all duration-300 hover:scale-125 z-10 opacity-0 group-hover/carousel:opacity-100 border-2 border-gray-200/60 hover:border-yellow-600/60 hover:shadow-yellow-600/30 focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:ring-offset-2 focus:opacity-100"
+                aria-label="Volgende video"
+                disabled={defaultVideos.length <= 1}
+              >
+                <svg className="w-7 h-7 sm:w-8 sm:h-8 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+
+              {/* Enhanced Premium Pagination Dots */}
+              <div className="flex justify-center gap-3 mt-10 sm:mt-12">
+                {defaultVideos.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => {
+                      setCurrentSlide(index)
+                      setPlayingVideo(null)
+                    }}
+                    className={`rounded-full transition-all duration-500 ${
+                      currentSlide === index 
+                        ? 'bg-gradient-to-r from-yellow-600 via-yellow-500 to-yellow-600 w-12 h-4 shadow-xl shadow-yellow-600/60 hover:shadow-yellow-600/80' 
+                        : 'bg-gray-300 w-3 h-3 hover:bg-yellow-400 hover:w-8 hover:h-3 hover:shadow-md'
+                    }`}
+                    aria-label={`Ga naar slide ${index + 1}`}
+                  />
+                ))}
               </div>
             </div>
-
-            {/* Enhanced Premium Navigation Arrows */}
-            <button
-              onClick={prevSlide}
-              className="absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 bg-gradient-to-br from-white to-gray-50 backdrop-blur-xl hover:from-white hover:to-white rounded-full p-5 sm:p-6 shadow-2xl transition-all duration-300 hover:scale-125 z-10 opacity-0 group-hover/carousel:opacity-100 border-2 border-gray-200/60 hover:border-yellow-600/60 hover:shadow-yellow-600/30 focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:ring-offset-2 focus:opacity-100"
-              aria-label="Vorige video"
-              disabled={defaultVideos.length <= 1}
-            >
-              <svg className="w-7 h-7 sm:w-8 sm:h-8 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-            <button
-              onClick={nextSlide}
-              className="absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 bg-gradient-to-br from-white to-gray-50 backdrop-blur-xl hover:from-white hover:to-white rounded-full p-5 sm:p-6 shadow-2xl transition-all duration-300 hover:scale-125 z-10 opacity-0 group-hover/carousel:opacity-100 border-2 border-gray-200/60 hover:border-yellow-600/60 hover:shadow-yellow-600/30 focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:ring-offset-2 focus:opacity-100"
-              aria-label="Volgende video"
-              disabled={defaultVideos.length <= 1}
-            >
-              <svg className="w-7 h-7 sm:w-8 sm:h-8 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-
-            {/* Enhanced Premium Pagination Dots */}
-            <div className="flex justify-center gap-3 mt-10 sm:mt-12">
-              {defaultVideos.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => {
-                    setCurrentSlide(index)
-                    setPlayingVideo(null)
-                  }}
-                  className={`rounded-full transition-all duration-500 ${
-                    currentSlide === index 
-                      ? 'bg-gradient-to-r from-yellow-600 via-yellow-500 to-yellow-600 w-12 h-4 shadow-xl shadow-yellow-600/60 hover:shadow-yellow-600/80' 
-                      : 'bg-gray-300 w-3 h-3 hover:bg-yellow-400 hover:w-8 hover:h-3 hover:shadow-md'
-                  }`}
-                  aria-label={`Ga naar slide ${index + 1}`}
-                />
-              ))}
-            </div>
-          </div>
+          ) : null}
         </div>
       </div>
     </section>

@@ -12,13 +12,13 @@ export default function TipsHeroSection() {
   useEffect(() => {
     const handleScroll = () => {
       if (parallaxRef.current) {
-        const scrolled = window.pageYOffset
+        const scrolled = window.scrollY || window.pageYOffset || 0
         parallaxRef.current.style.transform = `translateY(${scrolled * 0.5}px)`
       }
     }
 
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll, { passive: true } as EventListenerOptions)
   }, [])
 
   return (
@@ -45,37 +45,49 @@ export default function TipsHeroSection() {
 
       {/* Enhanced Floating Particles */}
       <div className="absolute inset-0 z-[1] overflow-hidden pointer-events-none">
-        {[...Array(30)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute bg-yellow-600/40 rounded-full blur-sm"
-            style={{
-              width: `${2 + Math.random() * 4}px`,
-              height: `${2 + Math.random() * 4}px`,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${4 + Math.random() * 6}s`,
-              animation: 'float 8s ease-in-out infinite',
-            }}
-          />
-        ))}
+        {[...Array(30)].map((_, i) => {
+          const delay = Math.random() * 5
+          const duration = 4 + Math.random() * 6
+          return (
+            <div
+              key={i}
+              className="absolute bg-yellow-600/40 rounded-full blur-sm"
+              style={{
+                width: `${2 + Math.random() * 4}px`,
+                height: `${2 + Math.random() * 4}px`,
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationName: 'float',
+                animationDuration: `${duration}s`,
+                animationTimingFunction: 'ease-in-out',
+                animationIterationCount: 'infinite',
+                animationDelay: `${delay}s`,
+              }}
+            />
+          )
+        })}
         {/* Larger glowing particles */}
-        {[...Array(10)].map((_, i) => (
-          <div
-            key={`large-${i}`}
-            className="absolute bg-yellow-500/20 rounded-full blur-md"
-            style={{
-              width: `${8 + Math.random() * 12}px`,
-              height: `${8 + Math.random() * 12}px`,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 8}s`,
-              animationDuration: `${6 + Math.random() * 8}s`,
-              animation: 'float 12s ease-in-out infinite',
-            }}
-          />
-        ))}
+        {[...Array(10)].map((_, i) => {
+          const delay = Math.random() * 8
+          const duration = 6 + Math.random() * 8
+          return (
+            <div
+              key={`large-${i}`}
+              className="absolute bg-yellow-500/20 rounded-full blur-md"
+              style={{
+                width: `${8 + Math.random() * 12}px`,
+                height: `${8 + Math.random() * 12}px`,
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationName: 'float',
+                animationDuration: `${duration}s`,
+                animationTimingFunction: 'ease-in-out',
+                animationIterationCount: 'infinite',
+                animationDelay: `${delay}s`,
+              }}
+            />
+          )
+        })}
       </div>
 
       {/* Animated Grid Pattern */}
@@ -99,12 +111,12 @@ export default function TipsHeroSection() {
         >
           <Link
             href="/"
-            className="text-yellow-400 hover:text-yellow-300 transition-colors duration-300 font-medium"
+            className="text-yellow-400 hover:text-yellow-300 transition-colors duration-300 font-medium flex items-center leading-none"
           >
             Home
           </Link>
-          <span className="text-yellow-500/70">›</span>
-          <span className="text-white/90 font-medium">Tips en trucs</span>
+          <span className="text-yellow-500/70 flex items-center leading-none">›</span>
+          <span className="text-white/90 font-medium flex items-center leading-none">Tips en trucs</span>
         </nav>
 
         {/* Badge with Glassmorphism */}
@@ -122,7 +134,7 @@ export default function TipsHeroSection() {
 
         {/* Main Heading with Enhanced Gradient Text */}
         <h1
-          className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-6 sm:mb-8 md:mb-10 leading-[1.05] tracking-tighter transition-all duration-1000 ${
+          className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-7xl font-black mb-6 sm:mb-8 md:mb-10 leading-[1.05] tracking-tighter transition-all duration-1000 ${
             isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
           style={{ animationDelay: '0.3s' }}

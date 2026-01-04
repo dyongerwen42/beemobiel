@@ -35,15 +35,15 @@ export default function AboutHeroSection() {
         >
           <Link
             href="/"
-            className="text-yellow-400 hover:text-yellow-300 transition-colors duration-300 font-medium"
+            className="text-yellow-400 hover:text-yellow-300 transition-colors duration-300 font-medium flex items-center leading-none"
           >
             Home
           </Link>
-          <span className="text-yellow-500/70">›</span>
-          <span className="text-white/90 font-medium">Over Ons</span>
+          <span className="text-yellow-500/70 flex items-center leading-none">›</span>
+          <span className="text-white/90 font-medium flex items-center leading-none">Over Ons</span>
         </nav>
         
-        <h1 className={`text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-extrabold text-white leading-[1.15] sm:leading-[1.1] md:leading-[1.05] tracking-tight text-shadow-lg transition-opacity duration-700 px-2 ${isIntersecting ? 'opacity-100' : 'opacity-0'}`} style={{ animationDelay: '0.1s' }}>
+        <h1 className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white leading-[1.15] sm:leading-[1.1] tracking-tight text-shadow-lg transition-opacity duration-700 px-2 ${isIntersecting ? 'opacity-100' : 'opacity-0'}`} style={{ animationDelay: '0.1s' }}>
           OVER ONS
         </h1>
       </div>

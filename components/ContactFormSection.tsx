@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useRef, useEffect } from 'react'
 import Image from 'next/image'
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver'
 
@@ -17,6 +17,7 @@ export default function ContactFormSection() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const resetTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
   const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target
@@ -44,8 +45,14 @@ export default function ContactFormSection() {
       // await fetch('/api/contact', { method: 'POST', body: JSON.stringify(formData) })
       
       setSubmitStatus('success')
+      
+      // Clear any existing timeout
+      if (resetTimeoutRef.current) {
+        clearTimeout(resetTimeoutRef.current)
+      }
+      
       // Reset form after success
-      setTimeout(() => {
+      resetTimeoutRef.current = setTimeout(() => {
         setFormData({
           name: '',
           email: '',
@@ -56,13 +63,27 @@ export default function ContactFormSection() {
           agree: false
         })
         setSubmitStatus('idle')
+        resetTimeoutRef.current = null
       }, 3000)
     } catch (error) {
       setSubmitStatus('error')
+      // Log error for debugging (only in development)
+      if (process.env.NODE_ENV === 'development') {
+        console.error('Form submission error:', error)
+      }
     } finally {
       setIsSubmitting(false)
     }
   }, [formData])
+
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (resetTimeoutRef.current) {
+        clearTimeout(resetTimeoutRef.current)
+      }
+    }
+  }, [])
 
   return (
     <section ref={ref} className="py-6 sm:py-10 md:py-14 lg:py-16 bg-white relative overflow-hidden">
@@ -75,7 +96,7 @@ export default function ContactFormSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 items-start">
           {/* Left side - Image */}
           <div className={`hidden lg:block transition-all duration-700 ${isIntersecting ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
-            <div className="relative w-full h-[500px] lg:h-[600px] rounded-xl sm:rounded-2xl overflow-hidden shadow-xl group">
+            <div className="relative w-full h-[500px] lg:h-[500px] rounded-xl sm:rounded-2xl overflow-hidden shadow-xl group">
               <Image
                 src="/images/DSC04005.jpg"
                 alt="Eigen auto van BeeMobiel"
@@ -221,7 +242,7 @@ export default function ContactFormSection() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-4 sm:py-5 md:py-6 bg-yellow-600 text-black font-black rounded-xl text-base sm:text-lg md:text-xl uppercase tracking-wider hover:bg-yellow-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 disabled:transform-none"
+                className="w-full px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 bg-yellow-600 text-gray-900 font-bold rounded-xl text-sm sm:text-base uppercase tracking-wide hover:bg-yellow-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-all duration-300 shadow-lg hover:shadow-xl"
               >
                 {isSubmitting ? 'VERZENDEN...' : 'VERZENDEN'}
               </button>

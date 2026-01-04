@@ -62,25 +62,25 @@ export default function ContactInfoSection() {
                 className="group relative bg-white rounded-lg sm:rounded-xl md:rounded-2xl p-3.5 sm:p-4 md:p-5 lg:p-6 xl:p-7 shadow-md hover:shadow-lg transition-all duration-300 border-2 border-gray-100 hover:border-yellow-400 flex flex-col items-center text-center min-h-[140px] sm:min-h-[160px] md:min-h-[180px] justify-center"
                 aria-label={`${info.title}: ${info.content}`}
               >
-                <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full bg-yellow-600 flex items-center justify-center mb-2.5 sm:mb-3 md:mb-4 text-white shadow-md transform group-hover:scale-110 group-active:scale-95 transition-transform duration-300">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-14 lg:h-14 rounded-full bg-yellow-600 flex items-center justify-center mb-2.5 sm:mb-3 md:mb-4 text-white shadow-md transform group-hover:scale-110 group-active:scale-95 transition-transform duration-300">
                   {info.icon}
                 </div>
-                <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-gray-900 mb-1.5 sm:mb-2 md:mb-2.5 group-hover:text-yellow-600 transition-colors duration-300">
+                <h3 className="text-base sm:text-lg md:text-xl lg:text-xl font-bold text-gray-900 mb-1.5 sm:mb-2 md:mb-2.5 group-hover:text-yellow-600 transition-colors duration-300">
                   {info.title}
                 </h3>
-                <p className="text-gray-600 text-xs sm:text-sm md:text-base lg:text-lg font-medium break-words">
+                <p className="text-gray-600 text-xs sm:text-sm md:text-base lg:text-base font-medium break-words">
                   {info.content}
                 </p>
               </a>
             ) : (
               <div className="group relative bg-white rounded-lg sm:rounded-xl md:rounded-2xl p-3.5 sm:p-4 md:p-5 lg:p-6 xl:p-7 shadow-md hover:shadow-lg transition-all duration-300 border-2 border-gray-100 hover:border-yellow-400 flex flex-col items-center text-center min-h-[140px] sm:min-h-[160px] md:min-h-[180px] justify-center">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full bg-yellow-600 flex items-center justify-center mb-2.5 sm:mb-3 md:mb-4 text-white shadow-md transform group-hover:scale-110 transition-transform duration-300">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-14 lg:h-14 rounded-full bg-yellow-600 flex items-center justify-center mb-2.5 sm:mb-3 md:mb-4 text-white shadow-md transform group-hover:scale-110 transition-transform duration-300">
                   {info.icon}
                 </div>
-                <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-gray-900 mb-1.5 sm:mb-2 md:mb-2.5 group-hover:text-yellow-600 transition-colors duration-300">
+                <h3 className="text-base sm:text-lg md:text-xl lg:text-xl font-bold text-gray-900 mb-1.5 sm:mb-2 md:mb-2.5 group-hover:text-yellow-600 transition-colors duration-300">
                   {info.title}
                 </h3>
-                <p className="text-gray-700 text-xs sm:text-sm md:text-base font-medium break-words">
+                <p className="text-gray-600 text-xs sm:text-sm md:text-base lg:text-base font-medium break-words">
                   {info.content}
                 </p>
               </div>

@@ -76,3 +76,4 @@ Elke categorie heeft 3 video's in de carousel:
 - Video 3: Extra video met tips
 
 Je kunt meer of minder video's toevoegen door de arrays aan te passen.
+

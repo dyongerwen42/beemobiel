@@ -1,0 +1,35 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "🔍 Running BeeMobiel consistency checks..."
+
+# Check for button padding order issues
+echo "Checking button padding order..."
+if git diff --cached --name-only | grep -E '\.(tsx|ts)$' | xargs grep -l "py-.*px-" 2>/dev/null; then
+  echo "❌ Found py before px in button classes. Fix padding order (px before py)"
+  exit 1
+fi
+
+# Check for form input consistency
+echo "Checking form input consistency..."
+staged_files=$(git diff --cached --name-only | grep -E 'components/.*Form.*\.tsx$')
+if [ ! -z "$staged_files" ]; then
+  if echo "$staged_files" | xargs grep -l "border-[^2]" 2>/dev/null; then
+    echo "❌ Form inputs should use border-2 for consistency"
+    exit 1
+  fi
+fi
+
+# Check for excessive card padding breakpoints
+echo "Checking card padding complexity..."
+if git diff --cached --name-only | grep -E '\.(tsx|ts)$' | xargs grep -l "p-.*sm:p-.*md:p-.*lg:p-.*xl:p-" 2>/dev/null; then
+  echo "❌ Found card with 5+ padding breakpoints. Maximum 4 recommended"
+  exit 1
+fi
+
+# Run ESLint with consistency rules
+echo "Running ESLint consistency checks..."
+npx lint-staged
+
+echo "✅ All consistency checks passed!"
+

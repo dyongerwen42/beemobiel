@@ -9,9 +9,9 @@ export default function LessenAanbiedingenSection() {
   return (
     <section ref={ref} className="py-6 sm:py-10 md:py-14 lg:py-16 bg-white relative overflow-hidden">
       <div className="w-full max-w-7xl mx-auto px-3 sm:px-4 md:px-5 lg:px-6 xl:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 lg:gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 lg:gap-20 items-stretch">
           {/* Content Column */}
-          <div className={`transition-opacity duration-700 ${isIntersecting ? 'opacity-100' : 'opacity-0'}`}>
+          <div className={`transition-opacity duration-700 flex flex-col ${isIntersecting ? 'opacity-100' : 'opacity-0'}`}>
             <p className="text-yellow-600 uppercase font-bold text-xs sm:text-sm tracking-wide mb-2 sm:mb-2.5">
               Actuele Aanbiedingen & Kortingen
             </p>
@@ -60,7 +60,7 @@ export default function LessenAanbiedingenSection() {
           </div>
 
           {/* Contact Form Column */}
-          <div className={`bg-gray-50 rounded-xl p-6 sm:p-8 md:p-10 shadow-lg transition-opacity duration-700 ${isIntersecting ? 'opacity-100' : 'opacity-0'}`}>
+          <div className={`bg-gray-50 rounded-xl p-6 sm:p-8 md:p-10 shadow-lg transition-opacity duration-700 flex flex-col ${isIntersecting ? 'opacity-100' : 'opacity-0'}`}>
             <form className="space-y-4 sm:space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm sm:text-base font-medium text-gray-700 mb-2">

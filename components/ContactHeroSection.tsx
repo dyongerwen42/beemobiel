@@ -26,18 +26,22 @@ export default function ContactHeroSection() {
       {/* Content */}
       <div className={`relative z-10 w-full max-w-7xl mx-auto px-3 sm:px-4 md:px-5 lg:px-6 xl:px-8 py-8 sm:py-10 md:py-12 lg:py-14 text-center`}>
         {/* Breadcrumb */}
-        <div className={`mb-3 sm:mb-4 transition-all duration-700 ${isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-          <nav className="flex items-center justify-center text-white/95 text-xs sm:text-sm" aria-label="Breadcrumb">
-            <Link 
-              href="/" 
-              className="hover:text-yellow-400 transition-colors duration-300 font-medium"
-            >
-              Home
-            </Link>
-            <span className="mx-2 text-white/60"> &gt; </span>
-            <span className="text-white font-medium">Neem contact met ons op</span>
-          </nav>
-        </div>
+        <nav
+          className={`mb-2 sm:mb-3 flex items-center justify-center gap-2 text-xs sm:text-sm transition-all duration-1000 ${
+            isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
+          }`}
+          aria-label="Breadcrumb"
+          style={{ animationDelay: '0s' }}
+        >
+          <Link
+            href="/"
+            className="text-yellow-400 hover:text-yellow-300 transition-colors duration-300 font-medium flex items-center"
+          >
+            Home
+          </Link>
+          <span className="text-yellow-500/70 flex items-center leading-none">›</span>
+          <span className="text-white/90 font-medium flex items-center">Neem contact met ons op</span>
+        </nav>
         
         {/* Title */}
         <h1 className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white leading-[1.15] sm:leading-[1.1] tracking-tight text-shadow-lg transition-all duration-700 px-2 ${isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ animationDelay: '0.1s' }}>

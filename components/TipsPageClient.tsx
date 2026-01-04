@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import TipsHeroSection from '@/components/TipsHeroSection'
@@ -12,6 +12,8 @@ import TipsRotondesSection from '@/components/TipsRotondesSection'
 import CTAFinalSection from '@/components/CTAFinalSection'
 
 export default function TipsPageClient() {
+  const timeoutRefs = useRef<NodeJS.Timeout[]>([])
+  
   // Handle anchor links on page load and navigation with improved stability
   useEffect(() => {
     const scrollToHash = (hash: string, retries = 5) => {
@@ -43,9 +45,10 @@ export default function TipsPageClient() {
         // Try immediately
         if (!scrollToHash(hash)) {
           // If not found, wait a bit and try again
-          setTimeout(() => scrollToHash(hash, 3), 100)
-          setTimeout(() => scrollToHash(hash, 2), 500)
-          setTimeout(() => scrollToHash(hash, 1), 1000)
+          const timeout1 = setTimeout(() => scrollToHash(hash, 3), 100)
+          const timeout2 = setTimeout(() => scrollToHash(hash, 2), 500)
+          const timeout3 = setTimeout(() => scrollToHash(hash, 1), 1000)
+          timeoutRefs.current.push(timeout1, timeout2, timeout3)
         }
       }
     }
@@ -56,7 +59,8 @@ export default function TipsPageClient() {
     } else {
       window.addEventListener('load', handleHashScroll, { once: true })
       // Also try after a short delay
-      setTimeout(handleHashScroll, 100)
+      const initialTimeout = setTimeout(handleHashScroll, 100)
+      timeoutRefs.current.push(initialTimeout)
     }
 
     // Handle hash changes (when clicking anchor links)
@@ -86,6 +90,9 @@ export default function TipsPageClient() {
       window.removeEventListener('hashchange', handleHashScroll)
       window.removeEventListener('load', handleHashScroll)
       document.removeEventListener('click', handleAnchorClick)
+      // Clear all timeouts
+      timeoutRefs.current.forEach(timeout => clearTimeout(timeout))
+      timeoutRefs.current = []
     }
   }, [])
 

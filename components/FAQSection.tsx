@@ -31,7 +31,7 @@ export default function FAQSection() {
         
         {/* Images Grid - Perfect alignment */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 mb-8 sm:mb-12 md:mb-16 lg:mb-20">
-          <div className={`relative h-64 sm:h-80 md:h-96 lg:h-[500px] rounded-xl overflow-hidden shadow-lg group transition-opacity duration-700 hover:shadow-xl ${
+          <div className={`relative h-64 sm:h-80 md:h-96 lg:h-[500px] rounded-xl overflow-hidden shadow-xl group transition-opacity duration-700 hover:shadow-2xl ${
             isIntersecting ? 'opacity-100' : 'opacity-0'
           }`} style={{ animationDelay: '0.3s' }}>
             <Image
@@ -43,7 +43,7 @@ export default function FAQSection() {
               loading="lazy"
             />
           </div>
-          <div className={`relative h-64 sm:h-80 md:h-96 lg:h-[500px] rounded-xl overflow-hidden shadow-lg group transition-opacity duration-700 hover:shadow-xl ${
+          <div className={`relative h-64 sm:h-80 md:h-96 lg:h-[500px] rounded-xl overflow-hidden shadow-xl group transition-opacity duration-700 hover:shadow-2xl ${
             isIntersecting ? 'opacity-100' : 'opacity-0'
           }`} style={{ animationDelay: '0.4s' }}>
             <Image

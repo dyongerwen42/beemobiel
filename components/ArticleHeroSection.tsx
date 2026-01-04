@@ -16,7 +16,7 @@ export default function ArticleHeroSection({ title, subtitle, image, imageAlt }:
   return (
     <section
       ref={ref}
-      className="relative min-h-[60vh] sm:min-h-[70vh] flex items-center justify-center overflow-hidden"
+      className="relative min-h-[60vh] sm:min-h-[70vh] md:min-h-[75vh] lg:min-h-[80vh] flex items-center justify-center overflow-hidden"
     >
       {/* Background Image */}
       <div className="absolute inset-0 z-0">

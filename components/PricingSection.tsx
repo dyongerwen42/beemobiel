@@ -81,7 +81,7 @@ export default function PricingSection() {
           {packages.map((pkg, index) => (
             <div 
               key={index} 
-              className={`relative bg-white rounded-xl sm:rounded-2xl p-5 sm:p-6 md:p-8 lg:p-10 xl:p-12 premium-shadow hover-lift-premium transition-all duration-500 border-2 ${
+              className={`relative bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-10 lg:p-12 shadow-lg hover:shadow-xl transition-all duration-300 border-2 ${
                 pkg.popular 
                   ? 'border-yellow-600 ring-2 sm:ring-4 ring-yellow-100 sm:scale-[1.02]' 
                   : 'border-gray-200 hover:border-yellow-300'
@@ -133,10 +133,10 @@ export default function PricingSection() {
                 
                 <Link 
                   href={pkg.link}
-                  className={`w-full py-3 sm:py-4 md:py-5 px-5 sm:px-6 md:px-8 rounded-xl font-bold text-center transition-all duration-300 shadow-lg hover:shadow-xl text-sm sm:text-base group/btn ${
+                  className={`w-full px-5 sm:px-6 md:px-8 py-3 sm:py-4 md:py-5 rounded-xl font-bold text-center transition-all duration-300 shadow-lg hover:shadow-xl text-sm sm:text-base group/btn ${
                     pkg.popular
                       ? 'bg-yellow-600 text-gray-900 hover:bg-yellow-700'
-                      : 'bg-gray-100 text-gray-900 hover:bg-yellow-50 border-2 border-gray-200 hover:border-yellow-300'
+                      : 'bg-gray-900 text-white hover:bg-gray-800'
                   }`}
                 >
                   <span className="flex items-center justify-center gap-2">

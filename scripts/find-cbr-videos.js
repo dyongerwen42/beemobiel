@@ -27,3 +27,4 @@ Object.entries(videoCategories).forEach(([category, data]) => {
   console.log(`  Beschrijving: ${data.description}`)
   console.log(`  Zoektermen: ${data.keywords.join(', ')}`)
 })
+
