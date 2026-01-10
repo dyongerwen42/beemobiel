@@ -139,27 +139,23 @@ export default function AutoPricingSection() {
                 {pkg.popular ? (
                   <Link 
                     href="/boek-nu?vehicle=auto"
-                    className="w-full py-5 sm:py-6 md:py-6 px-8 sm:px-10 rounded-2xl font-black text-center transition-all duration-300 shadow-lg hover:shadow-xl text-base sm:text-lg md:text-lg group/btn relative overflow-hidden bg-yellow-600 text-gray-900 hover:bg-yellow-700 uppercase tracking-wide"
+                    className="w-full inline-flex items-center justify-center gap-3 py-5 sm:py-6 md:py-6 px-8 sm:px-10 rounded-2xl font-black transition-all duration-300 shadow-lg hover:shadow-xl text-base sm:text-lg md:text-lg group/btn relative overflow-hidden bg-yellow-600 text-gray-900 hover:bg-yellow-700 uppercase tracking-wide"
                   >
-                    <span className="relative z-10 flex items-center justify-center gap-3">
-                      AANMELDEN
-                      <svg className="w-6 h-6 transform group-hover/btn:translate-x-3 transition-transform duration-300 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                      </svg>
-                    </span>
+                    <span className="relative z-10">AANMELDEN</span>
+                    <svg className="relative z-10 w-6 h-6 transform group-hover/btn:translate-x-3 transition-transform duration-300 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
                     <div className="absolute inset-0 bg-white/10 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
                   </Link>
                 ) : (
                   <Link 
                     href="/boek-nu?vehicle=auto"
-                    className="w-full py-5 sm:py-6 md:py-6 px-8 sm:px-10 rounded-2xl font-black text-center transition-all duration-300 shadow-xl hover:shadow-2xl text-base sm:text-lg md:text-lg group/btn btn-premium relative overflow-hidden bg-gray-900 text-white hover:bg-gray-800 uppercase tracking-wide"
+                    className="w-full inline-flex items-center justify-center gap-3 py-5 sm:py-6 md:py-6 px-8 sm:px-10 rounded-2xl font-black transition-all duration-300 shadow-xl hover:shadow-2xl text-base sm:text-lg md:text-lg group/btn btn-premium relative overflow-hidden bg-gray-900 text-white hover:bg-gray-800 uppercase tracking-wide"
                   >
-                    <span className="relative z-10 flex items-center justify-center gap-3">
-                      MEER INFO
-                      <svg className="w-6 h-6 transform group-hover/btn:translate-x-3 transition-transform duration-300 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                      </svg>
-                    </span>
+                    <span className="relative z-10">MEER INFO</span>
+                    <svg className="relative z-10 w-6 h-6 transform group-hover/btn:translate-x-3 transition-transform duration-300 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
                   </Link>
                 )}
               </div>

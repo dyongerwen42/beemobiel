@@ -80,25 +80,21 @@ export default function FAQSection() {
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 md:gap-6">
               <Link 
                 href="/tarieven"
-                className="group flex-1 bg-white text-gray-900 font-semibold py-4 sm:py-5 md:py-6 px-6 sm:px-8 md:px-10 rounded-xl text-center uppercase tracking-wide hover:bg-gray-50 transition-all duration-200 shadow-md hover:shadow-lg text-sm sm:text-base md:text-lg"
+                className="group flex-1 inline-flex items-center justify-center gap-3 bg-white text-gray-900 font-semibold py-4 sm:py-5 md:py-6 px-6 sm:px-8 md:px-10 rounded-xl uppercase tracking-wide hover:bg-gray-50 transition-all duration-200 shadow-md hover:shadow-lg text-sm sm:text-base md:text-lg"
               >
-                <span className="flex items-center justify-center gap-3">
-                  Alle Lessen
-                  <svg className="w-5 h-5 sm:w-6 sm:h-6 transform group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
-                </span>
+                <span>Alle Lessen</span>
+                <svg className="w-5 h-5 sm:w-6 sm:h-6 transform group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
               </Link>
               <Link 
                 href="/contact"
-                className="group flex-1 bg-white/10 backdrop-blur-sm text-white font-semibold py-2.5 sm:py-3 md:py-4 px-5 sm:px-6 md:px-8 rounded-xl text-center uppercase tracking-wide border border-white/30 hover:bg-white/20 hover:border-yellow-400 transition-all duration-300 shadow-lg hover:shadow-xl text-sm sm:text-base"
+                className="group flex-1 inline-flex items-center justify-center gap-3 bg-white/10 backdrop-blur-sm text-white font-semibold py-2.5 sm:py-3 md:py-4 px-5 sm:px-6 md:px-8 rounded-xl uppercase tracking-wide border border-white/30 hover:bg-white/20 hover:border-yellow-400 transition-all duration-300 shadow-lg hover:shadow-xl text-sm sm:text-base"
               >
-                <span className="flex items-center justify-center gap-3">
-                  Vraag een consult aan
-                  <svg className="w-5 h-5 sm:w-6 sm:h-6 transform group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
-                </span>
+                <span>Vraag een consult aan</span>
+                <svg className="w-5 h-5 sm:w-6 sm:h-6 transform group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
               </Link>
             </div>
           </div>

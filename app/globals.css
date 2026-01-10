@@ -133,6 +133,473 @@ h1, h2, h3, h4, h5, h6 {
   padding-bottom: 2px;
 }
 
+/* Mobile video optimizations */
+@media (max-width: 768px) {
+  /* Better video iframe rendering on mobile */
+  iframe {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    will-change: transform;
+  }
+  
+  /* Prevent video overflow on mobile */
+  video, iframe {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Better touch targets for mobile */
+  button, a {
+    -webkit-tap-highlight-color: rgba(251, 191, 36, 0.3);
+    touch-action: manipulation;
+  }
+  
+  /* Prevent text selection on video controls */
+  .video-controls, .carousel-controls {
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+  }
+  
+  /* Better video container aspect ratio */
+  .video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+  }
+  
+  .video-container iframe,
+  .video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/* Touch manipulation improvements */
+.touch-manipulation {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: rgba(251, 191, 36, 0.2);
+}
+
+/* Prevent video blur on mobile */
+@media (max-width: 1024px) {
+  video, iframe {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-perspective: 1000;
+    perspective: 1000;
+  }
+}
+
+/* Ultra mobile video optimizations */
+@media (max-width: 768px) {
+  /* Smooth carousel transitions */
+  .video-carousel {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+  
+  /* Prevent text selection during swipe */
+  .video-carousel * {
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+  }
+  
+  /* Better video container performance */
+  .video-container,
+  [style*="aspect-ratio"] {
+    contain: layout style paint;
+    will-change: transform;
+  }
+  
+  /* Optimize images in video thumbnails */
+  .video-thumbnail img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  
+  /* Better button feedback */
+  button:active {
+    transform: scale(0.95);
+  }
+  
+  /* Prevent double-tap zoom on buttons */
+  button, a {
+    touch-action: manipulation;
+    -ms-touch-action: manipulation;
+  }
+  
+  /* Smooth scroll for carousel */
+  .carousel-wrapper {
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .carousel-slide {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+  
+  /* Better loading states */
+  .video-loading {
+    background: linear-gradient(90deg, #1f2937 25%, #374151 50%, #1f2937 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+  
+  @keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+  
+  /* Fullscreen video optimizations */
+  video:fullscreen,
+  iframe:fullscreen {
+    object-fit: contain;
+    width: 100vw;
+    height: 100vh;
+  }
+  
+  /* Prevent pull-to-refresh on video carousel */
+  .video-carousel-container {
+    overscroll-behavior-y: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Better touch targets - minimum 44x44px */
+  button, a, [role="button"] {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  
+  /* Swipe gesture visual feedback */
+  .swiping {
+    transition: none !important;
+  }
+  
+  /* Optimize animations for mobile */
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Reduce motion for users who prefer it */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* Landscape mode optimizations */
+@media (max-width: 768px) and (orientation: landscape) {
+  .video-player {
+    max-height: 90vh;
+  }
+  
+  .video-info-card {
+    font-size: 0.875rem;
+    padding: 0.75rem;
+  }
+  
+  /* Better spacing in landscape */
+  .video-section {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  
+  /* Compact headings */
+  .video-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  /* Compact description */
+  .video-description-card {
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Better carousel height */
+  .video-carousel-container {
+    max-height: 60vh;
+  }
+  
+  /* Better thumbnail */
+  .video-thumbnail-container {
+    min-height: 160px;
+  }
+}
+
+/* High DPI mobile displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .video-thumbnail img {
+    image-rendering: -webkit-optimize-contrast;
+  }
+}
+
+/* Ultra mobile optimizations - Small phones */
+@media (max-width: 375px) {
+  .video-info-card {
+    font-size: 0.75rem;
+    padding: 0.5rem;
+  }
+  
+  .video-play-button {
+    padding: 1rem !important;
+  }
+  
+  .video-title {
+    font-size: 0.875rem;
+  }
+  
+  /* Better spacing on tiny screens */
+  section {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+  
+  /* Compact badges */
+  .badge {
+    padding: 0.375rem 0.875rem;
+    font-size: 0.625rem;
+  }
+  
+  /* Better heading sizes */
+  h2 {
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 320px) {
+  /* Even more compact */
+  .video-carousel-container {
+    border-radius: 0.75rem;
+  }
+  
+  .video-info-card {
+    padding: 0.375rem;
+    font-size: 0.6875rem;
+  }
+  
+  button {
+    min-width: 40px;
+    min-height: 40px;
+  }
+}
+
+/* Safe area insets for notched devices */
+@supports (padding: max(0px)) {
+  .video-player-fullscreen {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+}
+
+/* Premium animations */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+}
+
+@keyframes gradient-x {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient-x {
+  background-size: 200% 200%;
+  animation: gradient-x 3s ease infinite;
+}
+
+/* Better video performance on low-end devices */
+@media (max-width: 768px) {
+  /* Reduce animations on low-end devices */
+  @media (prefers-reduced-motion: no-preference) {
+    .video-carousel {
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  }
+  
+  /* Optimize for touch devices */
+  .touch-device * {
+    -webkit-tap-highlight-color: rgba(251, 191, 36, 0.2);
+  }
+  
+  /* Better video loading */
+  iframe[loading="lazy"] {
+    content-visibility: auto;
+  }
+  
+  /* Premium border effects */
+  .border-3 {
+    border-width: 3px;
+  }
+  
+  .border-4 {
+    border-width: 4px;
+  }
+  
+  /* Premium shadows */
+  .shadow-premium {
+    box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  }
+  
+  /* Premium backdrop blur */
+  .backdrop-blur-2xl {
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+  }
+  
+  /* Premium transitions */
+  .transition-premium {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Premium glow effects */
+  .glow-yellow {
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.4), 0 0 40px rgba(251, 191, 36, 0.2);
+  }
+  
+  .glow-yellow-lg {
+    box-shadow: 0 0 30px rgba(251, 191, 36, 0.5), 0 0 60px rgba(251, 191, 36, 0.3);
+  }
+  
+  /* Better mobile typography */
+  .video-section h2 {
+    font-size: 1.75rem;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+  
+  .video-section p {
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+  
+  /* Better card spacing */
+  .video-description-card {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Better button spacing */
+  .video-nav-buttons {
+    gap: 0.75rem;
+  }
+  
+  /* Better pagination */
+  .video-pagination {
+    gap: 0.5rem;
+  }
+  
+  /* Better carousel container */
+  .video-carousel-container {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Better badge styling */
+  .video-badge {
+    padding: 0.5rem 0.875rem;
+    font-size: 0.625rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  /* Better thumbnail aspect ratio */
+  .video-thumbnail-container {
+    min-height: 180px;
+  }
+  
+  /* Better play button */
+  .video-play-button {
+    width: 64px;
+    height: 64px;
+    padding: 1rem;
+  }
+  
+  /* Better info card */
+  .video-info-overlay {
+    padding: 0.625rem;
+    bottom: 0.5rem;
+    left: 0.5rem;
+    right: 0.5rem;
+  }
+  
+  /* Better close button */
+  .video-close-button {
+    width: 44px;
+    height: 44px;
+    padding: 0.625rem;
+    top: 0.625rem;
+    right: 0.625rem;
+  }
+  
+  /* Better loading spinner */
+  .video-loading {
+    width: 56px;
+    height: 56px;
+  }
+  
+  /* Better swipe hint */
+  .swipe-hint {
+    font-size: 0.625rem;
+    padding: 0.5rem 0.75rem;
+    top: 0.75rem;
+  }
+  
+  /* Better progress bar */
+  .video-progress-bar {
+    height: 4px;
+    max-width: 240px;
+  }
+  
+  /* Better navigation buttons */
+  .video-nav-button {
+    width: 56px;
+    height: 56px;
+  }
+  
+  /* Better pagination dots */
+  .video-pagination-dot {
+    width: 10px;
+    height: 10px;
+  }
+  
+  .video-pagination-dot.active {
+    width: 32px;
+    height: 10px;
+  }
+}
+
 /* Enhanced animations for Tips page */
 @keyframes float {
   0%, 100% {

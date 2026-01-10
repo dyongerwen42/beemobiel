@@ -178,20 +178,18 @@ export default function AllPricingSection() {
                     
                     <Link 
                       href={pkg.link}
-                      className={`w-full px-5 sm:px-6 md:px-8 py-3 sm:py-4 md:py-5 rounded-xl font-bold text-center transition-all duration-300 shadow-lg hover:shadow-xl text-sm sm:text-base group/btn uppercase tracking-wide ${
+                      className={`w-full inline-flex items-center justify-center gap-2 sm:gap-3 px-5 sm:px-6 md:px-8 py-3 sm:py-4 md:py-5 rounded-xl font-bold transition-all duration-300 shadow-lg hover:shadow-xl text-sm sm:text-base group/btn uppercase tracking-wide ${
                         pkg.popular
                           ? 'bg-yellow-600 text-gray-900 hover:bg-yellow-700'
                           : 'bg-gray-900 text-white hover:bg-gray-800'
                       }`}
                     >
-                      <span className="flex items-center justify-center gap-2 sm:gap-3">
-                        Bekijk Details
-                        <svg className={`w-5 h-5 transform group-hover/btn:translate-x-2 transition-transform duration-300 ${
-                          pkg.popular ? 'text-gray-900' : 'text-white'
-                        }`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                        </svg>
-                      </span>
+                      <span>Bekijk Details</span>
+                      <svg className={`w-5 h-5 transform group-hover/btn:translate-x-2 transition-transform duration-300 ${
+                        pkg.popular ? 'text-gray-900' : 'text-white'
+                      }`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                      </svg>
                     </Link>
                   </div>
                 </div>

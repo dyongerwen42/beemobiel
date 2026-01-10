@@ -145,14 +145,12 @@ export default function TipsIntroSection() {
             <div className="flex flex-col sm:flex-row gap-5 sm:gap-7">
               <Link
                 href="/hoe-je-je-rijbewijs-haalt"
-                className="group relative inline-flex items-center justify-center px-9 sm:px-11 py-5 sm:py-6 bg-gradient-to-r from-yellow-600 via-yellow-500 to-yellow-600 text-gray-900 font-black rounded-2xl overflow-hidden transition-all duration-500 shadow-2xl hover:shadow-yellow-600/60 transform hover:scale-110 uppercase tracking-wider text-sm sm:text-base"
+                className="group relative inline-flex items-center justify-center gap-3 px-9 sm:px-11 py-5 sm:py-6 bg-gradient-to-r from-yellow-600 via-yellow-500 to-yellow-600 text-gray-900 font-black rounded-2xl overflow-hidden transition-all duration-500 shadow-2xl hover:shadow-yellow-600/60 transform hover:scale-110 uppercase tracking-wider text-sm sm:text-base"
               >
-                <span className="relative z-10 flex items-center gap-3">
-                  Bekijk Voorbereidingsgids
-                  <svg className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
-                </span>
+                <span className="relative z-10">Bekijk Voorbereidingsgids</span>
+                <svg className="relative z-10 w-6 h-6 group-hover:translate-x-2 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
                 <div className="absolute inset-0 bg-gradient-to-r from-yellow-500 via-yellow-400 to-yellow-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
               </Link>
