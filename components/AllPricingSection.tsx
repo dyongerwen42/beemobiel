@@ -31,7 +31,7 @@ const allPackages = [
     ]
   },
   {
-    category: "Motorfiets",
+    category: "Motor",
     packages: [
       {
         title: "Pakket 25",

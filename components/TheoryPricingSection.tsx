@@ -5,31 +5,24 @@ import { useIntersectionObserver } from '@/hooks/useIntersectionObserver'
 
 const theoryPackages = [
   {
-    title: 'THEORIE',
-    price: '€ 66,-',
+    title: 'iTheorie',
+    price: '€80',
     cta: 'aanmelden',
-    href: '/contact',
+    href: '/boek-nu?vehicle=theorie',
     featured: true,
   },
   {
-    title: 'THEORIE INDIVIDUEEL',
-    price: '€ 145,-',
+    title: 'Theorieboek',
+    price: '€40',
     cta: 'aanmelden',
-    href: '/contact',
+    href: '/boek-nu?vehicle=theorie',
     featured: false,
   },
   {
-    title: 'THEORIE BOEK',
-    price: '€ 50,-',
+    title: 'Theorie Examen',
+    price: '€65',
     cta: 'aanmelden',
-    href: '/contact',
-    featured: false,
-  },
-  {
-    title: 'ONLINE THEORIE CURSUS',
-    price: '€ 99,-',
-    cta: 'aanmelden',
-    href: '/contact',
+    href: '/boek-nu?vehicle=theorie',
     featured: false,
   },
 ]
@@ -49,7 +42,7 @@ export default function TheoryPricingSection() {
             Jouw theorie-examen halen
           </h2>
           <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
-            Kies het pakket dat bij jou past. Snel starten, flexibel leren en oefenen met CBR-stijl vragen.
+            Theoriepakketten voor alle voertuigtypes: auto, motor en scooter. De prijzen kunnen variëren per voertuigtype.
           </p>
         </div>
 
@@ -82,7 +75,7 @@ export default function TheoryPricingSection() {
                   pkg.featured ? 'bg-yellow-600 text-gray-900 hover:bg-yellow-700' : 'bg-gray-900 text-white hover:bg-gray-800'
                 }`}
               >
-                {pkg.cta}
+Aanmelden
               </Link>
             </div>
           ))}

@@ -44,7 +44,7 @@ export default function BoekNuHeroSection() {
           }`}
           style={{ animationDelay: '0.1s' }}
         >
-          BOEK NU JE EERSTE RIJLES
+PLAN JE RIJLESSEN
         </h1>
 
         <p
@@ -53,7 +53,7 @@ export default function BoekNuHeroSection() {
           }`}
           style={{ animationDelay: '0.2s' }}
         >
-          Boek nu je eerste rijles en zet de eerste stap richting je rijbewijs
+Zet de eerste stap richting je rijbewijs en begin vandaag met je rijopleiding
         </p>
       </div>
     </section>

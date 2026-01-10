@@ -126,7 +126,7 @@ export default function ScooterPricingSection() {
                 </ul>
                 
                 <Link 
-                  href="/contact"
+                  href="/boek-nu?vehicle=scooter"
                   className={`w-full px-5 sm:px-6 md:px-8 py-3 sm:py-4 md:py-5 rounded-xl font-bold text-center transition-all duration-300 shadow-lg hover:shadow-xl text-sm sm:text-base group/btn relative overflow-hidden ${
                     pkg.popular
                       ? 'bg-yellow-600 text-gray-900 hover:bg-yellow-700'
@@ -134,7 +134,7 @@ export default function ScooterPricingSection() {
                   }`}
                 >
                   <span className="flex items-center justify-center gap-2">
-                    Aanmelden
+                    {pkg.popular ? 'Aanmeld' : 'Meer info'}
                     <svg className={`w-5 h-5 transform group-hover/btn:translate-x-2 transition-transform duration-300 ${
                       pkg.popular ? 'text-gray-900' : 'text-white'
                     }`} fill="none" stroke="currentColor" viewBox="0 0 24 24">

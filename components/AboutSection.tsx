@@ -79,19 +79,19 @@ export default function AboutSection() {
         
         {/* Images Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 mb-8 sm:mb-12 md:mb-16 lg:mb-20">
-          <div className={`relative h-64 sm:h-80 md:h-96 lg:h-[500px] rounded-xl overflow-hidden shadow-xl group hover:shadow-2xl transition-all duration-300 ${
+          <div className={`relative h-64 sm:h-80 md:h-96 lg:h-[500px] rounded-xl overflow-hidden shadow-xl group hover:shadow-2xl transition-all duration-300 license-plate-blur ${
             isIntersecting ? 'animate-slide-in-left' : 'opacity-0'
           }`} style={{ animationDelay: '0.75s' }}>
             <Image
               src="/images/DSC04005.jpg"
-              alt="BeeMobiel lesauto’s"
+              alt="BeeMobiel lesauto's"
               fill
               className="object-cover group-hover:scale-[1.02] transition-transform duration-500"
               sizes="(max-width: 768px) 100vw, 50vw"
               loading="lazy"
             />
           </div>
-          <div className={`relative h-64 sm:h-80 md:h-96 lg:h-[500px] rounded-xl overflow-hidden shadow-xl group hover:shadow-2xl transition-all duration-300 ${
+          <div className={`relative h-64 sm:h-80 md:h-96 lg:h-[500px] rounded-xl overflow-hidden shadow-xl group hover:shadow-2xl transition-all duration-300 license-plate-blur ${
             isIntersecting ? 'animate-slide-in-right' : 'opacity-0'
           }`} style={{ animationDelay: '0.9s' }}>
             <Image
@@ -113,7 +113,7 @@ export default function AboutSection() {
             href="/contact"
             className="group inline-flex items-center gap-2 sm:gap-3 px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 bg-yellow-600 text-gray-900 font-bold rounded-xl text-sm sm:text-base uppercase tracking-wide hover:bg-yellow-700 transition-all duration-300 shadow-lg hover:shadow-xl"
           >
-            <span>Begin vandaag</span>
+            <span className="pb-1">Begin vandaag</span>
             <svg className="w-5 h-5 sm:w-6 sm:h-6 transform group-hover:translate-x-2 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
             </svg>

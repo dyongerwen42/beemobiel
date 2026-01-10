@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useState, useEffect, useRef } from 'react'
 import { usePathname } from 'next/navigation'
+import LanguageSwitcher from './LanguageSwitcher'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -112,7 +113,7 @@ export default function Header() {
       dropdown: [
         { href: '/tarieven', label: 'Tarieven' },
         { href: '/tarieven/autos', label: "Auto's" },
-        { href: '/tarieven/motorfietsen', label: 'Motorfietsen' },
+        { href: '/tarieven/motorfietsen', label: 'Motoren' },
         { href: '/tarieven/scooters', label: 'Scooters & Brommers' },
         { href: '/tarieven/theorie', label: 'Theorie' },
       ]
@@ -121,10 +122,10 @@ export default function Header() {
       href: '/tips', 
       label: 'Tips en trucs',
       dropdown: [
+        { href: '/tips', label: 'Auto Tips' },
+        { href: '/tips', label: 'Motor Tips' },
+        { href: '/tips', label: 'Scooter Tips' },
         { href: '/tips#driving_theory', label: 'Rijtheorie' },
-        { href: '/tips#v1', label: 'Eerste Rijles' },
-        { href: '/tips#v2', label: 'Examenfouten' },
-        { href: '/tips#v3', label: 'Rotondes' },
       ]
     },
     { href: '/over-ons', label: 'Over Ons' },
@@ -161,107 +162,90 @@ export default function Header() {
             : 'bg-transparent'
         }`}
       >
-        <nav className="relative z-10 w-full max-w-7xl mx-auto px-3 sm:px-4 md:px-5 lg:px-6 xl:px-8 py-1 sm:py-1.5 md:py-2">
-          <div className="flex items-center justify-between gap-2 sm:gap-4">
+        <nav className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16 sm:h-18 lg:h-20">
             {/* Logo */}
             <Link 
               href="/" 
-              className="flex items-center group relative z-10 flex-shrink-0"
+              className="flex items-center group flex-shrink-0"
               aria-label="BeeMobiel Home"
             >
-              <div className="relative w-20 sm:w-24 md:w-28 lg:w-32 xl:w-36 transition-all duration-300 group-hover:scale-105">
+              <div className="relative w-24 sm:w-28 md:w-32 lg:w-36 xl:w-40 transition-transform duration-300 group-hover:scale-105">
                 <Image
                   src="/images/logo.png"
                   alt="BeeMobiel Logo"
                   width={144}
                   height={144}
-                  className="object-contain relative z-10 drop-shadow-lg p-0.5 sm:p-1 w-full h-auto"
+                  className="object-contain drop-shadow-lg w-full h-auto"
                   priority
                   quality={65}
-                  sizes="(max-width: 640px) 80px, (max-width: 768px) 96px, (max-width: 1024px) 112px, (max-width: 1280px) 128px, 144px"
+                  sizes="(max-width: 640px) 96px, (max-width: 768px) 112px, (max-width: 1024px) 128px, (max-width: 1280px) 144px, 160px"
                 />
               </div>
             </Link>
             
-            {/* Desktop Menu */}
-            <div className="hidden lg:flex items-center space-x-1 xl:space-x-2 flex-shrink-0">
-              {navItems.map((item, index) => (
+            {/* Desktop Navigation */}
+            <div className="hidden lg:flex items-center gap-1 xl:gap-2">
+              {navItems.map((item) => (
                 <div 
                   key={item.href} 
-                  className="relative group"
+                  className="relative"
                   onMouseEnter={() => item.dropdown && setActiveDropdown(item.label)}
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
                   {item.dropdown ? (
                     <>
-                      <div className="flex items-center">
-                        <Link
-                          href={item.href}
-                          className={`relative px-4 xl:px-5 py-2.5 text-sm xl:text-base font-semibold transition-all duration-300 rounded-xl ${
-                            isActive(item.href)
-                              ? 'text-yellow-600 bg-yellow-600/10'
-                              : 'text-white hover:text-yellow-400 hover:bg-white/5'
+                      <button
+                        className={`flex items-center gap-1 h-10 px-3 xl:px-4 text-sm xl:text-base font-semibold rounded-lg transition-all duration-200 ${
+                          isActive(item.href)
+                            ? 'text-yellow-500 bg-yellow-500/10'
+                            : 'text-white hover:text-yellow-400 hover:bg-white/5'
+                        }`}
+                        onClick={() => setActiveDropdown(activeDropdown === item.label ? null : item.label)}
+                        aria-expanded={activeDropdown === item.label}
+                        aria-haspopup="true"
+                      >
+                        <span>{item.label}</span>
+                        <svg 
+                          className={`w-4 h-4 transition-transform duration-200 ${
+                            activeDropdown === item.label ? 'rotate-180' : ''
                           }`}
+                          fill="none" 
+                          stroke="currentColor" 
+                          viewBox="0 0 24 24"
                         >
-                          <span className="relative z-10">{item.label}</span>
-                        </Link>
-                        <button
-                          className={`px-2 py-2.5 text-sm xl:text-base font-semibold transition-all duration-300 rounded-xl ${
-                            isActive(item.href)
-                              ? 'text-yellow-600'
-                              : 'text-white hover:text-yellow-400'
-                          }`}
-                          onClick={(e) => {
-                            e.preventDefault()
-                            setActiveDropdown(activeDropdown === item.label ? null : item.label)
-                          }}
-                          aria-expanded={activeDropdown === item.label}
-                          aria-haspopup="true"
-                          aria-label="Toggle dropdown"
-                        >
-                          <svg 
-                            className={`w-4 h-4 transition-transform duration-300 ${
-                              activeDropdown === item.label ? 'rotate-180' : ''
-                            }`}
-                            fill="none" 
-                            stroke="currentColor" 
-                            viewBox="0 0 24 24"
-                          >
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                          </svg>
-                        </button>
-                      </div>
-                      {/* Dropdown Menu - Connected directly to button with invisible bridge */}
-                      <div className="absolute top-full left-0 w-full pt-1">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </button>
+                      {/* Dropdown Menu */}
+                      <div className="absolute top-full left-0 pt-2">
                         <div
-                          className={`w-56 bg-gray-900 rounded-xl shadow-xl border-2 border-yellow-600/30 overflow-hidden transition-all duration-300 ${
+                          className={`w-52 bg-gray-900 rounded-xl shadow-2xl border border-yellow-600/30 overflow-hidden transition-all duration-200 ${
                             activeDropdown === item.label
-                              ? 'opacity-100 visible translate-y-0 pointer-events-auto'
+                              ? 'opacity-100 visible translate-y-0'
                               : 'opacity-0 invisible -translate-y-2 pointer-events-none'
                           }`}
                         >
-                          <div className="p-2">
+                          <div className="py-2">
                             {item.dropdown.map((dropdownItem, idx) => (
                               <Link
-                                key={dropdownItem.href}
+                                key={`${item.href}-${idx}-${dropdownItem.label}`}
                                 href={dropdownItem.href}
-                                className={`block px-4 py-3 rounded-xl font-semibold text-sm transition-all duration-200 relative overflow-hidden group/item ${
+                                className={`flex items-center justify-between px-4 py-2.5 text-sm font-medium transition-colors duration-150 ${
                                   isActive(dropdownItem.href)
-                                    ? 'bg-yellow-600/20 text-yellow-400'
-                                    : 'text-white hover:text-yellow-400 hover:bg-white/10'
+                                    ? 'bg-yellow-500/15 text-yellow-400'
+                                    : 'text-gray-200 hover:text-yellow-400 hover:bg-white/5'
                                 }`}
                               >
-                                <span className="relative z-10 flex items-center justify-between">
-                                  {dropdownItem.label}
-                                  <svg 
-                                    className="w-4 h-4 opacity-0 group-hover/item:opacity-100 transform translate-x-[-8px] group-hover/item:translate-x-0 transition-all duration-200" 
-                                    fill="none" 
-                                    stroke="currentColor" 
-                                    viewBox="0 0 24 24"
-                                  >
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                  </svg>
-                                </span>
+                                <span>{dropdownItem.label}</span>
+                                <svg 
+                                  className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" 
+                                  fill="none" 
+                                  stroke="currentColor" 
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                </svg>
                               </Link>
                             ))}
                           </div>
@@ -271,183 +255,191 @@ export default function Header() {
                   ) : (
                     <Link
                       href={item.href}
-                      className={`relative px-4 xl:px-5 py-2.5 text-sm xl:text-base font-semibold transition-all duration-300 rounded-xl ${
+                      className={`flex items-center h-10 px-3 xl:px-4 text-sm xl:text-base font-semibold rounded-lg transition-all duration-200 ${
                         isActive(item.href)
-                          ? 'text-yellow-600 bg-yellow-600/10'
+                          ? 'text-yellow-500 bg-yellow-500/10'
                           : 'text-white hover:text-yellow-400 hover:bg-white/5'
                       }`}
                     >
-                      <span className="relative z-10">{item.label}</span>
+                      {item.label}
                     </Link>
                   )}
                 </div>
               ))}
-              
-              {/* CTA Button */}
+            </div>
+
+            {/* Desktop Right Actions */}
+            <div className="hidden lg:flex items-center gap-3">
+              <LanguageSwitcher />
               <Link 
                 href="/boek-nu" 
-                className="relative group/cta ml-2 xl:ml-3"
+                className="group flex items-center gap-2 h-10 px-5 xl:px-6 bg-yellow-500 hover:bg-yellow-400 text-gray-900 rounded-lg font-bold text-sm shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105"
               >
-                <div className="relative bg-yellow-600 text-gray-900 px-5 xl:px-7 py-2.5 xl:py-3 rounded-xl font-black text-xs xl:text-sm shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 overflow-hidden">
-                  <span className="relative z-10 flex items-center gap-2">
-                    Boek Nu
-                    <svg 
-                      className="w-4 h-4 transform group-hover/cta:translate-x-1 transition-transform duration-300" 
-                      fill="none" 
-                      stroke="currentColor" 
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                    </svg>
-                  </span>
-                </div>
+                <span>Boek Nu</span>
+                <svg 
+                  className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
               </Link>
             </div>
 
-            {/* Mobile Menu Button */}
-            <button
-              className="lg:hidden relative z-20 text-white hover:text-yellow-500 transition-colors p-2 rounded-xl hover:bg-white/10 active:scale-95"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-label="Toggle menu"
-              aria-expanded={isMenuOpen}
-            >
-              <div className="relative w-6 h-6">
-                <span className={`absolute top-0 left-0 w-6 h-0.5 bg-current rounded-full transition-all duration-300 ${
-                  isMenuOpen ? 'rotate-45 top-2.5' : ''
-                }`}></span>
-                <span className={`absolute top-2.5 left-0 w-6 h-0.5 bg-current rounded-full transition-all duration-300 ${
-                  isMenuOpen ? 'opacity-0' : 'opacity-100'
-                }`}></span>
-                <span className={`absolute top-5 left-0 w-6 h-0.5 bg-current rounded-full transition-all duration-300 ${
-                  isMenuOpen ? '-rotate-45 top-2.5' : ''
-                }`}></span>
-              </div>
-            </button>
+            {/* Mobile Right Actions */}
+            <div className="flex lg:hidden items-center gap-3">
+              <LanguageSwitcher />
+              <button
+                className="flex items-center justify-center w-10 h-10 text-white hover:text-yellow-400 rounded-lg hover:bg-white/10 transition-colors duration-200"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                aria-label="Toggle menu"
+                aria-expanded={isMenuOpen}
+              >
+                <div className="relative w-5 h-4 flex flex-col justify-between">
+                  <span className={`block w-5 h-0.5 bg-current rounded-full transition-all duration-300 origin-center ${
+                    isMenuOpen ? 'rotate-45 translate-y-[7px]' : ''
+                  }`} />
+                  <span className={`block w-5 h-0.5 bg-current rounded-full transition-all duration-300 ${
+                    isMenuOpen ? 'opacity-0 scale-0' : ''
+                  }`} />
+                  <span className={`block w-5 h-0.5 bg-current rounded-full transition-all duration-300 origin-center ${
+                    isMenuOpen ? '-rotate-45 -translate-y-[7px]' : ''
+                  }`} />
+                </div>
+              </button>
+            </div>
           </div>
         </nav>
       </header>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Overlay */}
+      <div
+        className={`lg:hidden fixed inset-0 z-[9998] bg-black/80 backdrop-blur-sm transition-opacity duration-300 ${
+          isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        }`}
+        onClick={() => setIsMenuOpen(false)}
+      />
+
+      {/* Mobile Menu Panel */}
       <div
         ref={mobileMenuRef}
-        className={`lg:hidden fixed inset-0 z-40 transition-all duration-500 ease-out ${
-          isMenuOpen
-            ? 'opacity-100 visible'
-            : 'opacity-0 invisible'
-        }`}
-        style={{ paddingTop: headerRef.current?.offsetHeight || 80 }}
-      >
-        {/* Backdrop */}
-        <div 
-          className="absolute inset-0 bg-black/90 backdrop-blur-md"
-          onClick={() => setIsMenuOpen(false)}
-        ></div>
-        
-        {/* Menu Panel */}
-        <div className={`absolute top-0 right-0 h-full w-80 max-w-[90vw] sm:max-w-[85vw] bg-gray-900 shadow-xl border-l-2 border-yellow-600/30 transform transition-transform duration-500 ease-out ${
+        className={`lg:hidden fixed top-0 right-0 z-[9998] h-full w-72 sm:w-80 max-w-[85vw] bg-gray-900 shadow-2xl border-l border-yellow-500/20 transform transition-transform duration-300 ease-out ${
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}>
-          <div className="h-full overflow-y-auto p-4 sm:p-5 md:p-6 space-y-1">
-            {/* Logo in mobile menu */}
-            <div className="mb-4 pb-3 border-b-2 border-yellow-600/20">
-              <Link href="/" className="flex items-center" onClick={() => setIsMenuOpen(false)}>
-                <div className="relative w-32">
-                  <Image
-                    src="/images/logo.png"
-                    alt="BeeMobiel Logo"
-                    width={128}
-                    height={128}
-                    className="object-contain p-1 w-full h-auto"
-                    sizes="128px"
-                    quality={65}
-                  />
-                </div>
-              </Link>
-            </div>
+        }`}
+      >
+        <div className="flex flex-col h-full">
+          {/* Mobile Menu Header */}
+          <div className="flex items-center justify-between p-4 border-b border-gray-800">
+            <Link href="/" onClick={() => setIsMenuOpen(false)}>
+              <Image
+                src="/images/logo.png"
+                alt="BeeMobiel Logo"
+                width={100}
+                height={100}
+                className="object-contain w-28 h-auto"
+                sizes="112px"
+                quality={65}
+              />
+            </Link>
+            <button
+              className="flex items-center justify-center w-10 h-10 text-gray-400 hover:text-white rounded-lg hover:bg-white/10 transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+              aria-label="Close menu"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
 
-            {navItems.map((item, index) => (
-              <div key={item.href} className="overflow-hidden">
-                {item.dropdown ? (
-                  <div className="space-y-1">
-                    <div className="flex items-center">
-                      <Link
-                        href={item.href}
-                        className={`flex-1 px-4 py-3 rounded-xl font-bold text-white transition-all duration-200 ${
-                          isActive(item.href) ? 'bg-yellow-600/20 text-yellow-400' : 'hover:bg-white/10'
-                        }`}
-                        onClick={() => setIsMenuOpen(false)}
-                      >
-                        {item.label}
-                      </Link>
-                      <button
-                        onClick={() => setMobileDropdowns(prev => ({ ...prev, [item.label]: !prev[item.label] }))}
-                        className={`px-3 py-3 rounded-xl font-bold text-white transition-all duration-200 ${
-                          isActive(item.href) ? 'text-yellow-400' : 'hover:bg-white/10'
-                        }`}
-                        aria-label="Toggle dropdown"
-                      >
-                        <svg 
-                          className={`w-5 h-5 transition-transform duration-300 ${
-                            mobileDropdowns[item.label] ? 'rotate-180' : ''
-                          }`}
-                          fill="none" 
-                          stroke="currentColor" 
-                          viewBox="0 0 24 24"
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                        </svg>
-                      </button>
-                    </div>
-                    <div className={`pl-4 space-y-1 overflow-hidden transition-all duration-300 ${
-                      mobileDropdowns[item.label] ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-                    }`}>
-                      {item.dropdown.map((dropdownItem) => (
+          {/* Mobile Menu Items */}
+          <div className="flex-1 overflow-y-auto py-4">
+            <nav className="space-y-1 px-3">
+              {navItems.map((item) => (
+                <div key={item.href}>
+                  {item.dropdown ? (
+                    <div>
+                      <div className="flex items-center">
                         <Link
-                          key={dropdownItem.href}
-                          href={dropdownItem.href}
-                          className={`block px-4 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 ${
-                            isActive(dropdownItem.href)
-                              ? 'bg-yellow-600/20 text-yellow-400'
-                              : 'text-gray-300 hover:text-yellow-400 hover:bg-white/10'
+                          href={item.href}
+                          className={`flex-1 flex items-center h-11 px-3 rounded-lg font-semibold transition-colors ${
+                            isActive(item.href) 
+                              ? 'text-yellow-400 bg-yellow-500/10' 
+                              : 'text-white hover:bg-white/5'
                           }`}
                           onClick={() => setIsMenuOpen(false)}
                         >
-                          {dropdownItem.label}
+                          {item.label}
                         </Link>
-                      ))}
+                        <button
+                          onClick={() => setMobileDropdowns(prev => ({ ...prev, [item.label]: !prev[item.label] }))}
+                          className="flex items-center justify-center w-11 h-11 text-gray-400 hover:text-white rounded-lg hover:bg-white/5 transition-colors"
+                          aria-label="Toggle submenu"
+                        >
+                          <svg 
+                            className={`w-4 h-4 transition-transform duration-200 ${
+                              mobileDropdowns[item.label] ? 'rotate-180' : ''
+                            }`}
+                            fill="none" 
+                            stroke="currentColor" 
+                            viewBox="0 0 24 24"
+                          >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                          </svg>
+                        </button>
+                      </div>
+                      <div className={`overflow-hidden transition-all duration-200 ${
+                        mobileDropdowns[item.label] ? 'max-h-64 mt-1' : 'max-h-0'
+                      }`}>
+                        <div className="ml-3 pl-3 border-l border-gray-700 space-y-1">
+                          {item.dropdown.map((dropdownItem, idx) => (
+                            <Link
+                              key={`${item.href}-${idx}-${dropdownItem.label}`}
+                              href={dropdownItem.href}
+                              className={`block h-10 leading-10 px-3 rounded-lg text-sm font-medium transition-colors ${
+                                isActive(dropdownItem.href)
+                                  ? 'text-yellow-400 bg-yellow-500/10'
+                                  : 'text-gray-300 hover:text-white hover:bg-white/5'
+                              }`}
+                              onClick={() => setIsMenuOpen(false)}
+                            >
+                              {dropdownItem.label}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                ) : (
-                  <Link
-                    href={item.href}
-                    className={`block px-4 py-3 rounded-xl font-bold transition-all duration-200 ${
-                      isActive(item.href)
-                        ? 'bg-yellow-600/20 text-yellow-400'
-                        : 'text-white hover:text-yellow-400 hover:bg-white/10'
-                    }`}
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {item.label}
-                  </Link>
-                )}
-              </div>
-            ))}
+                  ) : (
+                    <Link
+                      href={item.href}
+                      className={`flex items-center h-11 px-3 rounded-lg font-semibold transition-colors ${
+                        isActive(item.href)
+                          ? 'text-yellow-400 bg-yellow-500/10'
+                          : 'text-white hover:bg-white/5'
+                      }`}
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  )}
+                </div>
+              ))}
+            </nav>
+          </div>
 
-            {/* Mobile CTA Button */}
-            <div className="pt-6 mt-6 border-t-2 border-yellow-600/20">
-              <Link
-                href="/boek-nu"
-                className="block w-full bg-yellow-600 text-gray-900 px-6 py-4 rounded-xl text-center font-black text-base shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 active:scale-95"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <span className="flex items-center justify-center gap-2">
-                  Boek Nu
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
-                </span>
-              </Link>
-            </div>
+          {/* Mobile Menu Footer */}
+          <div className="p-4 border-t border-gray-800">
+            <Link
+              href="/boek-nu"
+              className="flex items-center justify-center gap-2 w-full h-12 bg-yellow-500 hover:bg-yellow-400 text-gray-900 rounded-lg font-bold shadow-lg transition-all duration-200 active:scale-[0.98]"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <span>Boek Nu</span>
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </Link>
           </div>
         </div>
       </div>

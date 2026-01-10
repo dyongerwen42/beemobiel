@@ -5,11 +5,11 @@ import Link from 'next/link'
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver'
 
 const highlights = [
-  { label: 'Geslaagde Leerlingen:', value: '100+' },
-  { label: 'Slagingspercentage:', value: '90%+' },
+  { label: 'Studenten Opgeleid:', value: '200+' },
+  { label: 'Slagingspercentage:', value: '90%' },
+  { label: 'Jaar Ervaring:', value: '10+' },
+  { label: 'Professionele Instructeurs:', value: '5+' },
   { label: 'Persoonlijke Lessen:', value: '1-op-1' },
-  { label: 'Instructeurs:', value: 'Topkwaliteit' },
-  { label: 'Examengericht:', value: '100%' },
   { label: 'Rijles:', value: 'Hand & Auto' },
   { label: 'Roosters:', value: 'Flexibele' },
   { label: 'Beschikbaar:', value: 'NL & EN' },
@@ -52,7 +52,7 @@ export default function AboutResultsSection() {
             </div>
 
             <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed">
-              Met meer dan 500 geslaagde leerlingen en een slagingspercentage dat ruim boven het landelijk gemiddelde ligt, laten wij keer op keer zien dat onze aanpak werkt. Onze persoonlijke begeleiding, flexibele lessen en ervaren instructeurs zorgen ervoor dat elke leerling goed voorbereid en met zelfvertrouwen het examen ingaat.
+              Met meer dan 200 geslaagde leerlingen en een slagingspercentage van 90% dat ruim boven het landelijk gemiddelde ligt, laten wij keer op keer zien dat onze aanpak werkt. Onze persoonlijke begeleiding, flexibele lessen en ervaren instructeurs zorgen ervoor dat elke leerling goed voorbereid en met zelfvertrouwen het examen ingaat.
             </p>
 
             {/* Highlights Grid */}

@@ -43,7 +43,7 @@ export default function FAQSection() {
               loading="lazy"
             />
           </div>
-          <div className={`relative h-64 sm:h-80 md:h-96 lg:h-[500px] rounded-xl overflow-hidden shadow-xl group transition-opacity duration-700 hover:shadow-2xl ${
+          <div className={`relative h-64 sm:h-80 md:h-96 lg:h-[500px] rounded-xl overflow-hidden shadow-xl group transition-opacity duration-700 hover:shadow-2xl license-plate-blur ${
             isIntersecting ? 'opacity-100' : 'opacity-0'
           }`} style={{ animationDelay: '0.4s' }}>
             <Image

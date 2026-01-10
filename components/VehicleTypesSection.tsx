@@ -108,7 +108,7 @@ export default function VehicleTypesSection() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                     </svg>
                   </Link>
-                  <Link href="/contact" className="inline-flex items-center justify-center gap-2 sm:gap-3 text-white font-bold text-sm sm:text-base group-hover:gap-4 transition-all duration-300 px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 rounded-xl bg-yellow-600 hover:bg-yellow-700 w-full sm:w-auto shadow-lg hover:shadow-xl uppercase tracking-wide">
+                  <Link href="/boek-nu" className="inline-flex items-center justify-center gap-2 sm:gap-3 text-white font-bold text-sm sm:text-base group-hover:gap-4 transition-all duration-300 px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 rounded-xl bg-yellow-600 hover:bg-yellow-700 w-full sm:w-auto shadow-lg hover:shadow-xl uppercase tracking-wide">
                     <span>BOEK NU</span>
                     <svg className="w-5 h-5 transform group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />

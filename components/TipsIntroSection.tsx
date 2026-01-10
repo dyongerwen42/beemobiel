@@ -54,7 +54,7 @@ export default function TipsIntroSection() {
             <div className="inline-flex items-center px-5 py-2.5 bg-gradient-to-r from-yellow-50 via-yellow-100/90 to-yellow-50 backdrop-blur-md rounded-full mb-5 sm:mb-7 border-2 border-yellow-300/50 shadow-lg group/badge hover:shadow-xl transition-all duration-300">
               <div className="w-2.5 h-2.5 bg-gradient-to-br from-yellow-600 to-yellow-500 rounded-full mr-3 animate-pulse shadow-md shadow-yellow-600/50"></div>
               <p className="text-yellow-800 uppercase font-black text-xs sm:text-sm md:text-base tracking-widest group-hover/badge:text-yellow-900 transition-colors duration-300">
-                Tips en trucs
+                Rijtips
               </p>
             </div>
             
@@ -74,13 +74,13 @@ export default function TipsIntroSection() {
               <div className="relative bg-white/80 backdrop-blur-xl rounded-2xl p-6 sm:p-8 border-2 border-gray-200/60 shadow-xl group/card overflow-hidden hover:shadow-2xl transition-all duration-500">
                 <div className="absolute inset-0 bg-gradient-to-br from-yellow-50/50 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500"></div>
                 <p className="relative z-10 text-sm sm:text-base md:text-lg text-gray-800 leading-relaxed font-semibold">
-                  Tips en trucs spelen een belangrijke rol bij het behalen van je theorie- en praktijkexamen. Dit geldt voor je autorijbewijs, je motorrijbewijs en je scooterrijbewijs. Onze ervaren instructeurs gaan namelijk al een tijdje mee in het vak. Hierdoor weten ze als geen ander wat er van jou gevraagd wordt.
+                  Praktische rijtips spelen een belangrijke rol bij het behalen van je theorie- en praktijkexamen. Dit geldt voor je autorijbewijs, je motorrijbewijs en je scooterrijbewijs. Onze ervaren instructeurs gaan namelijk al een tijdje mee in het vak. Hierdoor weten ze als geen ander wat er van jou gevraagd wordt.
                 </p>
               </div>
               <div className="relative bg-gradient-to-br from-yellow-50/90 via-yellow-100/70 to-yellow-50/90 backdrop-blur-xl rounded-2xl p-6 sm:p-8 border-2 border-yellow-300/60 shadow-xl group/card overflow-hidden hover:shadow-2xl transition-all duration-500">
                 <div className="absolute inset-0 bg-gradient-to-br from-yellow-100/50 via-yellow-200/30 to-yellow-100/50 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500"></div>
                 <p className="relative z-10 text-sm sm:text-base md:text-lg text-gray-900 leading-relaxed font-semibold">
-                  Aan de hand van specifieke tips en trucs zorgen wij ervoor dat jij je kansen maximaliseert en zodoende precies weet waar je op moet letten om zo snel mogelijk je rijbewijs te halen met BeeMobiel!
+                  Aan de hand van specifieke rijtips zorgen wij ervoor dat jij je kansen maximaliseert en zodoende precies weet waar je op moet letten om zo snel mogelijk je rijbewijs te halen met BeeMobiel!
                 </p>
               </div>
             </div>
@@ -155,19 +155,6 @@ export default function TipsIntroSection() {
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-yellow-500 via-yellow-400 to-yellow-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-              </Link>
-              <Link
-                href="/boek-nu"
-                className="group relative inline-flex items-center justify-center px-9 sm:px-11 py-5 sm:py-6 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white font-black rounded-2xl overflow-hidden transition-all duration-500 shadow-2xl hover:shadow-gray-900/60 transform hover:scale-110 uppercase tracking-wider text-sm sm:text-base"
-              >
-                <span className="relative z-10 flex items-center gap-3">
-                  Boek Nu
-                  <svg className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
-                </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
               </Link>
             </div>
           </div>

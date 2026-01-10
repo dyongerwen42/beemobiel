@@ -191,7 +191,7 @@ export default function MotorPricingSection() {
                 </ul>
                 
                 <Link 
-                  href="/contact"
+                  href="/boek-nu?vehicle=motor"
                   className={`w-full px-5 sm:px-6 md:px-8 py-3 sm:py-4 md:py-5 rounded-xl font-bold text-center transition-all duration-300 shadow-lg hover:shadow-xl text-sm sm:text-base group/btn relative overflow-hidden ${
                     pkg.popular
                       ? 'bg-yellow-600 text-gray-900 hover:bg-yellow-700'
@@ -199,7 +199,7 @@ export default function MotorPricingSection() {
                   }`}
                 >
                   <span className="flex items-center justify-center gap-2">
-                    Aanmelden
+                    {pkg.popular ? 'Aanmeld' : 'Meer info'}
                     <svg className={`w-5 h-5 transform group-hover/btn:translate-x-2 transition-transform duration-300 ${
                       pkg.popular ? 'text-gray-900' : 'text-white'
                     }`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -210,107 +210,6 @@ export default function MotorPricingSection() {
               </div>
             </div>
           ))}
-        </div>
-        
-        {/* Comparison Table */}
-        <div className={`mt-16 sm:mt-20 md:mt-24 ${
-          isIntersecting ? 'animate-fade-in-up' : 'opacity-0 invisible'
-        }`} style={{ animationDelay: '1.2s' }}>
-          <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-8 sm:mb-10 md:mb-12 text-center">
-            Kies wat bij jou past
-          </h3>
-          <p className="text-gray-600 text-base sm:text-lg md:text-xl mb-8 sm:mb-10 md:mb-12 text-center max-w-3xl mx-auto">
-            Niet iedereen leert op dezelfde manier. Deze overzichtelijke tabel laat precies zien wat elk pakket bevat, zodat jij makkelijk de juiste keuze maakt.
-          </p>
-          
-          <div className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 lg:p-10 overflow-x-auto shadow-xl border-2 border-gray-100 hover:border-yellow-400/50 transition-all duration-500 -mx-3 sm:mx-0">
-            {/* Mobile: Card Layout */}
-            <div className="md:hidden space-y-4">
-              {[
-                { name: 'Pakket 10', lessons: 10 },
-                { name: 'Pakket 20', lessons: 20 },
-                { name: 'Pakket 25', lessons: 25 }
-              ].map((pkg) => (
-                <div key={pkg.name} className="bg-gray-50 rounded-2xl p-5 border-2 border-gray-200">
-                  <h4 className="text-lg font-bold text-gray-900 mb-4">{pkg.name}</h4>
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium text-gray-700">Aantal lessen</span>
-                      <span className="text-base font-semibold text-gray-900">{pkg.lessons}</span>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium text-gray-700">AVB examen</span>
-                      <svg className="w-5 h-5 text-yellow-600" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium text-gray-700">AVD examen</span>
-                      <svg className="w-5 h-5 text-yellow-600" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-            
-            {/* Desktop: Table Layout */}
-            <table className="hidden md:table w-full min-w-[600px] md:min-w-0">
-              <thead>
-                <tr className="border-b-2 border-gray-200">
-                  <th className="text-left py-4 sm:py-5 px-4 sm:px-6 text-base sm:text-lg md:text-xl font-bold text-gray-900">Inbegrepen</th>
-                  <th className="text-center py-4 sm:py-5 px-4 sm:px-6 text-base sm:text-lg md:text-xl font-bold text-gray-900">Pakket 10</th>
-                  <th className="text-center py-4 sm:py-5 px-4 sm:px-6 text-base sm:text-lg md:text-xl font-bold text-gray-900">Pakket 20</th>
-                  <th className="text-center py-4 sm:py-5 px-4 sm:px-6 text-base sm:text-lg md:text-xl font-bold text-gray-900">Pakket 25</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="border-b border-gray-100">
-                  <td className="py-4 sm:py-5 px-4 sm:px-6 text-sm sm:text-base md:text-lg font-medium text-gray-700">Aantal lessen</td>
-                  <td className="py-4 sm:py-5 px-4 sm:px-6 text-center text-sm sm:text-base md:text-lg text-gray-900">10</td>
-                  <td className="py-4 sm:py-5 px-4 sm:px-6 text-center text-sm sm:text-base md:text-lg text-gray-900">20</td>
-                  <td className="py-4 sm:py-5 px-4 sm:px-6 text-center text-sm sm:text-base md:text-lg text-gray-900">25</td>
-                </tr>
-                <tr className="border-b border-gray-100">
-                  <td className="py-4 sm:py-5 px-4 sm:px-6 text-sm sm:text-base md:text-lg font-medium text-gray-700">AVB examen</td>
-                  <td className="py-4 sm:py-5 px-4 sm:px-6 text-center">
-                    <svg className="w-6 h-6 sm:w-7 sm:h-7 text-yellow-600 mx-auto" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                  </td>
-                  <td className="py-4 sm:py-5 px-4 sm:px-6 text-center">
-                    <svg className="w-6 h-6 sm:w-7 sm:h-7 text-yellow-600 mx-auto" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                  </td>
-                  <td className="py-4 sm:py-5 px-4 sm:px-6 text-center">
-                    <svg className="w-6 h-6 sm:w-7 sm:h-7 text-yellow-600 mx-auto" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                  </td>
-                </tr>
-                <tr>
-                  <td className="py-4 sm:py-5 px-4 sm:px-6 text-sm sm:text-base md:text-lg font-medium text-gray-700">AVD examen</td>
-                  <td className="py-4 sm:py-5 px-4 sm:px-6 text-center">
-                    <svg className="w-6 h-6 sm:w-7 sm:h-7 text-yellow-600 mx-auto" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                  </td>
-                  <td className="py-4 sm:py-5 px-4 sm:px-6 text-center">
-                    <svg className="w-6 h-6 sm:w-7 sm:h-7 text-yellow-600 mx-auto" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                  </td>
-                  <td className="py-4 sm:py-5 px-4 sm:px-6 text-center">
-                    <svg className="w-6 h-6 sm:w-7 sm:h-7 text-yellow-600 mx-auto" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
         </div>
       </div>
     </section>

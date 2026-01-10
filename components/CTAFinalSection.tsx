@@ -21,7 +21,7 @@ export default function CTAFinalSection() {
       {/* Content */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-3 sm:px-4 md:px-5 lg:px-6 xl:px-8 text-center">
         <div className={`transition-all duration-700 ${isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black text-gray-900 mb-4 sm:mb-5 md:mb-6 leading-tight px-2 tracking-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black text-gray-900 mb-4 sm:mb-5 md:mb-6 leading-tight px-2 tracking-tight pb-2">
             <span className="relative inline-block bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
               Word Vandaag Nog Een
             </span>
@@ -32,13 +32,13 @@ export default function CTAFinalSection() {
           </h2>
         </div>
         
-        <p className={`text-sm sm:text-base md:text-lg text-gray-700 max-w-3xl mx-auto mb-8 sm:mb-10 md:mb-12 leading-relaxed px-2 font-semibold transition-all duration-700 ${isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ animationDelay: '0.1s' }}>
+        <p className={`text-sm sm:text-base md:text-lg text-gray-700 max-w-3xl mx-auto mb-8 sm:mb-10 md:mb-12 leading-relaxed px-2 font-semibold transition-all duration-700 pb-1 ${isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ animationDelay: '0.1s' }}>
           Bij ons leer je niet alleen rijden, maar ook vertrouwen opbouwen achter het stuur. Neem vandaag nog de eerste stap naar veilige en zelfstandige mobiliteit.
         </p>
         
         <div className={`flex flex-col sm:flex-row items-center justify-center gap-5 sm:gap-7 transition-all duration-700 ${isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ animationDelay: '0.2s' }}>
           <Link 
-            href="/lessen"
+            href="/tarieven"
             className="group relative inline-flex items-center justify-center gap-3 px-9 sm:px-11 py-5 sm:py-6 bg-white border-2 border-gray-900 text-gray-900 font-black rounded-2xl text-sm sm:text-base uppercase tracking-wider overflow-hidden transition-all duration-500 shadow-2xl hover:shadow-gray-900/40 transform hover:scale-110"
           >
             <span className="relative z-10 flex items-center gap-3">

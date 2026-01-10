@@ -1,11 +1,13 @@
 'use client'
 
 import Image from 'next/image'
-import { useState, useCallback, useRef, useEffect } from 'react'
+import { useState, useCallback, useRef, useEffect, Suspense } from 'react'
+import { useSearchParams } from 'next/navigation'
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver'
 
-export default function BookingFormSection() {
+function BookingFormContent() {
   const { ref, isIntersecting } = useIntersectionObserver()
+  const searchParams = useSearchParams()
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [errors, setErrors] = useState<Record<string, string>>({})
@@ -16,9 +18,12 @@ export default function BookingFormSection() {
     name: '',
     email: '',
     phone: '',
+    birthDate: '',
     package: '',
+    transmission: '',
     startDate: '',
-    address: '',
+    streetAddress: '',
+    postalCodeCity: '',
     remarks: '',
     agree: false
   })
@@ -45,6 +50,10 @@ export default function BookingFormSection() {
       newErrors.email = 'Ongeldig e-mailadres'
     }
     
+    if (!formData.birthDate.trim()) {
+      newErrors.birthDate = 'Geboortedatum is verplicht'
+    }
+    
     if (!formData.phone.trim()) {
       newErrors.phone = 'Telefoonnummer is verplicht'
     } else {
@@ -67,8 +76,16 @@ export default function BookingFormSection() {
       newErrors.package = 'Selecteer een voertuigtype'
     }
     
-    if (!formData.address.trim()) {
-      newErrors.address = 'Adresgegevens zijn verplicht'
+    if (formData.package === 'auto' && !formData.transmission.trim()) {
+      newErrors.transmission = 'Transmissie is verplicht voor auto'
+    }
+    
+    if (!formData.streetAddress.trim()) {
+      newErrors.streetAddress = 'Straatnaam en huisnummer zijn verplicht'
+    }
+    
+    if (!formData.postalCodeCity.trim()) {
+      newErrors.postalCodeCity = 'Postcode en plaats zijn verplicht'
     }
     
     if (!formData.agree) {
@@ -130,9 +147,12 @@ export default function BookingFormSection() {
         name: '',
         email: '',
         phone: '',
+        birthDate: '',
         package: '',
+        transmission: '',
         startDate: '',
-        address: '',
+        streetAddress: '',
+        postalCodeCity: '',
         remarks: '',
         agree: false
       })
@@ -150,9 +170,12 @@ export default function BookingFormSection() {
           name: '',
           email: '',
           phone: '',
+          birthDate: '',
           package: '',
+          transmission: '',
           startDate: '',
-          address: '',
+          streetAddress: '',
+          postalCodeCity: '',
           remarks: '',
           agree: false
         })
@@ -170,6 +193,57 @@ export default function BookingFormSection() {
       setIsSubmitting(false)
     }
   }, [formData, validateForm])
+
+  // Vehicle preselection based on URL params or referrer
+  useEffect(() => {
+    const vehicleParam = searchParams?.get('vehicle')
+    const referrer = document.referrer
+    
+    let preselectedVehicle = ''
+    
+    // Check URL parameter first
+    if (vehicleParam) {
+      switch (vehicleParam.toLowerCase()) {
+        case 'auto':
+        case 'autos':
+          preselectedVehicle = 'auto'
+          break
+        case 'motor':
+        case 'motorfiets':
+        case 'motorfietsen':
+          preselectedVehicle = 'motorfiets'
+          break
+        case 'scooter':
+        case 'scooters':
+        case 'scooters-brommers':
+          preselectedVehicle = 'scooters-brommers'
+          break
+        case 'theorie':
+          preselectedVehicle = 'theorie'
+          break
+      }
+    }
+    // Check referrer URL patterns
+    else if (referrer) {
+      if (referrer.includes('/tarieven/autos')) {
+        preselectedVehicle = 'auto'
+      } else if (referrer.includes('/tarieven/motorfietsen') || referrer.includes('/tarieven/motoren')) {
+        preselectedVehicle = 'motorfiets'
+      } else if (referrer.includes('/tarieven/scooters')) {
+        preselectedVehicle = 'scooters-brommers'
+      } else if (referrer.includes('/tarieven/theorie')) {
+        preselectedVehicle = 'theorie'
+      }
+    }
+    
+    // Update form data if vehicle type detected
+    if (preselectedVehicle && !formData.package) {
+      setFormData(prev => ({
+        ...prev,
+        package: preselectedVehicle
+      }))
+    }
+  }, [searchParams, formData.package])
 
   // Cleanup timeout on unmount
   useEffect(() => {
@@ -195,21 +269,61 @@ export default function BookingFormSection() {
         </div>
         
         {/* Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5 md:gap-6 lg:gap-8 xl:gap-10 items-start">
-          {/* Image */}
-          <div className={`relative h-48 sm:h-56 md:h-72 lg:h-[500px] rounded-xl sm:rounded-2xl overflow-hidden shadow-xl group order-2 lg:order-1 ${
+        <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-4 sm:gap-5 md:gap-6 lg:gap-8 xl:gap-10 items-start">
+          {/* Images Gallery */}
+          <div className={`order-2 lg:order-1 space-y-4 sm:space-y-5 md:space-y-6 ${
             isIntersecting ? 'animate-slide-in-left' : 'opacity-0 invisible'
           }`} style={{ animationDelay: '0.3s' }}>
-            <Image
-              src="/images/DSC03996.jpg"
-              alt="Eigen auto van BeeMobiel"
-              fill
-              className="object-cover group-hover:scale-105 transition-transform duration-700"
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              loading="lazy"
-              quality={85}
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-black/10 group-hover:from-black/50 transition-opacity duration-500"></div>
+            {/* Main Large Image */}
+            <div className="relative h-48 sm:h-56 md:h-72 lg:h-[380px] xl:h-[420px] rounded-xl sm:rounded-2xl overflow-hidden shadow-xl group">
+              <div className="license-plate-blur w-full h-full">
+                <Image
+                  src="/images/DSC03996.jpg"
+                  alt="Eigen auto van BeeMobiel"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  sizes="(max-width: 1024px) 100vw, 60vw"
+                  loading="lazy"
+                  quality={85}
+                />
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-black/10 group-hover:from-black/50 transition-opacity duration-500"></div>
+            </div>
+            
+            {/* Smaller Images Grid */}
+            <div className="grid grid-cols-2 gap-4 sm:gap-5 md:gap-6">
+              {/* Second Image */}
+              <div className="relative h-32 sm:h-40 md:h-48 lg:h-[200px] xl:h-[220px] rounded-xl sm:rounded-2xl overflow-hidden shadow-lg group">
+                <div className="license-plate-blur w-full h-full">
+                  <Image
+                    src="/images/DSC04031.jpg"
+                    alt="Autorijlessen bij BeeMobiel"
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                    sizes="(max-width: 1024px) 50vw, 30vw"
+                    loading="lazy"
+                    quality={85}
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/10 to-transparent group-hover:from-black/40 transition-opacity duration-500"></div>
+              </div>
+              
+              {/* Third Image */}
+              <div className="relative h-32 sm:h-40 md:h-48 lg:h-[200px] xl:h-[220px] rounded-xl sm:rounded-2xl overflow-hidden shadow-lg group">
+                <div className="license-plate-blur w-full h-full">
+                  <Image
+                    src="/images/DSC04051.jpg"
+                    alt="Lesvoertuig van BeeMobiel"
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                    sizes="(max-width: 1024px) 50vw, 30vw"
+                    loading="lazy"
+                    quality={85}
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/10 to-transparent group-hover:from-black/40 transition-opacity duration-500"></div>
+              </div>
+            </div>
           </div>
           
           {/* Form */}
@@ -306,6 +420,31 @@ export default function BookingFormSection() {
               </div>
               
               <div>
+                <label htmlFor="birthDate" className="block text-sm sm:text-base font-semibold text-gray-900 mb-2">
+                  Geboortedatum <span className="text-yellow-600" aria-label="verplicht veld">*</span>
+                </label>
+                <input
+                  type="date"
+                  id="birthDate"
+                  name="birthDate"
+                  required
+                  value={formData.birthDate}
+                  onChange={handleChange}
+                  max={new Date(Date.now() - 16 * 365.25 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]}
+                  aria-invalid={!!errors.birthDate}
+                  aria-describedby={errors.birthDate ? 'birthDate-error' : undefined}
+                  className={`w-full px-4 sm:px-5 py-3 sm:py-4 border-2 rounded-xl focus:ring-2 focus:ring-yellow-600 focus:border-yellow-600 transition-all duration-200 text-sm sm:text-base ${
+                    errors.birthDate ? 'border-red-500 focus:border-red-500 focus:ring-red-500 bg-red-50 focus:bg-white' : 'border-gray-200 bg-gray-50 focus:bg-white'
+                  }`}
+                />
+                {errors.birthDate && (
+                  <p id="birthDate-error" className="mt-1 text-xs sm:text-sm text-red-600" role="alert">
+                    {errors.birthDate}
+                  </p>
+                )}
+              </div>
+              
+              <div>
                 <label htmlFor="phone" className="block text-sm sm:text-base font-semibold text-gray-900 mb-2">
                   Telefoonnummer <span className="text-yellow-600" aria-label="verplicht veld">*</span>
                 </label>
@@ -350,8 +489,9 @@ export default function BookingFormSection() {
                 >
                   <option value="">Selecteer voertuigtype</option>
                   <option value="auto">Auto</option>
-                  <option value="motorfiets">Motorfiets</option>
+                  <option value="motorfiets">Motor</option>
                   <option value="scooters-brommers">Scooters & Brommers</option>
+                  <option value="theorie">Theorie</option>
                 </select>
                 {errors.package && (
                   <p id="package-error" className="mt-1 text-xs sm:text-sm text-red-600" role="alert">
@@ -359,6 +499,36 @@ export default function BookingFormSection() {
                   </p>
                 )}
               </div>
+              
+              {/* Transmission options - only show for cars */}
+              {formData.package === 'auto' && (
+                <div>
+                  <label htmlFor="transmission" className="block text-sm sm:text-base font-semibold text-gray-900 mb-2">
+                    Transmissie <span className="text-yellow-600" aria-label="verplicht veld">*</span>
+                  </label>
+                  <select
+                    id="transmission"
+                    name="transmission"
+                    required={formData.package === 'auto'}
+                    value={formData.transmission}
+                    onChange={handleChange}
+                    aria-invalid={!!errors.transmission}
+                    aria-describedby={errors.transmission ? 'transmission-error' : undefined}
+                    className={`w-full px-4 sm:px-5 py-3 sm:py-4 border-2 rounded-xl focus:ring-2 focus:ring-yellow-600 focus:border-yellow-600 transition-all duration-200 text-sm sm:text-base ${
+                      errors.transmission ? 'border-red-500 focus:border-red-500 focus:ring-red-500 bg-red-50 focus:bg-white' : 'border-gray-200 bg-gray-50 focus:bg-white'
+                    }`}
+                  >
+                    <option value="">Selecteer transmissie</option>
+                    <option value="handgeschakeld">Handgeschakeld</option>
+                    <option value="automaat">Automaat</option>
+                  </select>
+                  {errors.transmission && (
+                    <p id="transmission-error" className="mt-1 text-xs sm:text-sm text-red-600" role="alert">
+                      {errors.transmission}
+                    </p>
+                  )}
+                </div>
+              )}
               
               <div>
                 <label htmlFor="startDate" className="block text-xs sm:text-sm md:text-base font-semibold text-gray-800 mb-1 sm:mb-1.5">
@@ -376,26 +546,51 @@ export default function BookingFormSection() {
               </div>
               
               <div>
-                <label htmlFor="address" className="block text-xs sm:text-sm md:text-base font-semibold text-gray-800 mb-1 sm:mb-1.5">
-                  Adresgegevens <span className="text-yellow-600" aria-label="verplicht veld">*</span>
+                <label htmlFor="streetAddress" className="block text-sm sm:text-base font-semibold text-gray-900 mb-2">
+                  Straatnaam + Huisnummer <span className="text-yellow-600" aria-label="verplicht veld">*</span>
                 </label>
-                <textarea
-                  id="address"
-                  name="address"
-                  rows={3}
+                <input
+                  type="text"
+                  id="streetAddress"
+                  name="streetAddress"
                   required
-                  value={formData.address}
+                  value={formData.streetAddress}
                   onChange={handleChange}
-                  aria-invalid={!!errors.address}
-                  aria-describedby={errors.address ? 'address-error' : undefined}
-                  className={`w-full px-3 sm:px-4 md:px-5 py-2.5 sm:py-3 md:py-3.5 border rounded-lg sm:rounded-xl focus:ring-2 focus:ring-yellow-600 focus:border-yellow-600 transition-all duration-200 text-sm sm:text-base resize-none bg-white ${
-                    errors.address ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : 'border-gray-300'
+                  aria-invalid={!!errors.streetAddress}
+                  aria-describedby={errors.streetAddress ? 'streetAddress-error' : undefined}
+                  className={`w-full px-4 sm:px-5 py-3 sm:py-4 border-2 rounded-xl focus:ring-2 focus:ring-yellow-600 focus:border-yellow-600 transition-all duration-200 text-sm sm:text-base ${
+                    errors.streetAddress ? 'border-red-500 focus:border-red-500 focus:ring-red-500 bg-red-50 focus:bg-white' : 'border-gray-200 bg-gray-50 focus:bg-white'
                   }`}
-                  placeholder="Straatnaam, huisnummer, postcode, plaats"
+                  placeholder="Bijv. Hoofdstraat 123"
                 />
-                {errors.address && (
-                  <p id="address-error" className="mt-1 text-xs sm:text-sm text-red-600" role="alert">
-                    {errors.address}
+                {errors.streetAddress && (
+                  <p id="streetAddress-error" className="mt-1 text-xs sm:text-sm text-red-600" role="alert">
+                    {errors.streetAddress}
+                  </p>
+                )}
+              </div>
+              
+              <div>
+                <label htmlFor="postalCodeCity" className="block text-sm sm:text-base font-semibold text-gray-900 mb-2">
+                  Postcode + Plaats <span className="text-yellow-600" aria-label="verplicht veld">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="postalCodeCity"
+                  name="postalCodeCity"
+                  required
+                  value={formData.postalCodeCity}
+                  onChange={handleChange}
+                  aria-invalid={!!errors.postalCodeCity}
+                  aria-describedby={errors.postalCodeCity ? 'postalCodeCity-error' : undefined}
+                  className={`w-full px-4 sm:px-5 py-3 sm:py-4 border-2 rounded-xl focus:ring-2 focus:ring-yellow-600 focus:border-yellow-600 transition-all duration-200 text-sm sm:text-base ${
+                    errors.postalCodeCity ? 'border-red-500 focus:border-red-500 focus:ring-red-500 bg-red-50 focus:bg-white' : 'border-gray-200 bg-gray-50 focus:bg-white'
+                  }`}
+                  placeholder="Bijv. 1234 AB Amsterdam"
+                />
+                {errors.postalCodeCity && (
+                  <p id="postalCodeCity-error" className="mt-1 text-xs sm:text-sm text-red-600" role="alert">
+                    {errors.postalCodeCity}
                   </p>
                 )}
               </div>
@@ -466,3 +661,18 @@ export default function BookingFormSection() {
   )
 }
 
+export default function BookingFormSection() {
+  return (
+    <Suspense fallback={
+      <section className="py-16 sm:py-20 md:py-24 bg-gray-50">
+        <div className="w-full max-w-7xl mx-auto px-3 sm:px-4 md:px-5 lg:px-6 xl:px-8">
+          <div className="text-center">
+            <p className="text-gray-600">Formulier wordt geladen...</p>
+          </div>
+        </div>
+      </section>
+    }>
+      <BookingFormContent />
+    </Suspense>
+  )
+}

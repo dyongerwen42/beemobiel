@@ -76,7 +76,7 @@ const itemListPricingJsonLd = {
       item: {
         '@type': 'Service',
         name: 'Motorrijlessen',
-        url: 'https://beemobiel.nl/tarieven/motorfietsen',
+        url: 'https://beemobiel.nl/tarieven/motoren',
         description: 'Professionele motorrijlessen voor rijbewijs A',
       },
     },
@@ -126,7 +126,7 @@ export default function TarievenPage() {
             {
               name: 'Motorrijlessen',
               description: 'Professionele motorrijlessen voor rijbewijs A',
-              url: 'https://beemobiel.nl/tarieven/motorfietsen',
+              url: 'https://beemobiel.nl/tarieven/motoren',
             },
             {
               name: 'Scooterlessen',

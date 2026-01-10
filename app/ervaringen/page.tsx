@@ -52,7 +52,7 @@ const aggregateRatingErvaringenJsonLd = {
     '@id': 'https://beemobiel.nl/#organization',
   },
   ratingValue: '5',
-  reviewCount: '14',
+  reviewCount: '16',
   bestRating: '5',
   worstRating: '1',
 }

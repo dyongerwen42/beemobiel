@@ -22,7 +22,7 @@ export default function TheoryCTASection() {
           Klaar om je theorie-examen te halen?
         </h2>
         <p
-          className={`text-xs sm:text-sm md:text-base text-white/90 max-w-2xl mx-auto mb-4 sm:mb-5 md:mb-6 leading-relaxed px-2 transition-opacity duration-700 ${
+          className={`text-xs sm:text-sm md:text-base text-white/90 max-w-2xl mx-auto mb-4 sm:mb-5 md:mb-6 leading-relaxed px-2 pb-1 transition-opacity duration-700 ${
             isIntersecting ? 'opacity-100' : 'opacity-0'
           }`}
           style={{ animationDelay: '0.1s' }}
@@ -34,7 +34,7 @@ export default function TheoryCTASection() {
           style={{ animationDelay: '0.2s' }}
         >
           <Link
-            href="/contact"
+            href="/boek-nu"
             className="group inline-flex items-center justify-center gap-2 sm:gap-3 px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 bg-yellow-600 text-gray-900 font-bold rounded-xl text-sm sm:text-base md:text-lg uppercase tracking-wide hover:bg-yellow-700 transition-all duration-300 shadow-lg hover:shadow-xl"
           >
             <span>Boek je les</span>
@@ -52,6 +52,7 @@ export default function TheoryCTASection() {
     </section>
   )
 }
+
 
 
 

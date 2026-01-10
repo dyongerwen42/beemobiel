@@ -59,7 +59,11 @@ export default function HeroSection() {
             height: '100%',
             objectFit: 'cover',
             zIndex: 0,
-            minHeight: '100vh'
+            minHeight: '100vh',
+            filter: 'none',
+            transform: 'translateZ(0)',
+            backfaceVisibility: 'hidden',
+            WebkitBackfaceVisibility: 'hidden'
           }}
         >
           {/* Video sources will be loaded dynamically when visible (WebM preferred, MP4 fallback) */}

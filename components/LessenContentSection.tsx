@@ -35,10 +35,10 @@ export default function LessenContentSection() {
               Wij vinden het enorm belangrijk dat onze rij-instructeurs aan de hoogst mogelijke kwaliteitsstandaarden voldoen. Het maakt dan verder geen verschil of het om auto rijlessen, motor rijlessen of scooter rijlessen gaat. Onder de streep moet de rij-instructeur altijd ervaren, vriendelijk en up-to-date zijn. Zodoende garanderen wij dat iedere lesnemer ook krijgt wat hij of zij mag verwachten.
             </p>
             <Link
-              href="/boek-nu"
+              href="/tarieven"
               className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-yellow-600 text-gray-900 font-bold rounded-xl hover:bg-yellow-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
             >
-              Boek Nu
+              Bekijk Tarieven
             </Link>
           </div>
 
@@ -48,10 +48,10 @@ export default function LessenContentSection() {
               Ook hebben we bij BeeMobiel oog voor detail tijdens onze rijlessen. Wij kijken specifiek naar het optimaliseren van het rijgedrag waar het CBR waarde aan hecht tijdens je praktijkexamen. Denk dan aan zelfverzekerd rijden, duidelijk kijkgedrag en correct handelen in stressvolle situaties. Wanneer je deze zaken goed onder de knie hebt, is de kans op snel je rijbewijs halen het grootst. En dat wil uiteindelijk iedereen!
             </p>
             <Link
-              href="/boek-nu"
+              href="/tarieven"
               className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-yellow-600 text-gray-900 font-bold rounded-xl hover:bg-yellow-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
             >
-              Boek Nu
+              Bekijk Tarieven
             </Link>
           </div>
 
@@ -61,10 +61,10 @@ export default function LessenContentSection() {
               Bovendien kijken wij ook altijd naar het persoonlijke traject. Iedereen is anders en iedereen heeft dus ook zijn of haar sterke en zwakkere kanten. Onze instructeurs voorzien je daarom steevast van persoonlijke feedback, zodat je precies weet waar je aan moet werken. Daarmee ben je optimaal voorbereid en leer je zo snel mogelijk de punten die voor jou persoonlijk zo essentieel zijn.
             </p>
             <Link
-              href="/boek-nu"
+              href="/tarieven"
               className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-yellow-600 text-gray-900 font-bold rounded-xl hover:bg-yellow-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
             >
-              Boek Nu
+              Bekijk Tarieven
             </Link>
           </div>
         </div>

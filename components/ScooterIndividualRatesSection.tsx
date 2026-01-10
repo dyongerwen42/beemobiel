@@ -31,24 +31,84 @@ export default function ScooterIndividualRatesSection() {
         </div>
         
         {/* Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-16 items-stretch">
-          {/* Image */}
-          <div className={`relative h-64 sm:h-80 md:h-96 lg:h-[500px] rounded-xl sm:rounded-2xl overflow-hidden shadow-xl group ${
-            isIntersecting ? 'animate-slide-in-left' : 'opacity-0 invisible'
-          }`} style={{ animationDelay: '0.3s' }}>
-            <Image
-              src="/images/scooter_11zon_11zon-scaled.webp"
-              alt="Scooterlessen"
-              fill
-              className="object-cover group-hover:scale-105 transition-transform duration-700"
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              loading="lazy"
-            />
-            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-opacity duration-500"></div>
+        <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-16 items-stretch">
+          {/* 3 Overlapping Images */}
+          <div className="relative">
+            {/* Desktop - 3 Overlapping Images */}
+            <div className="hidden lg:block relative w-full h-[650px] xl:h-[700px]">
+              {/* Yellow Accent Circle */}
+              <div className={`absolute left-0 bottom-[15%] w-16 h-16 bg-yellow-500 rounded-full z-0 transition-all duration-700 ${
+                isIntersecting ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
+              }`} style={{ animationDelay: '0.5s' }}></div>
+              
+              {/* First Image - Top Left */}
+              <div className={`absolute left-0 top-0 w-[85%] h-[30%] rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl group z-10 transform -rotate-2 transition-all duration-700 ${
+                isIntersecting ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
+              }`} style={{ animationDelay: '0.1s' }}>
+                <Image
+                  src="/images/scooter_11zon_11zon-scaled.webp"
+                  alt="Scooterlessen"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  sizes="(max-width: 1024px) 100vw, 60vw"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-opacity duration-500"></div>
+              </div>
+              
+              {/* Second Image - Middle Right */}
+              <div className={`absolute right-0 top-[28%] w-[80%] h-[35%] rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl group z-20 transform rotate-1 transition-all duration-700 ${
+                isIntersecting ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
+              }`} style={{ animationDelay: '0.25s' }}>
+                <Image
+                  src="/images/mopped_1_11zon-scaled.webp"
+                  alt="Scooterlessen bij BeeMobiel"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  sizes="(max-width: 1024px) 100vw, 60vw"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-opacity duration-500"></div>
+                {/* Decorative border */}
+                <div className="absolute inset-0 border-4 border-white/50 rounded-xl sm:rounded-2xl pointer-events-none"></div>
+              </div>
+              
+              {/* Third Image - Bottom Left */}
+              <div className={`absolute left-[5%] top-[58%] w-[85%] h-[32%] rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl group z-30 transform -rotate-1 transition-all duration-700 ${
+                isIntersecting ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
+              }`} style={{ animationDelay: '0.4s' }}>
+                <Image
+                  src="/images/blond-female-moto-helmet-sitting-moto-scooter-green-leafs-sun_11zon-scaled.webp"
+                  alt="Scooter rijlessen bij BeeMobiel"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  sizes="(max-width: 1024px) 100vw, 60vw"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-opacity duration-500"></div>
+                {/* Decorative border */}
+                <div className="absolute inset-0 border-3 border-white/40 rounded-xl sm:rounded-2xl pointer-events-none"></div>
+              </div>
+            </div>
+
+            {/* Mobile - Single Image */}
+            <div className={`lg:hidden relative h-64 sm:h-80 md:h-96 rounded-xl sm:rounded-2xl overflow-hidden shadow-xl mb-6 sm:mb-8 transition-all duration-700 ${
+              isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            }`}>
+              <Image
+                src="/images/scooter_11zon_11zon-scaled.webp"
+                alt="Scooterlessen BeeMobiel"
+                fill
+                className="object-cover"
+                sizes="100vw"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+            </div>
           </div>
           
           {/* Rates Table */}
-          <div className={`bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-10 lg:p-12 xl:p-14 shadow-xl border-2 border-gray-100 hover:border-yellow-400/50 transition-all duration-500 flex flex-col lg:min-h-[500px] ${
+          <div className={`bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-10 lg:p-12 xl:p-14 shadow-xl border-2 border-gray-100 hover:border-yellow-400/50 transition-all duration-500 flex flex-col lg:min-h-[650px] xl:min-h-[700px] ${
             isIntersecting ? 'animate-slide-in-right' : 'opacity-0 invisible'
           }`} style={{ animationDelay: '0.45s' }}>
             <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-6 sm:mb-8 md:mb-10 text-center text-premium-yellow">Losse Tarieven</h3>

@@ -5,10 +5,10 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import TipsHeroSection from '@/components/TipsHeroSection'
 import TipsIntroSection from '@/components/TipsIntroSection'
+import TipsVehicleCategoriesSection from '@/components/TipsVehicleCategoriesSection'
 import TipsBasisTheorieSection from '@/components/TipsBasisTheorieSection'
 import TipsEersteRijlesSection from '@/components/TipsEersteRijlesSection'
 import TipsExamenfoutenSection from '@/components/TipsExamenfoutenSection'
-import TipsRotondesSection from '@/components/TipsRotondesSection'
 import CTAFinalSection from '@/components/CTAFinalSection'
 
 export default function TipsPageClient() {
@@ -102,10 +102,10 @@ export default function TipsPageClient() {
       <main className="relative" style={{ marginTop: 0, paddingTop: 0 }}>
         <TipsHeroSection />
         <TipsIntroSection />
+        <TipsVehicleCategoriesSection />
         <TipsBasisTheorieSection />
         <TipsEersteRijlesSection />
         <TipsExamenfoutenSection />
-        <TipsRotondesSection />
         <CTAFinalSection />
       </main>
       <Footer />

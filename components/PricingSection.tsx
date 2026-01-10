@@ -5,7 +5,7 @@ import { useIntersectionObserver } from '@/hooks/useIntersectionObserver'
 
 const packages = [
   {
-    title: "Motorfiets",
+    title: "Motor",
     price: "€1.830",
     features: [
       "25 rijlessen",
@@ -16,9 +16,9 @@ const packages = [
   },
   {
     title: "Auto",
-    price: "€3.070",
+    price: "€2.520",
     features: [
-      "45 rijlessen",
+      "35 rijlessen",
       "Inclusief iTheorie",
       "Inclusief theorie examen",
       "Inclusief praktijkexamen",

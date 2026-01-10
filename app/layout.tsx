@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
+import type { ReactNode } from 'react'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import JsonLd from '@/components/JsonLd'
 import FloatingCallButton from '@/components/FloatingCallButton'
+import { LanguageProvider } from '@/contexts/LanguageContext'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -245,7 +247,7 @@ const localBusinessJsonLd = {
   aggregateRating: {
     '@type': 'AggregateRating',
     ratingValue: '5',
-    reviewCount: '14',
+    reviewCount: '16',
     bestRating: '5',
     worstRating: '1',
   },
@@ -283,7 +285,7 @@ const localBusinessJsonLd = {
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: ReactNode
 }) {
   return (
     <html lang="nl" className={inter.variable}>
@@ -319,8 +321,10 @@ export default function RootLayout({
         <JsonLd data={localBusinessJsonLd} />
       </head>
       <body className={inter.className}>
-        {children}
-        <FloatingCallButton />
+        <LanguageProvider>
+          {children}
+          <FloatingCallButton />
+        </LanguageProvider>
       </body>
     </html>
   )

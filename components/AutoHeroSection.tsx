@@ -29,7 +29,7 @@ export default function AutoHeroSection() {
           <p className="text-yellow-700 uppercase font-bold text-xs sm:text-sm tracking-wider">Auto's</p>
         </div>
         
-        <h1 className={`text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-extrabold text-white mb-1 sm:mb-1.5 md:mb-2 leading-[1.15] sm:leading-[1.1] md:leading-[1.05] tracking-tight text-shadow-lg transition-opacity duration-700 px-2 ${isIntersecting ? 'opacity-100' : 'opacity-0'}`} style={{ animationDelay: '0.1s' }}>
+        <h1 className={`text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-extrabold text-white mb-1 sm:mb-1.5 md:mb-2 leading-[1.25] sm:leading-[1.2] md:leading-[1.15] tracking-tight text-shadow-lg transition-opacity duration-700 px-2 pb-1 ${isIntersecting ? 'opacity-100' : 'opacity-0'}`} style={{ animationDelay: '0.1s' }}>
           Klaar voor de weg? Start vandaag met autorijlessen
         </h1>
         

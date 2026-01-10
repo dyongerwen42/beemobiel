@@ -96,7 +96,7 @@ const productMotorJsonLd = {
   aggregateRating: {
     '@type': 'AggregateRating',
     ratingValue: '5',
-    reviewCount: '14',
+    reviewCount: '16',
     bestRating: '5',
     worstRating: '1',
   },

@@ -1,13 +1,4 @@
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
 import JsonLd from '@/components/JsonLd'
-import TipsHeroSection from '@/components/TipsHeroSection'
-import TipsIntroSection from '@/components/TipsIntroSection'
-import TipsBasisTheorieSection from '@/components/TipsBasisTheorieSection'
-import TipsEersteRijlesSection from '@/components/TipsEersteRijlesSection'
-import TipsExamenfoutenSection from '@/components/TipsExamenfoutenSection'
-import TipsRotondesSection from '@/components/TipsRotondesSection'
-import CTAFinalSection from '@/components/CTAFinalSection'
 import TipsPageClient from '@/components/TipsPageClient'
 
 export const metadata = {

@@ -121,7 +121,7 @@ const aggregateRatingJsonLd = {
     '@id': 'https://beemobiel.nl/#organization',
   },
   ratingValue: '5',
-  reviewCount: '14',
+  reviewCount: '16',
   bestRating: '5',
   worstRating: '1',
 }
@@ -262,11 +262,11 @@ const itemListPackagesJsonLd = {
       position: 1,
       item: {
         '@type': 'Product',
-        name: 'BEE NEXT',
-        description: '45 rijlessen inclusief praktijkexamen',
+        name: 'BEE SMART',
+        description: '35 rijlessen inclusief praktijkexamen',
         offers: {
           '@type': 'Offer',
-          price: '3070',
+          price: '2520',
           priceCurrency: 'EUR',
         },
       },
@@ -420,7 +420,7 @@ const softwareApplicationJsonLd = {
   aggregateRating: {
     '@type': 'AggregateRating',
     ratingValue: '5',
-    reviewCount: '14',
+    reviewCount: '16',
   },
   author: {
     '@type': 'Organization',
@@ -455,7 +455,7 @@ const brandJsonLd = {
   aggregateRating: {
     '@type': 'AggregateRating',
     ratingValue: '5',
-    reviewCount: '14',
+    reviewCount: '16',
   },
 }
 
@@ -472,7 +472,7 @@ export default function Home() {
           description: 'Overzicht van alle rijlessen diensten',
           items: [
             { name: 'Autorijlessen', description: 'Professionele autorijlessen voor rijbewijs B', url: 'https://beemobiel.nl/tarieven/autos' },
-            { name: 'Motorrijlessen', description: 'Professionele motorrijlessen voor rijbewijs A', url: 'https://beemobiel.nl/tarieven/motorfietsen' },
+            { name: 'Motorrijlessen', description: 'Professionele motorrijlessen voor rijbewijs A', url: 'https://beemobiel.nl/tarieven/motoren' },
             { name: 'Scooterlessen', description: 'Professionele scooterlessen voor rijbewijs AM', url: 'https://beemobiel.nl/tarieven/scooters' },
             { name: 'Theoriecursus', description: 'Theoriecursus voor rijbewijs', url: 'https://beemobiel.nl/tarieven/theorie' },
           ],
@@ -498,8 +498,8 @@ export default function Home() {
       <main className="relative" style={{ marginTop: 0, paddingTop: 0 }}>
         <HeroSection />
         <FeaturesSection />
-        <DrivingLicenseProcessSection />
         <ReviewsSection />
+        <DrivingLicenseProcessSection />
         <PricingSection />
         <TrafficSignsSection />
         <AboutSection />

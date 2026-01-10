@@ -94,17 +94,74 @@ export default function ContactFormSection() {
       
       <div className="w-full max-w-7xl mx-auto px-3 sm:px-4 md:px-5 lg:px-6 xl:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 items-start">
-          {/* Left side - Image */}
-          <div className={`hidden lg:block transition-all duration-700 ${isIntersecting ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
-            <div className="relative w-full h-[500px] lg:h-[500px] rounded-xl sm:rounded-2xl overflow-hidden shadow-xl group">
+          {/* Left side - 3 Overlapping Images */}
+          <div className="relative">
+            {/* Desktop - 3 Overlapping Images */}
+            <div className="hidden lg:block relative w-full h-[650px] xl:h-[700px]">
+              {/* Yellow Accent Circle */}
+              <div className={`absolute left-0 bottom-[15%] w-16 h-16 bg-yellow-500 rounded-full z-0 transition-all duration-700 ${
+                isIntersecting ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
+              }`} style={{ animationDelay: '0.5s' }}></div>
+              
+              {/* First Image - Top Left */}
+              <div className={`absolute left-0 top-0 w-[85%] h-[30%] rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl group z-10 transform -rotate-2 transition-all duration-700 ${
+                isIntersecting ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
+              }`} style={{ animationDelay: '0.1s' }}>
+                <Image
+                  src="/images/DSC04005.jpg"
+                  alt="Eigen auto van BeeMobiel"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+              </div>
+              
+              {/* Second Image - Middle Right */}
+              <div className={`absolute right-0 top-[28%] w-[80%] h-[35%] rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl group z-20 transform rotate-1 transition-all duration-700 ${
+                isIntersecting ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
+              }`} style={{ animationDelay: '0.25s' }}>
+                <Image
+                  src="/images/DSC04029.jpg"
+                  alt="Rijlessen bij BeeMobiel"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                {/* Decorative border */}
+                <div className="absolute inset-0 border-4 border-white/50 rounded-xl sm:rounded-2xl pointer-events-none"></div>
+              </div>
+              
+              {/* Third Image - Bottom Left */}
+              <div className={`absolute left-[5%] top-[58%] w-[85%] h-[32%] rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl group z-30 transform -rotate-1 transition-all duration-700 ${
+                isIntersecting ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
+              }`} style={{ animationDelay: '0.4s' }}>
+                <Image
+                  src="/images/DSC04031.jpg"
+                  alt="Autorijlessen bij BeeMobiel"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                {/* Decorative border */}
+                <div className="absolute inset-0 border-3 border-white/40 rounded-xl sm:rounded-2xl pointer-events-none"></div>
+              </div>
+            </div>
+
+            {/* Mobile - Single Image */}
+            <div className={`lg:hidden relative h-64 sm:h-80 md:h-96 rounded-xl sm:rounded-2xl overflow-hidden shadow-xl mb-6 sm:mb-8 transition-all duration-700 ${
+              isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            }`}>
               <Image
                 src="/images/DSC04005.jpg"
-                alt="Eigen auto van BeeMobiel"
+                alt="BeeMobiel Rijschool"
                 fill
-                className="object-cover group-hover:scale-105 transition-transform duration-700"
-                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+                sizes="100vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
             </div>
           </div>
 

@@ -52,11 +52,6 @@ export const examenFoutenVideos: CBRVideo[] = [
     category: 'examenfouten'
   },
   {
-    youtubeId: 'pRgz42ZKLrY',
-    title: 'De meestgemaakte fouten in het rijexamen – CBR (versie voor rijinstructeurs)',
-    category: 'examenfouten'
-  },
-  {
     youtubeId: 'eTdRrD92nT8',
     title: 'Meestgemaakte fouten tijdens het in- en uitvoegen praktijkexamen',
     category: 'examenfouten'

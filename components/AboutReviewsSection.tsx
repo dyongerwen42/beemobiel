@@ -6,6 +6,11 @@ import { useIntersectionObserver } from '@/hooks/useIntersectionObserver'
 
 const reviews = [
   {
+    name: 'Kamila Stankiewicz',
+    text: 'Easy and stress free learning from really cool driving instructors. Thanks guys!!!',
+    avatar: 'https://lh3.googleusercontent.com/a/default-user=s40-c',
+  },
+  {
     name: 'Joey Brandon',
     text: 'Hele fijne rijschool voelde me heel erg op me gemak bij samy in de auto altijd veel geduld en duidelijke uitleg echt een aanrader',
     avatar: 'https://lh3.googleusercontent.com/a/ACg8ocJx0WyoI0M0zrvDQ_ZkoKblKDpi8zYu80SGcKoPQgLWJ7ZArw=w40-h40-c-rp-mo-br100',
@@ -26,6 +31,21 @@ const reviews = [
     avatar: 'https://lh3.googleusercontent.com/a/ACg8ocLMTWWVbS4yE5xr07nJ3diJ0E6-M1gDOy45CWg-EqeiUJjbiA=w40-h40-c-rp-mo-ba2-br100',
   },
   {
+    name: 'Nair Haddad',
+    text: 'Geweldige rij-instructeur! Ik heb last van examenvrees en kreeg zeer professionele ondersteuning. Dit gaat verder dan een standaard rijles. Ik heb verschillende rijscholen geprobeerd en bij deze heb ik echt mijn vertrouwen gevonden.',
+    avatar: 'https://lh3.googleusercontent.com/a/default-user=s40-c',
+  },
+  {
+    name: 'Ruben Warmerdam',
+    text: 'Damon, een van de beste chauffeurs en instructeurs in de Randstad. Hij is zeer professioneel, geduldig en vriendelijk, en heeft me geholpen mijn rijbewijs te halen. Hij adviseerde me zelfs over het kopen van mijn nieuwe auto en haalde me zelfs op toen de Nederlandse Spoorwegen faalden. Als ik 7 sterren kon geven, zou ik dat doen. Bedankt Damon!',
+    avatar: 'https://lh3.googleusercontent.com/a/default-user=s40-c',
+  },
+  {
+    name: 'amal el atoui',
+    text: 'Ik ben superblij met deze rijschool! De instructeur is geduldig en legt alles duidelijk uit. Dankzij hun hulp ben ik in één keer geslaagd. Echt een aanrader!',
+    avatar: 'https://lh3.googleusercontent.com/a/ACg8ocI1MkCbz8NYbJJaHqRi3P95W7K1aOfbICR1YkDgZMja5ERSdg=w40-h40-c-rp-mo-br100',
+  },
+  {
     name: 'Zuzanna Rita',
     text: 'Ik kan deze rijschool echt aanraden! Alles ging snel, makkelijk en super soepel. Ik heb ook nog een paar handige tips meegekregen. Echt een aanrader!',
     avatar: 'https://lh3.googleusercontent.com/a/ACg8ocKi8fET6OcRsB1EimKhGmNKJL_BbUd43XSuX3u_5Em4aQ71ZQ=w40-h40-c-rp-mo-br100',
@@ -41,9 +61,19 @@ const reviews = [
     avatar: 'https://lh3.googleusercontent.com/a/ACg8ocL2gJAsu0AWA_E0PnX_JDbD210_nRLi_i50sDwVleC5fpBm=w40-h40-c-rp-mo-br100',
   },
   {
-    name: 'amal el atoui',
-    text: 'Ik ben superblij met deze rijschool! De instructeur is geduldig en legt alles duidelijk uit. Dankzij hun hulp ben ik in één keer geslaagd. Echt een aanrader!',
-    avatar: 'https://lh3.googleusercontent.com/a/ACg8ocI1MkCbz8NYbJJaHqRi3P95W7K1aOfbICR1YkDgZMja5ERSdg=w40-h40-c-rp-mo-br100',
+    name: 'Harvey Kleinmoedig',
+    text: 'Top instructeur! Hij legt situaties duidelijk uit tijdens en na de rit. Ik voel me echt op mijn gemak! Zeker een aanrader!',
+    avatar: 'https://lh3.googleusercontent.com/a/default-user=s40-c',
+  },
+  {
+    name: 'Konrad Henke',
+    text: 'Een professionele en moderne aanpak van rijlessen, en altijd een prettige en vriendelijke sfeer in de auto. Als je gestrest bent achter het stuur, zou ik deze plek zeker aanraden.',
+    avatar: 'https://lh3.googleusercontent.com/a/default-user=s40-c',
+  },
+  {
+    name: 'Sophie de Groot',
+    text: 'Dankzij Beemobiel heb ik eindelijk mijn rijbewijs gehaald met een goed gevoel! Bedankt voor jullie geduld en duidelijke uitleg :)',
+    avatar: 'https://lh3.googleusercontent.com/a/default-user=s40-c',
   },
 ]
 
@@ -123,7 +153,7 @@ export default function AboutReviewsSection() {
                       </svg>
                     ))}
                   </div>
-                  <p className="text-sm text-white/80">14 Google reviews</p>
+                  <p className="text-sm text-white/80">16 Google reviews</p>
                 </div>
               </div>
               <a
@@ -183,7 +213,7 @@ export default function AboutReviewsSection() {
                           </div>
                         </div>
                       </div>
-                      <p className="text-white/90 text-sm sm:text-base leading-relaxed">
+                      <p className="text-white text-sm sm:text-base leading-relaxed font-medium">
                         {review.text}
                       </p>
                     </div>
